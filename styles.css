@@ -632,6 +632,157 @@ body {
     font-size: 0.9rem;
 }
 
+/* About Page */
+.about-page {
+    padding: 48px 0 80px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.page-header .lead {
+    font-size: 1.25rem;
+    color: var(--text-light);
+}
+
+.about-story {
+    margin-bottom: 80px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.about-text h2 {
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+}
+
+.about-text p {
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.7;
+}
+
+.about-team {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.team-member {
+    background: var(--bg-alt);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.team-avatar {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.team-member h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+}
+
+.team-handle {
+    color: var(--primary);
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+}
+
+.team-member p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.about-values {
+    margin-bottom: 80px;
+}
+
+.about-values h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.value {
+    background: var(--bg-alt);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+}
+
+.value-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.value h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.value p {
+    color: var(--text-light);
+}
+
+.about-connect {
+    text-align: center;
+}
+
+.about-connect h2 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
+.about-connect > p {
+    color: var(--text-light);
+    margin-bottom: 32px;
+}
+
+.connect-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.connect-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.connect-link:hover {
+    background: var(--border);
+}
+
 /* Auth Page */
 .auth-page {
     background: var(--bg-alt);
@@ -741,6 +892,16 @@ body {
     
     .about-stats {
         justify-content: center;
+    }
+    
+    .about-grid,
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .connect-links {
+        flex-direction: column;
+        align-items: center;
     }
     
     .footer-content {
