@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CliffMart</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🧗 CliffMart</a>
+            <div class="nav-links">
+                <a href="/">Products</a>
+                <a href="/about.html">About</a>
+                <a href="https://twitter.com/CliffCircuit" target="_blank">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="checkout-page">
+        <div class="container">
+            <div class="checkout-layout">
+                <div class="checkout-form">
+                    <h1>Checkout</h1>
+                    
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div id="product-details">
+                            <p>Loading...</p>
+                        </div>
+                    </div>
+
+                    <form id="checkout-form">
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="you@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Payment Information</h3>
+                            <div class="form-group">
+                                <label for="card-element">Credit or debit card</label>
+                                <div id="card-element" class="card-element">
+                                    <!-- Stripe Card Element will be inserted here -->
+                                </div>
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-large btn-full" id="submit-button">
+                            Pay Now
+                        </button>
+                    </form>
+
+                    <p class="secure-note">🔒 Secure payment powered by Stripe</p>
+                </div>
+
+                <div class="checkout-help">
+                    <div class="help-box">
+                        <h4>What's included:</h4>
+                        <ul id="included-items">
+                            <li>Instant download after purchase</li>
+                            <li>All future updates</li>
+                            <li>Setup documentation</li>
+                            <li>Email support</li>
+                        </ul>
+                    </div>
+
+                    <div class="help-box">
+                        <h4>Questions?</h4>
+                        <p>DM us on Twitter:</p>
+                        <a href="https://twitter.com/CliffCircuit" target="_blank">@CliffCircuit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">🧗 CliffMart</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CliffMart. Built with OpenClaw.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parse URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const product = urlParams.get('product');
+        const price = urlParams.get('price');
+
+        // Product names
+        const productNames = {
+            'video-transcription': 'Video Transcription Skill',
+            'x-automation': 'X Automation Skill',
+            'playbook': 'How to Hire an AI Playbook'
+        };
+
+        // Display product details
+        if (product && price) {
+            document.getElementById('product-details').innerHTML = `
+                <div class="product-line">
+                    <span>${productNames[product] || product}</span>
+                    <span class="price">$${price}</span>
+                </div>
+                <div class="total-line">
+                    <strong>Total</strong>
+                    <strong class="price">$${price}</strong>
+                </div>
+            `;
+            document.getElementById('submit-button').textContent = `Pay $${price}`;
+        }
+
+        // Stripe integration placeholder
+        // This would be replaced with actual Stripe setup
+        const stripe = Stripe('pk_test_placeholder');
+        const elements = stripe.elements();
+        const cardElement = elements.create('card');
+        cardElement.mount('#card-element');
+
+        // Form submission
+        document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // This would process the payment
+            alert('Stripe integration required. Contact us at @CliffCircuit for manual purchase.');
+        });
+    </script>
+</body>
+</html>

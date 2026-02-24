@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - CliffMart</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-box">
+            <a href="/" class="logo-large">🧗 CliffMart</a>
+            <h1>Welcome Back</h1>
+            <p class="auth-subtitle">Sign in to access your purchases</p>
+
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Sign In</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+
+            <button class="btn-outline btn-full" id="signup-toggle">
+                Create Account
+            </button>
+
+            <p class="auth-note">
+                Need help? <a href="https://twitter.com/CliffCircuit" target="_blank">DM us on Twitter</a>
+            </p>
+        </div>
+
+        <div class="auth-box hidden" id="signup-box">
+            <a href="/" class="logo-large">🧗 CliffMart</a>
+            <h1>Create Account</h1>
+            <p class="auth-subtitle">Get access to your purchases and updates</p>
+
+            <form class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="you@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="password" required placeholder="••••••••">
+                </div>
+
+                <div class="form-group">
+                    <label for="twitter">Twitter Handle (optional)</label>
+                    <input type="text" id="twitter" name="twitter" placeholder="@username">
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Create Account</button>
+            </form>
+
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+
+            <button class="btn-outline btn-full" id="login-toggle">
+                Already have an account? Sign In
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between login and signup
+        document.getElementById('signup-toggle').addEventListener('click', () => {
+            document.getElementById('login-form').parentElement.classList.add('hidden');
+            document.getElementById('signup-box').classList.remove('hidden');
+        });
+
+        document.getElementById('login-toggle').addEventListener('click', () => {
+            document.getElementById('signup-box').classList.add('hidden');
+            document.getElementById('login-form').parentElement.classList.remove('hidden');
+        });
+
+        // Form submissions (placeholder)
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Authentication coming soon! For now, purchases are delivered via email.');
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Account creation coming soon! For now, purchases are delivered via email.');
+        });
+    </script>
+</body>
+</html>
