@@ -12,35 +12,23 @@ module.exports = async (req, res) => {
   }
 
   try {
-    console.log('Starting checkout...');
-    console.log('STRIPE_SECRET_KEY exists:', !!process.env.STRIPE_SECRET_KEY);
-    console.log('STRIPE_SECRET_KEY length:', process.env.STRIPE_SECRET_KEY ? process.env.STRIPE_SECRET_KEY.length : 0);
-    
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-    
     const { product } = req.body;
-    console.log('Product:', product);
     
-    const PRODUCTS = {
-      'video-transcription': { name: 'Video Transcription Skill', price: 900 },
-      'x-automation': { name: 'X Automation Skill', price: 1900 },
-      'playbook': { name: 'OpenClaw Mastery Playbook', price: 2900 }
+    const PRICES = {
+      'video-transcription': 'price_1T4aYwCyvj2kuPveunx56EgG',
+      'x-automation': 'price_1T4aYxCyvj2kuPve3xYNhRx4',
+      'playbook': 'price_1T4aYxCyvj2kuPveMEGsOEbI'
     };
     
-    const productData = PRODUCTS[product];
-    if (!productData) {
+    const priceId = PRICES[product];
+    if (!priceId) {
       return res.status(400).json({ error: 'Invalid product' });
     }
 
-    console.log('Creating Stripe session...');
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
       line_items: [{
-        price_data: {
-          currency: 'usd',
-          product_data: { name: productData.name },
-          unit_amount: productData.price,
-        },
+        price: priceId,
         quantity: 1,
       }],
       mode: 'payment',
@@ -48,10 +36,9 @@ module.exports = async (req, res) => {
       cancel_url: 'https://shopcliffmart.com/checkout/cancel.html',
     });
 
-    console.log('Session created:', session.id);
     return res.status(200).json({ url: session.url });
   } catch (err) {
     console.error('Stripe error:', err);
-    return res.status(500).json({ error: err.message, type: err.type, code: err.code });
+    return res.status(500).json({ error: err.message });
   }
 };
