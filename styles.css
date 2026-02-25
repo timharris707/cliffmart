@@ -531,11 +531,16 @@ body {
     margin-bottom: 16px;
 }
 
+.hero-mascot.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
 .mascot-img {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
+    box-shadow: var(--shadow-lg);
 }
 
 /* Product Layout v2 */
