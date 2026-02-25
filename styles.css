@@ -498,6 +498,11 @@ body {
     justify-content: center;
 }
 
+.product-hero-visual a,
+.product-hero-visual button {
+    display: none !important;
+}
+
 .hero-mascot {
     margin-bottom: 16px;
 }
