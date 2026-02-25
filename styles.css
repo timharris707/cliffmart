@@ -498,9 +498,17 @@ body {
     justify-content: center;
 }
 
-.product-hero-visual a,
+/* FORCE hide any buttons in hero - emergency override */
+.product-hero-visual > a,
+.product-hero-visual > button,
+.product-hero-visual a.btn-primary,
 .product-hero-visual button {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
 }
 
 .hero-mascot {
