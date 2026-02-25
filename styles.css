@@ -1857,9 +1857,12 @@ body {
 
 .mascot {
     width: 200px;
-    height: 200px;
+    height: auto;
+    max-height: 200px;
     border-radius: 50%;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: white;
+    object-fit: contain;
 }
 
 /* Content Section */
