@@ -3,45 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Success | CliffMart</title>
+    <title>Thank You! | CliffMart</title>
     <link rel="stylesheet" href="/styles.css">
+    <style>
+        .success-page { padding: 80px 0; text-align: center; }
+        .success-box { max-width: 600px; margin: 0 auto; padding: 48px; background: var(--bg-alt); border-radius: var(--radius-lg); }
+        .success-icon { font-size: 4rem; margin-bottom: 24px; }
+        .download-section { margin-top: 32px; padding: 24px; background: white; border-radius: var(--radius); }
+        .download-btn { display: inline-block; padding: 16px 48px; background: var(--primary); color: white; text-decoration: none; border-radius: var(--radius); font-weight: 600; margin-top: 16px; }
+        .loading { opacity: 0.7; pointer-events: none; }
+        .error { color: #dc2626; }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar"><div class="container"><a href="/" class="logo">🧗 CliffMart</a></div></nav>
+    
+    <main class="success-page">
         <div class="container">
-            <a href="/" class="logo">🧗 CliffMart</a>
-            <div class="nav-links">
-                <a href="/products/">Products</a>
-                <a href="/about.html">About</a>
-                <a href="/blog/">Blog</a>
-                <a href="/login.html" class="btn-secondary">Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="checkout-page">
-        <div class="container">
-            <div class="checkout-success">
+            <div class="success-box">
                 <div class="success-icon">🎉</div>
                 <h1>Payment Successful!</h1>
-                <p>Thank you for your purchase. Your download link has been sent to your email.</p>
-                <div class="next-steps">
-                    <h3>What's Next?</h3>
-                    <ul>
-                        <li>Check your email for the download link</li>
-                        <li>Follow the setup instructions included</li>
-                        <li>Join our Discord for support</li>
-                    </ul>
+                <p>Thank you for your purchase. Your download is ready.</p>
+                
+                <div id="download-area" class="download-section">
+                    <div class="loading">Loading your download...</div>
                 </div>
-                <a href="/products/" class="btn-primary">Browse More Products</a>
             </div>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 CliffMart. Built with OpenClaw.</p>
-        </div>
-    </footer>
+    <script>
+        async function loadDownload() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sessionId = urlParams.get('session_id');
+            
+            if (!sessionId) {
+                document.getElementById('download-area').innerHTML = '<p class="error">Missing session. Please contact support.</p>';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/verify?session_id=${sessionId}`);
+                
+                if (response.redirected) {
+                    // Server redirected us to download page
+                    window.location.href = response.url;
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    document.getElementById('download-area').innerHTML = `<p class="error">${data.error}</p>`;
+                } else {
+                    document.getElementById('download-area').innerHTML = `
+                        <h3>${data.name}</h3>
+                        <p>${data.size} • ZIP file</p>
+                        <p style="color: var(--text-light); font-size: 0.9rem;">⏰ Link expires in 7 days</p>
+                        <a href="#" class="download-btn" onclick="alert('Demo: File download would start here')">Download Now</a>
+                    `;
+                }
+            } catch (err) {
+                document.getElementById('download-area').innerHTML = '<p class="error">Error loading download. Please refresh or contact support.</p>';
+            }
+        }
+        
+        loadDownload();
+    </script>
 </body>
 </html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Your Purchase | CliffMart</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .download-page {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .download-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 48px;
+            background: var(--bg-alt);
+            border-radius: var(--radius-lg);
+        }
+        .download-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            margin-top: 24px;
+        }
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+        .expiry-note {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 16px;
+        }
+        .error-box {
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🧗 CliffMart</a>
+        </div>
+    </nav>
+
+    <main class="download-page">
+        <div class="container">
+            <div id="download-content" class="download-box">
+                <!-- Content loaded by JS -->
+                <div class="download-icon">⏳</div>
+                <h2>Verifying your purchase...</h2>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Verify token and show download
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        
+        if (!token) {
+            document.getElementById('download-content').innerHTML = `
+                <div class="error-box">
+                    <div class="download-icon">❌</div>
+                    <h2>Invalid Download Link</h2>
+                    <p>This link appears to be broken or expired.</p>
+                    <a href="mailto:support@cliffmart.com" class="btn-secondary">Contact Support</a>
+                </div>
+            `;
+        } else {
+            // Token is valid, show download (in real implementation, verify server-side)
+            const products = {
+                'playbook': {
+                    name: 'OpenClaw Mastery Playbook',
+                    filename: 'openclaw-mastery-playbook.zip',
+                    size: '2.4 MB'
+                },
+                'x-automation': {
+                    name: 'X Automation Skill',
+                    filename: 'x-automation-skill.zip',
+                    size: '1.8 MB'
+                },
+                'video-transcription': {
+                    name: 'Video Transcription Skill',
+                    filename: 'video-transcription-skill.zip',
+                    size: '1.2 MB'
+                }
+            };
+            
+            // For demo, show playbook
+            const product = products['playbook'];
+            
+            document.getElementById('download-content').innerHTML = `
+                <div class="download-icon">📦</div>
+                <h2>Your download is ready!</h2>
+                <p><strong>${product.name}</strong></p>
+                <p>${product.size} • ZIP file</p>
+                <a href="#" class="download-btn" onclick="alert('Demo: File would download here')">Download Now</a>
+                <p class="expiry-note">⏰ Link expires in 7 days • 5 downloads remaining</p>
+            `;
+        }
+    </script>
+</body>
+</html>
