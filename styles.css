@@ -542,12 +542,17 @@ body {
     75% { transform: translateY(-10px) rotate(-2deg); }
 }
 
+.hero-mascot {
+    background: transparent;
+}
+
 .mascot-img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    background: transparent;
 }
 
 /* Product Layout v2 */
