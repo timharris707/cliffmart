@@ -490,41 +490,12 @@ body {
     color: var(--text-light);
     font-family: monospace;
 }
-
-/* Hero Action Box */
-.product-hero-action {
-    background: white;
-    padding: 32px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    text-align: center;
-}
-
-.price-tag {
-    margin-bottom: 16px;
-}
-
-.price-tag .price {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--text);
-    display: block;
-}
-
-.price-tag .price-note {
-    color: var(--text-light);
-    font-size: 0.875rem;
-}
-
-.btn-cta {
-    padding: 16px 48px;
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-}
-
-.product-hero-action .guarantee {
-    font-size: 0.8rem;
-    color: var(--text-light);
+/* Hero Visual Box - for mascot only */
+.product-hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-mascot {
@@ -542,23 +513,14 @@ body {
     75% { transform: translateY(-10px) rotate(-2deg); }
 }
 
-.hero-mascot {
-    background: transparent;
-}
-
 .mascot-img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    background: transparent;
 }
 
-/* Product Layout v2 */
-.product-layout-v2 {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
     gap: 64px;
 }
 
