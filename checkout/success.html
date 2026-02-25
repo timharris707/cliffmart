@@ -43,27 +43,29 @@
             }
             
             try {
-                const response = await fetch(`/api/verify?session_id=${sessionId}`);
+                // Verify payment with Stripe
+                const verifyResponse = await fetch(`/api/verify?session_id=${sessionId}`);
                 
-                if (response.redirected) {
-                    // Server redirected us to download page
-                    window.location.href = response.url;
+                if (!verifyResponse.ok) {
+                    const error = await verifyResponse.text();
+                    document.getElementById('download-area').innerHTML = `<p class="error">${error}</p>`;
                     return;
                 }
                 
-                const data = await response.json();
+                // Get product info
+                const productData = await verifyResponse.json();
                 
-                if (data.error) {
-                    document.getElementById('download-area').innerHTML = `<p class="error">${data.error}</p>`;
-                } else {
-                    document.getElementById('download-area').innerHTML = `
-                        <h3>${data.name}</h3>
-                        <p>${data.size} • ZIP file</p>
-                        <p style="color: var(--text-light); font-size: 0.9rem;">⏰ Link expires in 7 days</p>
-                        <a href="#" class="download-btn" onclick="alert('Demo: File download would start here')">Download Now</a>
-                    `;
-                }
+                // Show download button
+                document.getElementById('download-area').innerHTML = `
+                    <h3>${productData.name}</h3>
+                    <p>${productData.size} • ZIP file</p>
+                    <a href="/api/download?product=${productData.id}" class="download-btn">Download Now</a>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin-top: 12px;">
+                        Problems? Contact support
+                    </p>
+                `;
             } catch (err) {
+                console.error(err);
                 document.getElementById('download-area').innerHTML = '<p class="error">Error loading download. Please refresh or contact support.</p>';
             }
         }

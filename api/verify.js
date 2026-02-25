@@ -1,53 +1,39 @@
 // Stripe success page handler - verifies payment and shows download
 const crypto = require('crypto');
 
-function verifySession(sessionId) {
-  // In production, verify with Stripe API
-  // For now, return mock verification
-  return {
-    valid: true,
-    product: 'playbook', // Would come from Stripe session
-    email: 'customer@example.com'
-  };
-}
-
 module.exports = async (req, res) => {
   const { session_id } = req.query;
   
   if (!session_id) {
-    return res.status(400).send('Invalid session');
+    return res.status(400).json({ error: 'Missing session' });
   }
 
-  // Verify session with Stripe
   try {
     const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
     const session = await stripe.checkout.sessions.retrieve(session_id);
     
     if (session.payment_status !== 'paid') {
-      return res.status(400).send('Payment not completed');
+      return res.status(400).json({ error: 'Payment not completed' });
     }
 
     // Get product from session
-    const productName = session.line_items?.data[0]?.description || 'Product';
+    const lineItem = session.line_items?.data?.[0];
+    const productName = lineItem?.description || 'Product';
+    const priceId = lineItem?.price?.id;
+    
+    // Map to our products
     const productMap = {
-      'OpenClaw Mastery Playbook': 'playbook',
-      'X Automation Skill': 'x-automation', 
-      'Video Transcription Skill': 'video-transcription'
+      'price_1T4aYxCyvj2kuPveMEGsOEbI': { id: 'playbook', name: 'OpenClaw Mastery Playbook', size: '2.1 MB' },
+      'price_1T4aYxCyvj2kuPve3xYNhRx4': { id: 'x-automation', name: 'X Automation Skill', size: '1.8 MB' },
+      'price_1T4aYwCyvj2kuPveunx56EgG': { id: 'video-transcription', name: 'Video Transcription Skill', size: '1.2 MB' }
     };
-    const productId = productMap[productName] || 'unknown';
     
-    // Generate download token (7 days expiry)
-    const secret = process.env.DOWNLOAD_SECRET || 'fallback-secret';
-    const expires = Date.now() + (7 * 24 * 60 * 60 * 1000);
-    const data = `${productId}:${expires}`;
-    const hash = crypto.createHmac('sha256', secret).update(data).digest('hex');
-    const token = Buffer.from(`${productId}:${expires}:${hash}`).toString('base64');
+    const product = productMap[priceId] || { id: 'unknown', name: productName, size: 'Unknown' };
     
-    // Redirect to download page with token
-    res.status(302).setHeader('Location', `/download.html?token=${token}`).end();
+    res.status(200).json(product);
     
   } catch (err) {
     console.error('Session verification failed:', err);
-    res.status(500).send('Error verifying purchase');
+    res.status(500).json({ error: 'Error verifying purchase' });
   }
 };
