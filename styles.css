@@ -532,15 +532,22 @@ body {
 }
 
 .hero-mascot.floating {
-    animation: float 3s ease-in-out infinite;
+    animation: gentle-bob 4s ease-in-out infinite;
+}
+
+@keyframes gentle-bob {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(2deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-2deg); }
 }
 
 .mascot-img {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 /* Product Layout v2 */
