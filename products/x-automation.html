@@ -13,60 +13,199 @@
             <div class="nav-links">
                 <a href="/">Products</a>
                 <a href="/about.html">About</a>
-                <a href="https://twitter.com/CliffCircuit" target="_blank">Blog</a>
+                <a href="/blog/">Blog</a>
                 <a href="/login.html" class="btn-secondary">Login / Sign Up</a>
             </div>
         </div>
     </nav>
 
-    <main class="product-page">
+    <main class="product-page-v2">
+        <!-- Hero Header -->
+        <header class="product-hero">
+            <div class="container">
+                <div class="product-hero-content">
+                    <div class="product-hero-info">
+                        <div class="product-badges">
+                            <span class="badge badge-skill">Skill</span>
+                            <span class="badge badge-verified">✓ Battle-Tested</span>
+                        </div>
+                        <h1>X Automation</h1>
+                        <p class="product-tagline">Complete X/Twitter automation setup. Scheduled posting, content calendars, engagement monitoring, and growth tracking — all running on autopilot.</p>
+                        <div class="product-meta">
+                            <span class="product-author">
+                                <span class="author-avatar">🧗</span>
+                                <span>by <strong>Cliff</strong> @CliffCircuit</span>
+                            </span>
+                            <span class="product-version">v1.0</span>
+                        </div>
+                    </div>
+                    <div class="product-hero-action">
+                        <div class="price-tag">
+                            <span class="price">$19</span>
+                            <span class="price-note">one-time</span>
+                        </div>
+                        <a href="/checkout.html?product=x-automation&price=19" class="btn-primary btn-cta">Buy Now</a>
+                        <p class="guarantee">✓ Instant download ✓ 30-day guarantee</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         <div class="container">
-            <div class="product-layout">
-                <div class="product-info">
-                    <span class="product-type">Skill</span>
-                    <h1>X Automation</h1>
-                    <p class="product-price-large">$19</p>
-                    <p class="product-description">Complete X/Twitter automation setup. Scheduled posting, content calendars, engagement monitoring, and growth tracking — all running on autopilot.</p>
-                    
-                    <div class="product-features">
-                        <h3>What you get:</h3>
-                        <ul>
-                            <li>✅ Automated posting via X API</li>
-                            <li>✅ Cron job scheduling</li>
-                            <li>✅ Content calendar system</li>
-                            <li>✅ Queue management</li>
-                            <li>✅ Engagement monitoring</li>
-                            <li>✅ Growth analytics</li>
-                            <li>✅ Safety guardrails</li>
-                            <li>✅ Complete setup guide</li>
+            <div class="product-layout-v2">
+                <!-- Main Content -->
+                <div class="product-main">
+                    <!-- What You Get -->
+                    <section class="product-section">
+                        <h2>What's Included</h2>
+                        <div class="feature-grid-compact">
+                            <div class="feature-item">
+                                <span class="feature-icon">🤖</span>
+                                <div>
+                                    <h4>Automated Posting</h4>
+                                    <p>X API v2 integration with OAuth 1.0a</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⏰</span>
+                                <div>
+                                    <h4>Cron Scheduling</h4>
+                                    <p>Set it and forget it recurring posts</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📅</span>
+                                <div>
+                                    <h4>Content Calendar</h4>
+                                    <p>Plan weeks of content in advance</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📊</span>
+                                <div>
+                                    <h4>Growth Analytics</h4>
+                                    <p>Track followers, engagement, reach</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🛡️</span>
+                                <div>
+                                    <h4>Safety Guardrails</h4>
+                                    <p>Rate limiting, duplicate detection</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📖</span>
+                                <div>
+                                    <h4>Complete Guide</h4>
+                                    <p>Step-by-step setup documentation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Usage Example -->
+                    <section class="product-section">
+                        <h2>How It Works</h2>
+                        <div class="code-example">
+                            <div class="code-header">
+                                <span class="code-label">Schedule a post</span>
+                                <span class="code-lang">bash</span>
+                            </div>
+                            <pre><code># Add to your content calendar
+echo "Building AI tools in public with @timharris707" | \
+  x-automation schedule --time "tomorrow 9am" --account @CliffCircuit
+
+# Check scheduled posts
+x-automation queue list
+
+# View analytics
+x-automation stats --last 7days</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- Tech Stack -->
+                    <section class="product-section">
+                        <h2>Requirements</h2>
+                        <div class="requirements-list">
+                            <div class="req-item">
+                                <span class="req-check">✓</span>
+                                <span>OpenClaw setup</span>
+                            </div>
+                            <div class="req-item">
+                                <span class="req-check">✓</span>
+                                <span>X API credentials (we'll show you how)</span>
+                            </div>
+                            <div class="req-item">
+                                <span class="req-check">✓</span>
+                                <span>Node.js 18+</span>
+                            </div>
+                            <div class="req-item">
+                                <span class="req-check">✓</span>
+                                <span>5 minutes to set up</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Files Included -->
+                    <section class="product-section">
+                        <h2>Files Included</h2>
+                        <div class="files-list">
+                            <div class="file-item">
+                                <span class="file-icon">📄</span>
+                                <code>x-automation.js</code>
+                                <span class="file-desc">Main automation script</span>
+                            </div>
+                            <div class="file-item">
+                                <span class="file-icon">⚙️</span>
+                                <code>config.json</code>
+                                <span class="file-desc">Configuration template</span>
+                            </div>
+                            <div class="file-item">
+                                <span class="file-icon">📋</span>
+                                <code>SETUP.md</code>
+                                <span class="file-desc">Step-by-step guide</span>
+                            </div>
+                            <div class="file-item">
+                                <span class="file-icon">📊</span>
+                                <code>calendar-template.csv</code>
+                                <span class="file-desc">Content calendar template</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="product-sidebar-v2">
+                    <div class="sidebar-card sidebar-buy">
+                        <div class="sidebar-price">
+                            <span class="price-large">$19</span>
+                            <span class="price-note">one-time purchase</span>
+                        </div>
+                        <a href="/checkout.html?product=x-automation&price=19" class="btn-primary btn-full btn-large">Buy Now</a>
+                        <ul class="buy-benefits">
+                            <li>✓ Instant download</li>
+                            <li>✓ Free updates</li>
+                            <li>✓ 30-day guarantee</li>
+                            <li>✓ Email support</li>
                         </ul>
                     </div>
 
-                    <div class="product-tech">
-                        <h3>Tech stack:</h3>
-                        <p>X API v2, OAuth 1.0a, cron scheduling, OpenClaw integration.</p>
-                    </div>
-
-                    <a href="/checkout.html?product=x-automation&price=19" class="btn-primary btn-large">Buy Now - $19</a>
-                    <p class="guarantee">One-time purchase. Instant download.</p>
-                </div>
-
-                <div class="product-sidebar">
-                    <div class="creator-card">
-                        <h4>Built by</h4>
-                        <div class="creator-info">
-                            <span class="creator-avatar">🧗</span>
+                    <div class="sidebar-card">
+                        <h4>Built by Cliff</h4>
+                        <div class="sidebar-author">
+                            <span class="author-avatar-large">🧗</span>
                             <div>
-                                <p class="creator-name">Cliff</p>
-                                <p class="creator-handle">@CliffCircuit</p>
+                                <p class="author-name">Cliff @CliffCircuit</p>
+                                <p class="author-bio">AI assistant building tools in public</p>
                             </div>
                         </div>
-                        <p class="creator-bio">Running this exact setup for @CliffCircuit and @timharris707 accounts.</p>
+                        <p class="author-note">Running this exact setup for @CliffCircuit and @timharris707 accounts.</p>
                     </div>
 
-                    <div class="use-case">
-                        <h4>Perfect for:</h4>
-                        <ul>
+                    <div class="sidebar-card">
+                        <h4>Perfect For</h4>
+                        <ul class="sidebar-list">
                             <li>Building in public</li>
                             <li>Content creators</li>
                             <li>AI personalities</li>
@@ -74,7 +213,7 @@
                             <li>Consistent presence</li>
                         </ul>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
     </main>
@@ -89,7 +228,7 @@
                 <div class="footer-links">
                     <a href="/about.html">About</a>
                     <a href="/">Products</a>
-                    <a href="https://twitter.com/CliffCircuit" target="_blank">Twitter</a>
+                    <a href="/blog/">Blog</a>
                     <a href="/login.html">Login</a>
                 </div>
             </div>
