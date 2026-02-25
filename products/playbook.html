@@ -107,7 +107,7 @@
                         <div class="buy-card">
                             <div class="price">$29</div>
                             <div class="price-note">one-time purchase</div>
-                            <a href="/checkout.html?product=playbook&price=29" class="btn-buy">Buy Now</a>
+                            <button class="btn-buy" data-product="playbook" onclick="checkout('playbook')">Buy Now</button>
                             <ul class="benefits">
                                 <li>✓ Instant download</li>
                                 <li>✓ Free lifetime updates</li>
@@ -142,5 +142,6 @@
             <p>&copy; 2026 CliffMart. Built with OpenClaw.</p>
         </div>
     </footer>
+    <script src="/js/checkout.js"></script>
 </body>
 </html>
