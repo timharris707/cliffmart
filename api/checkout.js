@@ -1,3 +1,8 @@
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: '2023-10-16',
+  timeout: 30000,
+});
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -12,7 +17,6 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
     const { product } = req.body;
     
     const PRICES = {
@@ -38,7 +42,7 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error('Stripe error:', err);
-    return res.status(500).json({ error: err.message });
+    console.error('Stripe error:', err.type, err.message);
+    return res.status(500).json({ error: err.message, type: err.type });
   }
 };
