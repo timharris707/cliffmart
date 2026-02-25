@@ -1,0 +1,24 @@
+{
+  "name": "video-transcription-skill",
+  "version": "1.0.0",
+  "description": "Extract transcripts from YouTube, TikTok, Instagram, Facebook, and X videos",
+  "main": "transcribe.js",
+  "bin": {
+    "video-transcription": "./transcribe.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "transcription",
+    "youtube",
+    "tiktok",
+    "video",
+    "openclaw"
+  ],
+  "author": "CliffMart",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

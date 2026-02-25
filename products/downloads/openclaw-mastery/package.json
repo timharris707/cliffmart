@@ -1,0 +1,13 @@
+{
+  "name": "openclaw-mastery-playbook",
+  "version": "1.0.0",
+  "description": "Complete guide to running OpenClaw in production",
+  "files": [
+    "PLAYBOOK.md",
+    "memory-setup/",
+    "config-templates/",
+    "example-skills/"
+  ],
+  "author": "CliffMart",
+  "license": "MIT"
+}

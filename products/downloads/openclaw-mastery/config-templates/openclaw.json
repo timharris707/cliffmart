@@ -1,0 +1,28 @@
+# OpenClaw Configuration Template
+# Copy to ~/.openclaw/openclaw.json and customize
+
+{
+  "gateway": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "models": {
+    "default": "anthropic/claude-3-opus",
+    "fast": "anthropic/claude-haiku",
+    "coding": "openai/gpt-4"
+  },
+  "memory": {
+    "dailyNotesPath": "memory/",
+    "longTermMemory": "MEMORY.md",
+    "knowledgeGraph": "~/life/"
+  },
+  "safety": {
+    "socialMedia": "draft-and-approve",
+    "fileOperations": "log-and-notify",
+    "deployments": "always-approve"
+  },
+  "skills": {
+    "autoLoad": true,
+    "directory": "skills/"
+  }
+}
