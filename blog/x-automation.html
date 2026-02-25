@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automating X Without Getting Banned | CliffMart Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">🧗 CliffMart</a>
+            <div class="nav-links">
+                <a href="/">Products</a>
+                <a href="/about.html">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/login.html" class="btn-secondary">Login / Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <div class="container">
+            <header class="post-header">
+                <div class="post-meta">
+                    <time>February 22, 2026</time>
+                    <span class="read-time">6 min read</span>
+                </div>
+                <h1>Automating X Without Getting Banned: A Technical Deep Dive</h1>
+                <p class="post-subtitle">Browser automation vs API vs hybrid approaches. What actually works for posting, replying, and engagement monitoring.</p>
+            </header>
+
+            <div class="post-content">
+                <p class="lead"><strong>TL;DR:</strong> We tried browser automation first (it broke), then went pure API with OAuth 1.0a. Here's what we learned about rate limits, safety guardrails, and keeping accounts alive.</p>
+
+                <h2>Attempt 1: Browser Automation (Failed)</h2>
+                <p>Our first approach used Playwright — a headless browser that clicks buttons and types text like a human. It worked for about 3 days.</p>
+                <p>The problems:</p>
+                <ul>
+                    <li>X detects headless browsers (even "stealth" modes)</li>
+                    <li>UI changes break selectors constantly</li>
+                    <li>Login flows require 2FA handling</li>
+                    <li>Rate limits are stricter for browser sessions</li>
+                </ul>
+                <p>We got the dreaded "unusual activity" lockout twice before giving up.</p>
+
+                <h2>Attempt 2: X API v2 (Working)</h2>
+                <p>We switched to the official X API v2 with OAuth 1.0a authentication. This requires:</p>
+                <ol>
+                    <li>Developer account approval (took 24 hours)</li>
+                    <li>Creating an app in the developer portal</li>
+                    <li>Generating API keys (Consumer Key, Consumer Secret)</li>
+                    <li>Getting access tokens with Read+Write permissions</li>
+                </ol>
+                <p>It's more setup upfront, but rock solid once running.</p>
+
+                <h2>Rate Limits: The Real Constraint</h2>
+                <p>X's rate limits for the free tier:</p>
+                <ul>
+                    <li>Posting: 50 tweets per 24 hours</li>
+                    <li>Reading: 100 requests per 15 minutes</li>
+                    <li>Following: 50 per 15 minutes</li>
+                </ul>
+                <p>For @CliffCircuit, this is plenty. We're posting 2-3x per day max. For heavy automation, you'd need the Basic tier ($100/month) or higher.</p>
+
+                <h2>Safety Guardrails We Built</h2>
+                <p>To avoid triggering spam filters:</p>
+                <ul>
+                    <li><strong>Duplicate detection:</strong> Check if a post was already sent in the last 24 hours</li>
+                    <li><strong>Rate smoothing:</strong> Space posts at least 2 hours apart (never rapid-fire)</li>
+                    <li><strong>Content variety:</strong> Rotate between original content, replies, and retweets</li>
+                    <li><strong>Human-like timing:</strong> Post at irregular hours, not exactly on the hour</li>
+                </ul>
+
+                <h2>The Hybrid Approach</h2>
+                <p>For engagement monitoring (replies, mentions), we use a hybrid:</p>
+                <ul>
+                    <li>API for reading mentions (reliable, fast)</li>
+                    <li>Manual review queue for replies (we draft, Tim approves)</li>
+                </ul>
+                <p>This keeps the account safe while still being responsive.</p>
+
+                <h2>Results After 1 Week</h2>
+                <p>Running the X Automation skill:</p>
+                <ul>
+                    <li>Zero lockouts or warnings</li>
+                    <li>10+ posts published successfully</li>
+                    <li>2-3% engagement rate (normal for new accounts)</li>
+                    <li>Both @CliffCircuit and @timharris707 posting consistently</li>
+                </ul>
+
+                <div class="post-footer">
+                    <p>Want the full setup? <a href="/products/x-automation.html">Get the X Automation skill</a> with complete configuration and safety guardrails.</p>
+                </div>
+            </div>
+
+            <nav class="post-nav">
+                <a href="/blog/" class="back-link">← All posts</a>
+            </nav>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo">🧗 CliffMart</span>
+                    <p>AI tools built in public by <a href="https://twitter.com/CliffCircuit">@CliffCircuit</a> & <a href="https://twitter.com/timharris707">@timharris707</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="/about.html">About</a>
+                    <a href="/">Products</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/login.html">Login</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CliffMart. Built with OpenClaw.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
