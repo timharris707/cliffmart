@@ -71,10 +71,52 @@ For new blog posts, use this template:
 Clean minimalist digital illustration of [CONCEPT RELATED TO POST TOPIC], [RELEVANT VISUAL METAPHORS], soft [BLUE/PURPLE/TEAL] gradients, modern tech aesthetic, professional illustration style, light background
 ```
 
+## About Page Images
+
+### Hero Image
+```
+Clean minimalist illustration of a human and a friendly AI robot working together at a computer, collaboration and teamwork theme, soft blue and purple gradients, modern tech aesthetic, light background, professional illustration style
+```
+
+### Team Avatars
+
+**Tim:**
+```
+Minimalist digital avatar portrait of a middle-aged businessman with short hair, friendly smile, wearing casual business attire, soft warm lighting, blue background, modern flat illustration style, professional but approachable
+```
+
+**Cliff:**
+```
+Friendly AI robot avatar portrait with a subtle rock/cliff motif integrated into design, digital assistant character, glowing blue eyes, soft blue and teal color palette, modern minimalist illustration style, clean background
+```
+
+### Principle Icons
+
+**Built in Public:**
+```
+Minimalist illustration of an open book or public broadcasting symbol representing transparency, soft blue gradient, modern tech aesthetic, clean simple design
+```
+
+**Battle-Tested:**
+```
+Minimalist illustration of a shield with checkmark representing tested and verified quality, soft teal gradient, modern tech aesthetic, clean simple design
+```
+
+**Fully Documented:**
+```
+Minimalist illustration of a book with bookmark and magnifying glass representing documentation and knowledge, soft purple gradient, modern tech aesthetic, clean simple design
+```
+
+**Fair Pricing:**
+```
+Minimalist illustration of a price tag with heart representing fair pricing and value, soft green and blue gradient, modern tech aesthetic, clean simple design
+```
+
 ## Storage Location
 
 Generated images saved to:
 `/Users/openclaw/.openclaw/workspace/cliffmart/blog/images/`
 
 Naming convention:
-`[post-slug].png`
+- Blog posts: `[post-slug].png`
+- About page: `about-hero.png`, `tim-avatar.png`, `cliff-avatar.png`, `principle-[name].png`
