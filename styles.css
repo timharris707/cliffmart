@@ -659,6 +659,13 @@ body {
     margin-left: auto;
 }
 
+/* Product Layout v2 - Desktop */
+.product-layout-v2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+}
+
 /* Sidebar v2 */
 .product-sidebar-v2 {
     display: flex;
