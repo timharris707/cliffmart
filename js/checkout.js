@@ -1,19 +1,10 @@
 // Client-side Stripe Checkout
 const STRIPE_PUBLIC_KEY = 'pk_test_51T4WcsCyvj2kuPvedD11L8LFAlulgcVr10NuE0c3kaatnj2AeNCQwPC9M8VcGPE1021IGdX70cIURRCjm44L0ore00THY7lbC9';
 
-const PRODUCTS = {
-  'video-transcription': {
-    name: 'Video Transcription Skill',
-    price: 900,
-  },
-  'x-automation': {
-    name: 'X Automation Skill', 
-    price: 1900,
-  },
-  'playbook': {
-    name: 'OpenClaw Mastery Playbook',
-    price: 2900,
-  }
+const PRICES = {
+  'video-transcription': 'price_1T4aYwCyvj2kuPveunx56EgG',
+  'x-automation': 'price_1T4aYxCyvj2kuPve3xYNhRx4',
+  'playbook': 'price_1T4aYxCyvj2kuPveMEGsOEbI'
 };
 
 async function checkout(product) {
@@ -25,19 +16,15 @@ async function checkout(product) {
 
   try {
     const stripe = Stripe(STRIPE_PUBLIC_KEY);
-    const productData = PRODUCTS[product];
+    const priceId = PRICES[product];
     
-    if (!productData) {
+    if (!priceId) {
       throw new Error('Invalid product');
     }
 
     const { error } = await stripe.redirectToCheckout({
       lineItems: [{
-        price_data: {
-          currency: 'usd',
-          product_data: { name: productData.name },
-          unit_amount: productData.price,
-        },
+        price: priceId,
         quantity: 1,
       }],
       mode: 'payment',
