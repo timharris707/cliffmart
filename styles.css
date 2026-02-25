@@ -1780,3 +1780,243 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Playbook Page - Fresh Build */
+.playbook-page {
+    padding-bottom: 80px;
+}
+
+.playbook-hero {
+    background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.hero-text .badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.hero-text .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #dbeafe;
+    color: var(--primary);
+}
+
+.hero-text .badge.verified {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.hero-text .tagline {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.hero-text .meta {
+    display: flex;
+    gap: 24px;
+    color: var(--text-light);
+}
+
+.hero-text .version {
+    background: var(--bg-alt);
+    padding: 4px 12px;
+    border-radius: var(--radius);
+    font-family: monospace;
+}
+
+.hero-graphic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mascot-wrap {
+    animation: gentle-bob 4s ease-in-out infinite;
+}
+
+.mascot {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Content Section */
+.playbook-content {
+    padding: 64px 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+}
+
+.main-col h2 {
+    font-size: 1.75rem;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.feat {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-alt);
+    border-radius: var(--radius-lg);
+}
+
+.feat .icon {
+    font-size: 1.5rem;
+}
+
+.feat h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.feat p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.chapters {
+    list-style: none;
+}
+
+.chapters li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.ch-num {
+    font-family: monospace;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* Sidebar */
+.side-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.buy-card {
+    background: white;
+    border: 2px solid var(--primary);
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.buy-card .price {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.buy-card .price-note {
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.btn-buy {
+    display: block;
+    padding: 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-buy:hover {
+    background: var(--primary-dark);
+}
+
+.buy-card .benefits {
+    list-style: none;
+    text-align: left;
+}
+
+.buy-card .benefits li {
+    padding: 6px 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.info-card {
+    background: var(--bg-alt);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+}
+
+.info-card h4 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.info-card p {
+    margin-bottom: 8px;
+}
+
+.info-card .small {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.info-card ul {
+    list-style: none;
+}
+
+.info-card ul li {
+    padding: 6px 0;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .hero-grid,
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
