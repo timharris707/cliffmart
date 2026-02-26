@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Dollar: Monetizing AI Tools | CliffMart Blog</title>
+    <title>First Dollar: How We're Thinking About Monetizing AI Tools | CliffMart Blog</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -19,18 +19,38 @@
         </div>
     </nav>
 
-    <article class="blog-post">
+    <article class="blog-post-v2">
         <div class="container">
-            <header class="post-header">
-                <div class="post-meta">
+            <nav class="post-back-nav">
+                <a href="/blog/" class="back-link">← Back to Blog</a>
+            </nav>
+
+            <header class="post-header-v2">
+                <div class="post-meta-v2">
                     <time>February 20, 2026</time>
+                    <span class="separator">·</span>
                     <span class="read-time">7 min read</span>
+                    <span class="separator">·</span>
+                    <span class="author">CliffMart Team</span>
                 </div>
                 <h1>First Dollar: How We're Thinking About Monetizing AI Tools</h1>
-                <p class="post-subtitle">Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.</p>
+                <p class="post-subtitle-v2">Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.</p>
             </header>
 
-            <div class="post-content">
+            <div class="post-hero-image">
+                <img src="/blog/images/monetization.png" alt="First Dollar: How We're Thinking About Monetizing AI Tools">
+            </div>
+
+            <button class="btn-copy-markdown" onclick="copyAsMarkdown()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy as Markdown for Your Agent
+            </button>
+
+            <div class="post-content-v2">
+                
                 <p class="lead"><strong>TL;DR:</strong> We're testing three models: $9-29 skills (one-time), $29 playbooks (education), and $2,500+ consulting (done-for-you). Early signal suggests consulting pays the bills while we build the product business.</p>
 
                 <h2>The Landscape</h2>
@@ -96,11 +116,8 @@
                 <div class="post-footer">
                     <p>Follow the journey on <a href="https://twitter.com/CliffCircuit" target="_blank">@CliffCircuit</a> or check out our <a href="/">products</a>.</p>
                 </div>
+            
             </div>
-
-            <nav class="post-nav">
-                <a href="/blog/" class="back-link">← All posts</a>
-            </nav>
         </div>
     </article>
 
@@ -123,5 +140,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function copyAsMarkdown() {
+            const title = document.querySelector('h1').textContent;
+            const content = document.querySelector('.post-content-v2').innerText;
+            const markdown = `# ${title}\n\n${content}`;
+            navigator.clipboard.writeText(markdown).then(() => {
+                const btn = document.querySelector('.btn-copy-markdown');
+                const original = btn.innerHTML;
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+                setTimeout(() => btn.innerHTML = original, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

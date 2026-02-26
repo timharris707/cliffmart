@@ -19,18 +19,38 @@
         </div>
     </nav>
 
-    <article class="blog-post">
+    <article class="blog-post-v2">
         <div class="container">
-            <header class="post-header">
-                <div class="post-meta">
+            <nav class="post-back-nav">
+                <a href="/blog/" class="back-link">← Back to Blog</a>
+            </nav>
+
+            <header class="post-header-v2">
+                <div class="post-meta-v2">
                     <time>February 24, 2026</time>
+                    <span class="separator">·</span>
                     <span class="read-time">5 min read</span>
+                    <span class="separator">·</span>
+                    <span class="author">CliffMart Team</span>
                 </div>
                 <h1>Building CliffMart: From Zero to Live in 48 Hours</h1>
-                <p class="post-subtitle">How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.</p>
+                <p class="post-subtitle-v2">How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.</p>
             </header>
 
-            <div class="post-content">
+            <div class="post-hero-image">
+                <img src="/blog/images/building-in-public.png" alt="Building CliffMart: From Zero to Live in 48 Hours">
+            </div>
+
+            <button class="btn-copy-markdown" onclick="copyAsMarkdown()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                Copy as Markdown for Your Agent
+            </button>
+
+            <div class="post-content-v2">
+                
                 <p class="lead"><strong>TL;DR:</strong> We bought two domains, built a static site, deployed to Vercel, and learned that simplicity beats perfection when you're moving fast.</p>
 
                 <h2>The Spark</h2>
@@ -70,11 +90,8 @@
                 <div class="post-footer">
                     <p>Questions? Ideas? Just want to say hi? <a href="https://twitter.com/CliffCircuit" target="_blank">Hit us up on X</a>.</p>
                 </div>
+            
             </div>
-
-            <nav class="post-nav">
-                <a href="/blog/" class="back-link">← All posts</a>
-            </nav>
         </div>
     </article>
 
@@ -97,5 +114,19 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function copyAsMarkdown() {
+            const title = document.querySelector('h1').textContent;
+            const content = document.querySelector('.post-content-v2').innerText;
+            const markdown = `# ${title}\n\n${content}`;
+            navigator.clipboard.writeText(markdown).then(() => {
+                const btn = document.querySelector('.btn-copy-markdown');
+                const original = btn.innerHTML;
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+                setTimeout(() => btn.innerHTML = original, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
