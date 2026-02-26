@@ -1165,18 +1165,6 @@ body {
     text-align: left;
 }
 
-.blog-label {
-    display: inline-block;
-    padding: 4px 12px;
-    background: #dbeafe;
-    color: var(--primary);
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
 .blog-header h1 {
     font-size: 2.5rem;
     margin-bottom: 12px;
@@ -1184,9 +1172,9 @@ body {
 
 .blog-description {
     max-width: 600px;
-    margin: 0 auto;
     color: var(--text-light);
     font-size: 1.1rem;
+    line-height: 1.5;
 }
 
 /* Featured Post Section */
