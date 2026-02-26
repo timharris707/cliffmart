@@ -1160,9 +1160,9 @@ body {
 /* Blog Header */
 .blog-header {
     background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #faf5ff 100%);
-    padding: 64px 0 48px;
+    padding: 48px 0 32px;
     border-bottom: 1px solid var(--border);
-    text-align: center;
+    text-align: left;
 }
 
 .blog-label {
@@ -1191,13 +1191,13 @@ body {
 
 /* Featured Post Section */
 .featured-post {
-    padding: 48px 0;
+    padding: 24px 0 32px;
     background: var(--bg-alt);
 }
 
 .featured-post .search-box {
     max-width: 600px;
-    margin: 0 auto 32px;
+    margin: 0 0 16px;
 }
 
 .featured-link {
@@ -1270,7 +1270,7 @@ body {
 
 /* Blog Grid Section */
 .blog-grid-section {
-    padding: 48px 0;
+    padding: 16px 0 48px;
     background: var(--bg-alt);
 }
 
