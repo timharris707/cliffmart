@@ -20,92 +20,123 @@
     </nav>
 
     <main class="blog-page">
-        <div class="container">
-            <header class="page-header">
-                <h1>Building in Public</h1>
-                <p class="lead">Behind-the-scenes of building AI tools with OpenClaw. Lessons learned, experiments run, and wins shared.</p>
-            </header>
-
-            <div class="blog-grid">
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/building-in-public.png" alt="Building in Public" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 24, 2026</time>
-                        <span class="read-time">5 min read</span>
-                    </div>
-                    <h2><a href="/blog/building-in-public.html">Building CliffMart: From Zero to Live in 48 Hours</a></h2>
-                    <p>How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.</p>
-                    <a href="/blog/building-in-public.html" class="read-more">Read article →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/memory-systems.png" alt="Memory Systems" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 23, 2026</time>
-                        <span class="read-time">8 min read</span>
-                    </div>
-                    <h2><a href="/blog/memory-systems.html">How We Built a 3-Layer Memory System for AI Assistants</a></h2>
-                    <p>From daily notes to long-term knowledge graphs. The architecture that keeps context across sessions without breaking the bank.</p>
-                    <a href="/blog/memory-systems.html" class="read-more">Read article →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/x-automation.png" alt="X Automation" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 22, 2026</time>
-                        <span class="read-time">6 min read</span>
-                    </div>
-                    <h2><a href="/blog/x-automation.html">Automating X Without Getting Banned: A Technical Deep Dive</a></h2>
-                    <p>Browser automation vs API vs hybrid approaches. What actually works for posting, replying, and engagement monitoring.</p>
-                    <a href="/blog/x-automation.html" class="read-more">Read article →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/video-transcription.png" alt="Video Transcription" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 21, 2026</time>
-                        <span class="read-time">4 min read</span>
-                    </div>
-                    <h2><a href="/blog/video-transcription.html">Building a Video Transcription Skill: Lessons from YouTube's API</a></h2>
-                    <p>Why we chose Supadata over Whisper API, how we handle rate limits, and what pricing looks like at scale.</p>
-                    <a href="/blog/video-transcription.html" class="read-more">Read article →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/monetization.png" alt="Monetization" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 20, 2026</time>
-                        <span class="read-time">7 min read</span>
-                    </div>
-                    <h2><a href="/blog/monetization.html">First Dollar: How We're Thinking About Monetizing AI Tools</a></h2>
-                    <p>Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.</p>
-                    <a href="/blog/monetization.html" class="read-more">Read article →</a>
-                </article>
-
-                <article class="blog-card">
-                    <div class="blog-image-wrapper">
-                        <img src="/blog/images/openclaw-setup.png" alt="OpenClaw Setup" class="blog-thumb">
-                    </div>
-                    <div class="blog-meta">
-                        <time>February 19, 2026</time>
-                        <span class="read-time">5 min read</span>
-                    </div>
-                    <h2><a href="/blog/openclaw-setup.html">The Complete OpenClaw Setup Guide (From Someone Who Just Did It)</a></h2>
-                    <p>Mac Mini, API keys, domain management, and the 47 things I wish I'd known on day one.</p>
-                    <a href="/blog/openclaw-setup.html" class="read-more">Read article →</a>
-                </article>
+        <!-- Header Section -->
+        <section class="blog-header">
+            <div class="container">
+                <p class="blog-label">Insights</p>
+                <h1>CliffMart Blog</h1>
+                <p class="blog-description">Practical breakdowns for deploying AI assistants in production: architecture, workflows, and product updates.</p>
             </div>
-        </div>
+        </section>
+
+        <!-- Featured Post Section -->
+        <section class="featured-post">
+            <div class="container">
+                <div class="featured-grid">
+                    <div class="featured-image">
+                        <a href="/blog/building-in-public.html">
+                            <img src="/blog/images/building-in-public.png" alt="Building in Public" class="hero-image">
+                        </a>
+                    </div>
+                    <div class="featured-content">
+                        <input type="text" class="search-box" placeholder="Search articles...">
+                        <a href="/blog/building-in-public.html" class="featured-link">
+                            <article class="featured-article">
+                                <div class="blog-meta">
+                                    <time>February 24, 2026</time>
+                                    <span class="read-time">5 min read</span>
+                                </div>
+                                <h2>Building CliffMart: From Zero to Live in 48 Hours</h2>
+                                <p>How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.</p>
+                                <span class="read-more">Read article →</span>
+                            </article>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="blog-grid-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <a href="/blog/memory-systems.html" class="card-link">
+                            <div class="blog-image-wrapper">
+                                <img src="/blog/images/memory-systems.png" alt="Memory Systems" class="blog-thumb">
+                            </div>
+                            <div class="blog-meta">
+                                <time>February 23, 2026</time>
+                                <span class="read-time">8 min read</span>
+                            </div>
+                            <h2>How We Built a 3-Layer Memory System for AI Assistants</h2>
+                            <p>From daily notes to long-term knowledge graphs. The architecture that keeps context across sessions without breaking the bank.</p>
+                            <span class="read-more">Read article →</span>
+                        </a>
+                    </article>
+
+                    <article class="blog-card">
+                        <a href="/blog/x-automation.html" class="card-link">
+                            <div class="blog-image-wrapper">
+                                <img src="/blog/images/x-automation.png" alt="X Automation" class="blog-thumb">
+                            </div>
+                            <div class="blog-meta">
+                                <time>February 22, 2026</time>
+                                <span class="read-time">6 min read</span>
+                            </div>
+                            <h2>Automating X Without Getting Banned: A Technical Deep Dive</h2>
+                            <p>Browser automation vs API vs hybrid approaches. What actually works for posting, replying, and engagement monitoring.</p>
+                            <span class="read-more">Read article →</span>
+                        </a>
+                    </article>
+
+                    <article class="blog-card">
+                        <a href="/blog/video-transcription.html" class="card-link">
+                            <div class="blog-image-wrapper">
+                                <img src="/blog/images/video-transcription.png" alt="Video Transcription" class="blog-thumb">
+                            </div>
+                            <div class="blog-meta">
+                                <time>February 21, 2026</time>
+                                <span class="read-time">4 min read</span>
+                            </div>
+                            <h2>Building a Video Transcription Skill: Lessons from YouTube's API</h2>
+                            <p>Why we chose Supadata over Whisper API, how we handle rate limits, and what pricing looks like at scale.</p>
+                            <span class="read-more">Read article →</span>
+                        </a>
+                    </article>
+
+                    <article class="blog-card">
+                        <a href="/blog/monetization.html" class="card-link">
+                            <div class="blog-image-wrapper">
+                                <img src="/blog/images/monetization.png" alt="Monetization" class="blog-thumb">
+                            </div>
+                            <div class="blog-meta">
+                                <time>February 20, 2026</time>
+                                <span class="read-time">7 min read</span>
+                            </div>
+                            <h2>First Dollar: How We're Thinking About Monetizing AI Tools</h2>
+                            <p>Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.</p>
+                            <span class="read-more">Read article →</span>
+                        </a>
+                    </article>
+
+                    <article class="blog-card">
+                        <a href="/blog/openclaw-setup.html" class="card-link">
+                            <div class="blog-image-wrapper">
+                                <img src="/blog/images/openclaw-setup.png" alt="OpenClaw Setup" class="blog-thumb">
+                            </div>
+                            <div class="blog-meta">
+                                <time>February 19, 2026</time>
+                                <span class="read-time">5 min read</span>
+                            </div>
+                            <h2>The Complete OpenClaw Setup Guide (From Someone Who Just Did It)</h2>
+                            <p>Mac Mini, API keys, domain management, and the 47 things I wish I'd known on day one.</p>
+                            <span class="read-more">Read article →</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
