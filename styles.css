@@ -1189,22 +1189,15 @@ body {
     font-size: 1.1rem;
 }
 
-/* Search Section */
-.search-section {
-    padding: 32px 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-}
-
-.search-section .search-box {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 /* Featured Post Section */
 .featured-post {
     padding: 48px 0;
-    background: var(--bg);
+    background: var(--bg-alt);
+}
+
+.featured-post .search-box {
+    max-width: 600px;
+    margin: 0 auto 32px;
 }
 
 .featured-link {
@@ -1213,31 +1206,52 @@ body {
     color: inherit;
 }
 
-.featured-grid {
+.featured-combined {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 48px;
-    align-items: center;
-}
-
-.featured-image {
+    background: var(--bg);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+}
+
+.featured-link:hover .featured-combined {
     box-shadow: var(--shadow-lg);
 }
 
-.featured-image img {
+.featured-image-side {
+    overflow: hidden;
+}
+
+.featured-image-side img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.featured-content {
+.featured-content-side {
+    padding: 32px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: center;
+}
+
+.featured-content-side .blog-meta {
+    margin-bottom: 12px;
+}
+
+.featured-content-side h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.featured-content-side p {
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.6;
 }
 
 .search-box {
@@ -1252,34 +1266,6 @@ body {
 .search-box:focus {
     outline: none;
     border-color: var(--primary);
-}
-
-.featured-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.featured-article {
-    padding: 24px;
-    background: var(--bg-alt);
-    border-radius: var(--radius-lg);
-    transition: box-shadow 0.2s;
-}
-
-.featured-article:hover {
-    box-shadow: var(--shadow);
-}
-
-.featured-article h2 {
-    font-size: 1.5rem;
-    margin: 12px 0;
-    color: var(--text);
-}
-
-.featured-article p {
-    color: var(--text-light);
-    margin-bottom: 16px;
-    line-height: 1.6;
 }
 
 /* Blog Grid Section */
@@ -1902,8 +1888,12 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .featured-grid {
+    .featured-combined {
         grid-template-columns: 1fr;
+    }
+    
+    .featured-content-side {
+        padding: 24px;
     }
     
     .blog-header h1 {
