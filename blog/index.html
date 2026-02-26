@@ -160,11 +160,12 @@
         const blogGrid = document.querySelector('.blog-grid');
         const featuredPost = document.querySelector('.featured-combined');
 
-        // Load posts data
-        fetch('/blog/posts.json')
+        // Load posts data (with cache-busting)
+        fetch('/blog/posts.json?v=' + Date.now())
             .then(r => r.json())
             .then(posts => {
                 allPosts = posts;
+                console.log('Loaded', posts.length, 'posts for search');
             })
             .catch(e => console.error('Failed to load posts:', e));
 
