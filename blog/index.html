@@ -179,9 +179,9 @@
                 return;
             }
 
-            // Filter posts
+            // Filter posts (search title, excerpt, tags, and full content)
             const filtered = allPosts.filter(post => {
-                const searchText = `${post.title} ${post.excerpt} ${post.tags.join(' ')}`.toLowerCase();
+                const searchText = `${post.title} ${post.excerpt} ${post.tags.join(' ')} ${post.content || ''}`.toLowerCase();
                 return searchText.includes(term);
             });
 

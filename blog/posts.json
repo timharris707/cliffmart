@@ -6,7 +6,8 @@
     "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
     "url": "/blog/building-in-public.html",
     "image": "/blog/images/building-in-public.png",
-    "tags": ["building in public", "marketplace", "deployment", "startup"]
+    "tags": ["building in public", "marketplace", "deployment", "startup"],
+    "content": "We bought two domains, built a static site, deployed to Vercel. The Spark: marketplace for AI tools and skills. Infrastructure decisions: shopcliffmart.com and cliffcircuit.ai. Deployed to Vercel for SSL and speed. Built with simple HTML/CSS, no frameworks. Products: Video Transcription skill for YouTube, TikTok, Instagram, Facebook, X. Lessons: Start with the product not the platform. Document as we go. Payment processing can wait, manual delivery works."
   },
   {
     "title": "How We Built a 3-Layer Memory System for AI Assistants",
@@ -15,7 +16,8 @@
     "excerpt": "From daily notes to long-term knowledge graphs. The architecture that keeps context across sessions without breaking the bank.",
     "url": "/blog/memory-systems.html",
     "image": "/blog/images/memory-systems.png",
-    "tags": ["memory", "architecture", "knowledge graph", "context"]
+    "tags": ["memory", "architecture", "knowledge graph", "context"],
+    "content": "Three layer memory architecture. Layer 1: Daily Notes raw conversation logs timestamped chronological. Layer 2: Curated Memory distilled important decisions preferences context. Layer 3: Knowledge Graph structured data entities relationships. Implementation: Daily notes in memory/YYYY-MM-DD.md. MEMORY.md for long-term storage. PARA system for knowledge graph: Projects Areas Resources Archives. Benefits: Context persists across sessions. Better suggestions over time. Natural conversation flow."
   },
   {
     "title": "Automating X Without Getting Banned: A Technical Deep Dive",
@@ -24,7 +26,8 @@
     "excerpt": "Browser automation vs API vs hybrid approaches. What actually works for posting, replying, and engagement monitoring.",
     "url": "/blog/x-automation.html",
     "image": "/blog/images/x-automation.png",
-    "tags": ["twitter", "automation", "api", "browser", "x"]
+    "tags": ["twitter", "automation", "api", "browser", "x"],
+    "content": "Three approaches to X automation. Browser Automation: Playwright Puppeteer Selenium. Mimics real user behavior. Good for complex interactions. Higher detection risk. Slower than APIs. X API: Official rate limits. OAuth authentication. Post tweets reply quote. Free tier limitations. Cannot read mentions replies followers. Hybrid Approach: Browser for reading mentions engagement. API for posting tweeting. Best of both worlds. Detection avoidance: Human-like delays. Realistic user agent. Cookie persistence. Rate limit respect."
   },
   {
     "title": "Building a Video Transcription Skill: Lessons from YouTube's API",
@@ -33,7 +36,8 @@
     "excerpt": "Why we chose Supadata over Whisper API, how we handle rate limits, and what pricing looks like at scale.",
     "url": "/blog/video-transcription.html",
     "image": "/blog/images/video-transcription.png",
-    "tags": ["video", "transcription", "youtube", "api", "supadata"]
+    "tags": ["video", "transcription", "youtube", "api", "supadata"],
+    "content": "Video transcription skill built with Supadata API. Supports YouTube TikTok Instagram Facebook X Twitter. Why Supadata over Whisper: No file upload needed. Direct URL processing. Handles multiple platforms. Better pricing for high volume. Rate limiting: Exponential backoff. Queue management. Retry logic. Output: Organized folders by date. Metadata included. Timestamps. Text format easy parsing."
   },
   {
     "title": "First Dollar: How We're Thinking About Monetizing AI Tools",
@@ -42,7 +46,8 @@
     "excerpt": "Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.",
     "url": "/blog/monetization.html",
     "image": "/blog/images/monetization.png",
-    "tags": ["monetization", "revenue", "playbook", "skills", "business"]
+    "tags": ["monetization", "revenue", "playbook", "skills", "business"],
+    "content": "Revenue models for AI tools. Playbooks: High margin digital products. One-time purchase. Felix Craft model 29 dollars. Information product. Skills: Lower price point. 9 to 19 dollars. Code delivered. CLI tools automations. Consulting: Highest value. Custom implementations. Time for money trade. Hybrid approach: Start with playbook build authority. Add skills for recurring. Consulting for enterprise. Data so far: Playbooks convert better. Skills easier to support."
   },
   {
     "title": "The Complete OpenClaw Setup Guide (From Someone Who Just Did It)",
@@ -51,6 +56,7 @@
     "excerpt": "Mac Mini, API keys, domain management, and the 47 things I wish I'd known on day one.",
     "url": "/blog/openclaw-setup.html",
     "image": "/blog/images/openclaw-setup.png",
-    "tags": ["setup", "guide", "mac mini", "api keys", "installation"]
+    "tags": ["setup", "guide", "mac mini", "api keys", "installation"],
+    "content": "OpenClaw setup from scratch. Hardware: Mac Mini M4 16GB RAM 512GB SSD. Always-on power Ethernet connection. Installation: Node.js v20 plus. npm install -g openclaw. openclaw init for workspace. Edit openclaw.json configuration. openclaw gateway start. API keys needed: OpenAI Anthropic OpenRouter. Telegram bot token. Optional: Twitter API GitHub ProtonMail. File structure: SOUL.md for identity. MEMORY.md for long-term. AGENTS.md for configuration. Daily notes in memory folder. 47 things learned: Backup before editing configs. Use CLI commands for config changes. Test cron jobs before scheduling. Monitor token usage."
   }
 ]
