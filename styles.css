@@ -1189,17 +1189,35 @@ body {
     font-size: 1.1rem;
 }
 
+/* Search Section */
+.search-section {
+    padding: 32px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.search-section .search-box {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Featured Post Section */
 .featured-post {
     padding: 48px 0;
     background: var(--bg);
 }
 
+.featured-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .featured-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 48px;
-    align-items: start;
+    align-items: center;
 }
 
 .featured-image {
