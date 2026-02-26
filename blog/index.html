@@ -156,9 +156,13 @@
 
     <script>
         let allPosts = [];
+        let originalGridHTML = '';
         const searchBox = document.querySelector('.search-box');
         const blogGrid = document.querySelector('.blog-grid');
         const featuredPost = document.querySelector('.featured-combined');
+
+        // Save original grid HTML on page load
+        originalGridHTML = blogGrid.innerHTML;
 
         // Load posts data (with cache-busting)
         fetch('/blog/posts.json?v=' + Date.now())
@@ -174,9 +178,16 @@
             const term = e.target.value.toLowerCase().trim();
             
             if (!term) {
-                // Show all posts
-                renderPosts(allPosts);
+                // Restore original posts
+                blogGrid.innerHTML = originalGridHTML;
                 featuredPost.style.display = 'grid';
+                return;
+            }
+
+            // Wait for posts to load if needed
+            if (allPosts.length === 0) {
+                blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-light); padding: 48px;">Loading articles...</p>';
+                featuredPost.style.display = 'none';
                 return;
             }
 
