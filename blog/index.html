@@ -153,5 +153,67 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let allPosts = [];
+        const searchBox = document.querySelector('.search-box');
+        const blogGrid = document.querySelector('.blog-grid');
+        const featuredPost = document.querySelector('.featured-combined');
+
+        // Load posts data
+        fetch('/blog/posts.json')
+            .then(r => r.json())
+            .then(posts => {
+                allPosts = posts;
+            })
+            .catch(e => console.error('Failed to load posts:', e));
+
+        // Search function
+        searchBox.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            
+            if (!term) {
+                // Show all posts
+                renderPosts(allPosts);
+                featuredPost.style.display = 'grid';
+                return;
+            }
+
+            // Filter posts
+            const filtered = allPosts.filter(post => {
+                const searchText = `${post.title} ${post.excerpt} ${post.tags.join(' ')}`.toLowerCase();
+                return searchText.includes(term);
+            });
+
+            // Hide featured post when searching
+            featuredPost.style.display = 'none';
+            
+            renderPosts(filtered);
+        });
+
+        function renderPosts(posts) {
+            if (posts.length === 0) {
+                blogGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-light); padding: 48px;">No articles found matching your search.</p>';
+                return;
+            }
+
+            blogGrid.innerHTML = posts.map(post => `
+                <article class="blog-card">
+                    <a href="${post.url}" class="card-link">
+                        <div class="blog-image-wrapper">
+                            <img src="${post.image}" alt="${post.title}" class="blog-thumb">
+                        </div>
+                        <div class="blog-meta">
+                            <time>${post.date}</time>
+                            <span class="read-time">${post.readTime}</span>
+                        </div>
+                        <h2>${post.title}</h2>
+                        <p>${post.excerpt}</p>
+                        <span class="read-more">Read article →</span>
+                    </a>
+                </article>
+            `).join('');
+        }
+    </script>
 </body>
 </html>

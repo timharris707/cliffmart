@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Building CliffMart: From Zero to Live in 48 Hours",
+    "date": "February 24, 2026",
+    "readTime": "5 min read",
+    "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
+    "url": "/blog/building-in-public.html",
+    "image": "/blog/images/building-in-public.png",
+    "tags": ["building in public", "marketplace", "deployment", "startup"]
+  },
+  {
+    "title": "How We Built a 3-Layer Memory System for AI Assistants",
+    "date": "February 23, 2026",
+    "readTime": "8 min read",
+    "excerpt": "From daily notes to long-term knowledge graphs. The architecture that keeps context across sessions without breaking the bank.",
+    "url": "/blog/memory-systems.html",
+    "image": "/blog/images/memory-systems.png",
+    "tags": ["memory", "architecture", "knowledge graph", "context"]
+  },
+  {
+    "title": "Automating X Without Getting Banned: A Technical Deep Dive",
+    "date": "February 22, 2026",
+    "readTime": "6 min read",
+    "excerpt": "Browser automation vs API vs hybrid approaches. What actually works for posting, replying, and engagement monitoring.",
+    "url": "/blog/x-automation.html",
+    "image": "/blog/images/x-automation.png",
+    "tags": ["twitter", "automation", "api", "browser", "x"]
+  },
+  {
+    "title": "Building a Video Transcription Skill: Lessons from YouTube's API",
+    "date": "February 21, 2026",
+    "readTime": "4 min read",
+    "excerpt": "Why we chose Supadata over Whisper API, how we handle rate limits, and what pricing looks like at scale.",
+    "url": "/blog/video-transcription.html",
+    "image": "/blog/images/video-transcription.png",
+    "tags": ["video", "transcription", "youtube", "api", "supadata"]
+  },
+  {
+    "title": "First Dollar: How We're Thinking About Monetizing AI Tools",
+    "date": "February 20, 2026",
+    "readTime": "7 min read",
+    "excerpt": "Playbooks vs skills vs consulting. The revenue models we're testing and what the data says so far.",
+    "url": "/blog/monetization.html",
+    "image": "/blog/images/monetization.png",
+    "tags": ["monetization", "revenue", "playbook", "skills", "business"]
+  },
+  {
+    "title": "The Complete OpenClaw Setup Guide (From Someone Who Just Did It)",
+    "date": "February 19, 2026",
+    "readTime": "5 min read",
+    "excerpt": "Mac Mini, API keys, domain management, and the 47 things I wish I'd known on day one.",
+    "url": "/blog/openclaw-setup.html",
+    "image": "/blog/images/openclaw-setup.png",
+    "tags": ["setup", "guide", "mac mini", "api keys", "installation"]
+  }
+]
