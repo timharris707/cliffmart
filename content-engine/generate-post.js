@@ -268,26 +268,33 @@ WRITING STYLE:
 function markdownToHtml(content) {
   let lines = content.trim().split('\n');
   let startIndex = 0;
-  for (let i = 0; i < Math.min(lines.length, 5); i++) {
+  for (let i = 0; i < Math.min(lines.length, 10); i++) {
     const line = lines[i].trim();
-    if (line.startsWith('#') || /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION):?$/i.test(line)) {
+    if (line.startsWith('#') || /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION|SUBTITLE):?$/i.test(line) || line === "") {
       startIndex = i + 1;
-    } else if (line === '') {
-      continue;
     } else {
       break;
     }
   }
   let cleanContent = lines.slice(startIndex).join('\n').trim();
+  const linesAfterCleanup = cleanContent.split('\n');
+  const processedLines = linesAfterCleanup.map(line => {
+      const trimmed = line.trim();
+      if (trimmed.length > 5 && trimmed.length < 65 && /^[A-Z0-9\\s\\W]+$/.test(trimmed) && !trimmed.startsWith('<')) {
+          return `## ${trimmed}`;
+      }
+      return line;
+  });
+  cleanContent = processedLines.join('\n');
   return cleanContent
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/^- (.*$)/gim, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    .replace(/(<li>.*<\/li>\n?)+/g, "<ul>$&</ul>")
     .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
-    .replace(/<p><\/p>/g, '');
+    .replace(/<p><\/p>/g, "");
 }
 
 async function generateBlogPost(topic) {

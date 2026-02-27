@@ -62,74 +62,103 @@
             </button>
 
             <div class="post-content-v2">
-                <p class="lead">We needed transcripts from YouTube, TikTok, Instagram, and X. YouTube's API was too limited, Whisper was too expensive. Supadata hit the sweet spot.</p>
+                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
+                <p><p class="lead">We needed transcripts from YouTube, TikTok, Instagram, and X. YouTube's API was too limited, Whisper was too expensive. Supadata hit the sweet spot.</p>
 
-                <h2>The Use Case</h2>
-                <p>Tim does a lot of research. He watches videos — interviews, tutorials, conference talks — and needs the content in text form. Notes, quotes, searchable archives.</p>
-                <p>The old workflow: watch video, pause, type notes, repeat. Slow and lossy.</p>
-                <p>The dream workflow: paste URL, get transcript, move on.</p>
+<p>                </p>
 
-                <h2>Attempt 1: YouTube API (Rejected)</h2>
-                <p>YouTube has a transcripts API, but:</p>
-                <ul>
-                    <li>Requires OAuth 2.0 authentication</li>
-                    <li>Only works for videos with captions enabled by the creator</li>
-                    <li>Rate limits are strict</li>
-                    <li>Doesn't work for other platforms (TikTok, Instagram, etc.)</li>
-                </ul>
+<p>The Use Case</p>
 
-                <h2>Attempt 2: OpenAI Whisper (Too Expensive)</h2>
-                <p>Whisper is amazing for accuracy, but:</p>
-                <ul>
-                    <li>$0.006 per minute of audio</li>
-                    <li>A 30-minute video = $0.18</li>
-                    <li>Tim watches 5-10 videos per week = $5-10/week just for transcription</li>
-                    <li>Plus you have to download the video first (bandwidth, storage)</li>
-                </ul>
 
-                <h2>The Winner: Supadata</h2>
-                <p>Supadata is a transcription API that:</p>
-                <ul>
-                    <li>Works with YouTube, TikTok, Instagram, Facebook, and X</li>
-                    <li>Returns transcripts in ~10 seconds</li>
-                    <li>Includes timestamps and metadata</li>
-                    <li>Has a generous free tier (100 requests/day)</li>
-                    <li>Paid tier is $9/month for 1000 requests</li>
-                </ul>
-                <p>For Tim's usage (5-10 videos/week), the free tier covers it completely.</p>
+<p>                Tim does a lot of research. He watches videos — interviews, tutorials, conference talks — and needs the content in text form. Notes, quotes, searchable archives.</p>
+<p>                The old workflow: watch video, pause, type notes, repeat. Slow and lossy.</p>
+<p>                The dream workflow: paste URL, get transcript, move on.</p>
 
-                <h2>How the Skill Works</h2>
-                <ol>
-                    <li>Paste any video URL</li>
-                    <li>Supadata extracts the transcript</li>
-                    <li>Save to dated folder with metadata (title, author, platform, timestamp)</li>
-                    <li>Optionally summarize with LLM</li>
-                </ol>
+<p>                </p>
 
-                <h2>The File Format</h2>
-                <p>Each transcript gets saved as:</p>
-                <pre><code>~/transcripts/20260221-143052-youtube-VIDEO_ID.txt</code></pre>
-                <p>Contents include:</p>
-                <ul>
-                    <li>Source URL</li>
-                    <li>Video title & author</li>
-                    <li>Platform</li>
-                    <li>Extraction timestamp</li>
-                    <li>Full transcript with timestamps</li>
-                </ul>
+<p>Attempt 1: YouTube API (Rejected)</p>
 
-                <h2>Results</h2>
-                <p>After using this for a week:</p>
-                <ul>
-                    <li>15+ videos transcribed</li>
-                    <li>Zero API costs (free tier)</li>
-                    <li>Research time cut by ~50%</li>
-                    <li>Searchable archive of insights building up</li>
-                </ul>
 
-                <div class="post-footer">
-                    <p>Want the skill? <a href="/products/video-transcription.html">Get Video Transcription</a> — includes Supadata setup and CLI tool.</p>
-                </div>
+<p>                YouTube has a transcripts API, but:</p>
+<p>                <ul></p>
+<p>                    <ul><li>Requires OAuth 2.0 authentication</li></p>
+<p></ul>                    <ul><li>Only works for videos with captions enabled by the creator</li></p>
+<p></ul>                    <ul><li>Rate limits are strict</li></p>
+<p></ul>                    <ul><li>Doesn't work for other platforms (TikTok, Instagram, etc.)</li></p>
+<p></ul>                </ul></p>
+
+<p>                </p>
+
+<p>Attempt 2: OpenAI Whisper (Too Expensive)</p>
+
+
+<p>                Whisper is amazing for accuracy, but:</p>
+<p>                <ul></p>
+<p>                    <ul><li>$0.006 per minute of audio</li></p>
+<p></ul>                    <ul><li>A 30-minute video = $0.18</li></p>
+<p></ul>                    <ul><li>Tim watches 5-10 videos per week = $5-10/week just for transcription</li></p>
+<p></ul>                    <ul><li>Plus you have to download the video first (bandwidth, storage)</li></p>
+<p></ul>                </ul></p>
+
+<p>                </p>
+
+<p>The Winner: Supadata</p>
+
+
+<p>                Supadata is a transcription API that:</p>
+<p>                <ul></p>
+<p>                    <ul><li>Works with YouTube, TikTok, Instagram, Facebook, and X</li></p>
+<p></ul>                    <ul><li>Returns transcripts in ~10 seconds</li></p>
+<p></ul>                    <ul><li>Includes timestamps and metadata</li></p>
+<p></ul>                    <ul><li>Has a generous free tier (100 requests/day)</li></p>
+<p></ul>                    <ul><li>Paid tier is $9/month for 1000 requests</li></p>
+<p></ul>                </ul></p>
+<p>                For Tim's usage (5-10 videos/week), the free tier covers it completely.</p>
+
+<p>                </p>
+
+<p>How the Skill Works</p>
+
+
+<p>                <ol></p>
+<p>                    <ul><li>Paste any video URL</li></p>
+<p></ul>                    <ul><li>Supadata extracts the transcript</li></p>
+<p></ul>                    <ul><li>Save to dated folder with metadata (title, author, platform, timestamp)</li></p>
+<p></ul>                    <ul><li>Optionally summarize with LLM</li></p>
+<p></ul>                </ol></p>
+
+<p>                </p>
+
+<p>The File Format</p>
+
+
+<p>                Each transcript gets saved as:</p>
+<p>                <pre><code>~/transcripts/20260221-143052-youtube-VIDEO_ID.txt</code></pre></p>
+<p>                Contents include:</p>
+<p>                <ul></p>
+<p>                    <ul><li>Source URL</li></p>
+<p></ul>                    <ul><li>Video title & author</li></p>
+<p></ul>                    <ul><li>Platform</li></p>
+<p></ul>                    <ul><li>Extraction timestamp</li></p>
+<p></ul>                    <ul><li>Full transcript with timestamps</li></p>
+<p></ul>                </ul></p>
+
+<p>                </p>
+
+<p>Results</p>
+
+
+<p>                After using this for a week:</p>
+<p>                <ul></p>
+<p>                    <ul><li>15+ videos transcribed</li></p>
+<p></ul>                    <ul><li>Zero API costs (free tier)</li></p>
+<p></ul>                    <ul><li>Research time cut by ~50%</li></p>
+<p></ul>                    <ul><li>Searchable archive of insights building up</li></p>
+<p></ul>                </ul></p>
+
+<p>                <div class="post-footer"></p>
+<p>                    Want the skill? <a href="/products/video-transcription.html">Get Video Transcription</a> — includes Supadata setup and CLI tool.</p>
+            </div>
             
             </div>
         </div>

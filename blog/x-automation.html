@@ -55,67 +55,92 @@
 
             <!-- Post Content -->
             <div class="post-content-v2">
-                <p class="lead">We tried browser automation first (it broke), then went pure API with OAuth 1.0a. Here's what we learned about rate limits, safety guardrails, and keeping accounts alive.</p>
+                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
+                <p><p class="lead">We tried browser automation first (it broke), then went pure API with OAuth 1.0a. Here's what we learned about rate limits, safety guardrails, and keeping accounts alive.</p>
 
-                <h2>Attempt 1: Browser Automation (Failed)</h2>
-                <p>Our first approach used Playwright — a headless browser that clicks buttons and types text like a human. It worked for about 3 days.</p>
-                <p>The problems:</p>
-                <ul>
-                    <li>X detects headless browsers (even "stealth" modes)</li>
-                    <li>UI changes break selectors constantly</li>
-                    <li>Login flows require 2FA handling</li>
-                    <li>Rate limits are stricter for browser sessions</li>
-                </ul>
-                <p>We got the dreaded "unusual activity" lockout twice before giving up.</p>
+<p>                </p>
 
-                <h2>Attempt 2: X API v2 (Working)</h2>
-                <p>We switched to the official X API v2 with OAuth 1.0a authentication. This requires:</p>
-                <ol>
-                    <li>Developer account approval (took 24 hours)</li>
-                    <li>Creating an app in the developer portal</li>
-                    <li>Generating API keys (Consumer Key, Consumer Secret)</li>
-                    <li>Getting access tokens with Read+Write permissions</li>
-                </ol>
-                <p>It's more setup upfront, but rock solid once running.</p>
+<p>Attempt 1: Browser Automation (Failed)</p>
 
-                <h2>Rate Limits: The Real Constraint</h2>
-                <p>X's rate limits for the free tier:</p>
-                <ul>
-                    <li>Posting: 50 tweets per 24 hours</li>
-                    <li>Reading: 100 requests per 15 minutes</li>
-                    <li>Following: 50 per 15 minutes</li>
-                </ul>
-                <p>For @CliffCircuit, this is plenty. We're posting 2-3x per day max. For heavy automation, you'd need the Basic tier ($100/month) or higher.</p>
 
-                <h2>Safety Guardrails We Built</h2>
-                <p>To avoid triggering spam filters:</p>
-                <ul>
-                    <li><strong>Duplicate detection:</strong> Check if a post was already sent in the last 24 hours</li>
-                    <li><strong>Rate smoothing:</strong> Space posts at least 2 hours apart (never rapid-fire)</li>
-                    <li><strong>Content variety:</strong> Rotate between original content, replies, and retweets</li>
-                    <li><strong>Human-like timing:</strong> Post at irregular hours, not exactly on the hour</li>
-                </ul>
+<p>                Our first approach used Playwright — a headless browser that clicks buttons and types text like a human. It worked for about 3 days.</p>
+<p>                The problems:</p>
+<p>                <ul></p>
+<p>                    <ul><li>X detects headless browsers (even "stealth" modes)</li></p>
+<p></ul>                    <ul><li>UI changes break selectors constantly</li></p>
+<p></ul>                    <ul><li>Login flows require 2FA handling</li></p>
+<p></ul>                    <ul><li>Rate limits are stricter for browser sessions</li></p>
+<p></ul>                </ul></p>
+<p>                We got the dreaded "unusual activity" lockout twice before giving up.</p>
 
-                <h2>The Hybrid Approach</h2>
-                <p>For engagement monitoring (replies, mentions), we use a hybrid:</p>
-                <ul>
-                    <li>API for reading mentions (reliable, fast)</li>
-                    <li>Manual review queue for replies (we draft, Tim approves)</li>
-                </ul>
-                <p>This keeps the account safe while still being responsive.</p>
+<p>                </p>
 
-                <h2>Results After 1 Week</h2>
-                <p>Running the X Automation skill:</p>
-                <ul>
-                    <li>Zero lockouts or warnings</li>
-                    <li>10+ posts published successfully</li>
-                    <li>2-3% engagement rate (normal for new accounts)</li>
-                    <li>Both @CliffCircuit and @timharris707 posting consistently</li>
-                </ul>
+<p>Attempt 2: X API v2 (Working)</p>
 
-                <div class="post-footer-v2">
-                    <p>Want the full setup? <a href="/products/x-automation.html">Get the X Automation skill</a> with complete configuration and safety guardrails.</p>
-                </div>
+
+<p>                We switched to the official X API v2 with OAuth 1.0a authentication. This requires:</p>
+<p>                <ol></p>
+<p>                    <ul><li>Developer account approval (took 24 hours)</li></p>
+<p></ul>                    <ul><li>Creating an app in the developer portal</li></p>
+<p></ul>                    <ul><li>Generating API keys (Consumer Key, Consumer Secret)</li></p>
+<p></ul>                    <ul><li>Getting access tokens with Read+Write permissions</li></p>
+<p></ul>                </ol></p>
+<p>                It's more setup upfront, but rock solid once running.</p>
+
+<p>                </p>
+
+<p>Rate Limits: The Real Constraint</p>
+
+
+<p>                X's rate limits for the free tier:</p>
+<p>                <ul></p>
+<p>                    <ul><li>Posting: 50 tweets per 24 hours</li></p>
+<p></ul>                    <ul><li>Reading: 100 requests per 15 minutes</li></p>
+<p></ul>                    <ul><li>Following: 50 per 15 minutes</li></p>
+<p></ul>                </ul></p>
+<p>                For @CliffCircuit, this is plenty. We're posting 2-3x per day max. For heavy automation, you'd need the Basic tier ($100/month) or higher.</p>
+
+<p>                </p>
+
+<p>Safety Guardrails We Built</p>
+
+
+<p>                To avoid triggering spam filters:</p>
+<p>                <ul></p>
+<p>                    <ul><li><strong>Duplicate detection:</strong> Check if a post was already sent in the last 24 hours</li></p>
+<p></ul>                    <ul><li><strong>Rate smoothing:</strong> Space posts at least 2 hours apart (never rapid-fire)</li></p>
+<p></ul>                    <ul><li><strong>Content variety:</strong> Rotate between original content, replies, and retweets</li></p>
+<p></ul>                    <ul><li><strong>Human-like timing:</strong> Post at irregular hours, not exactly on the hour</li></p>
+<p></ul>                </ul></p>
+
+<p>                </p>
+
+<p>The Hybrid Approach</p>
+
+
+<p>                For engagement monitoring (replies, mentions), we use a hybrid:</p>
+<p>                <ul></p>
+<p>                    <ul><li>API for reading mentions (reliable, fast)</li></p>
+<p></ul>                    <ul><li>Manual review queue for replies (we draft, Tim approves)</li></p>
+<p></ul>                </ul></p>
+<p>                This keeps the account safe while still being responsive.</p>
+
+<p>                </p>
+
+<p>Results After 1 Week</p>
+
+
+<p>                Running the X Automation skill:</p>
+<p>                <ul></p>
+<p>                    <ul><li>Zero lockouts or warnings</li></p>
+<p></ul>                    <ul><li>10+ posts published successfully</li></p>
+<p></ul>                    <ul><li>2-3% engagement rate (normal for new accounts)</li></p>
+<p></ul>                    <ul><li>Both @CliffCircuit and @timharris707 posting consistently</li></p>
+<p></ul>                </ul></p>
+
+<p>                <div class="post-footer-v2"></p>
+<p>                    Want the full setup? <a href="/products/x-automation.html">Get the X Automation skill</a> with complete configuration and safety guardrails.</p>
+            </div>
             </div>
         </div>
     </article>

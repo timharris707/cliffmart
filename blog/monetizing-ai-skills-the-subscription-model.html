@@ -120,21 +120,21 @@
 
 <p>The numbers tell a similar story across the industry. According to a recent O'Reilly survey, while 78% of companies are actively seeking AI expertise, only 23% of AI practitioners have successfully built sustainable business models around their skills. The gap isn't in technical capability - it's in packaging and monetizing that expertise effectively.</p>
 
-<p>2. SOLUTION OVERVIEW</p>
+<h2>2. SOLUTION OVERVIEW</h2>
 <p>This is where the subscription model comes in - not just as a pricing strategy, but as a complete reimagining of how AI services are delivered and consumed. Instead of one-off projects or hourly consulting, you're building an AI-powered product that delivers continuous value to subscribers.</p>
 
 <p>The key difference is in the approach: rather than selling your time or individual solutions, you're productizing your AI expertise into a service that scales. Think of it as building your own mini-OpenAI - but focused on solving specific, high-value problems for a defined customer segment.</p>
 
 <p>By leveraging platforms like OpenClaw, you can transform complex AI capabilities into user-friendly subscription services without getting bogged down in infrastructure. The platform handles the heavy lifting of subscription management, API security, and usage tracking, letting you focus on what matters: creating valuable AI solutions for your customers.</p>
 
-<p>3. USE CASES/IMPLEMENTATION</p>
+<h2>3. USE CASES/IMPLEMENTATION</h2>
 
 <p>Case 1: AI-Powered Content Generation Service</p>
 <p>Implementation:</p>
-<ul><li>Target Market: Digital marketing agencies and content creators</li>
+<ul><ul><li>Target Market: Digital marketing agencies and content creators</li>
 <li>Service Offering: Automated blog post generation, social media content, and SEO optimization</li>
 <li>Technical Setup:</li>
-<p></ul>```python</p>
+<p></ul></ul>```python</p>
 <p>from openclaw import ContentGenerator</p>
 <p>from stripe import Subscription</p>
 
@@ -150,22 +150,22 @@
 <p>    )</p>
 <p>    return content</p>
 <p>```</p>
-<ul><li>Pricing Structure:</li>
-<p></ul>  * Basic: $99/month (50 articles)</p>
+<ul><ul><li>Pricing Structure:</li>
+<p></ul></ul>  * Basic: $99/month (50 articles)</p>
 <p>  * Professional: $249/month (150 articles)</p>
 <p>  * Enterprise: $599/month (unlimited)</p>
-<ul><li>Integration Points:</li>
-<p></ul>  * Stripe for payment processing</p>
+<ul><ul><li>Integration Points:</li>
+<p></ul></ul>  * Stripe for payment processing</p>
 <p>  * WordPress API for direct publishing</p>
 <p>  * Google Analytics for content performance tracking</p>
-<ul><li>ROI Example: One customer reported 73% reduction in content production costs</li>
-<p></ul></p>
+<ul><ul><li>ROI Example: One customer reported 73% reduction in content production costs</li>
+<p></ul></ul></p>
 <p>Case 2: Automated Market Analysis Platform</p>
 <p>Implementation:</p>
-<ul><li>Target Market: Investment firms and financial advisors</li>
+<ul><ul><li>Target Market: Investment firms and financial advisors</li>
 <li>Service Offering: Real-time market sentiment analysis and trading signals</li>
 <li>Technical Setup:</li>
-<p></ul>```python</p>
+<p></ul></ul>```python</p>
 <p>from openclaw import MarketAnalyzer</p>
 <p>import pandas as pd</p>
 
@@ -178,22 +178,22 @@
 <p>    )</p>
 <p>    return sentiment_data.to_json()</p>
 <p>```</p>
-<ul><li>Pricing Structure:</li>
-<p></ul>  * Starter: $199/month (10 stocks)</p>
+<ul><ul><li>Pricing Structure:</li>
+<p></ul></ul>  * Starter: $199/month (10 stocks)</p>
 <p>  * Growth: $499/month (50 stocks)</p>
 <p>  * Premium: $999/month (unlimited)</p>
-<ul><li>Integration Points:</li>
-<p></ul>  * Trading platforms via API</p>
+<ul><ul><li>Integration Points:</li>
+<p></ul></ul>  * Trading platforms via API</p>
 <p>  * Telegram for alerts</p>
 <p>  * Custom dashboard using Plotly</p>
-<ul><li>Common Pitfall: Over-promising accuracy - be transparent about confidence levels</li>
-<p></ul></p>
+<ul><ul><li>Common Pitfall: Over-promising accuracy - be transparent about confidence levels</li>
+<p></ul></ul></p>
 <p>Case 3: AI Customer Service Assistant</p>
 <p>Implementation:</p>
-<ul><li>Target Market: E-commerce businesses</li>
+<ul><ul><li>Target Market: E-commerce businesses</li>
 <li>Service Offering: 24/7 automated customer support with human fallback</li>
 <li>Technical Setup:</li>
-<p></ul>```python</p>
+<p></ul></ul>```python</p>
 <p>from openclaw import CustomerService</p>
 <p>from twilio.rest import Client</p>
 
@@ -208,22 +208,22 @@
 <p>    )</p>
 <p>    return response</p>
 <p>```</p>
-<ul><li>Pricing Structure:</li>
-<p></ul>  * Basic: $299/month (1000 queries)</p>
+<ul><ul><li>Pricing Structure:</li>
+<p></ul></ul>  * Basic: $299/month (1000 queries)</p>
 <p>  * Business: $799/month (5000 queries)</p>
 <p>  * Enterprise: Custom pricing</p>
-<ul><li>Integration Points:</li>
-<p></ul>  * Zendesk for ticket management</p>
+<ul><ul><li>Integration Points:</li>
+<p></ul></ul>  * Zendesk for ticket management</p>
 <p>  * Twilio for SMS/voice</p>
 <p>  * Slack for team notifications</p>
-<ul><li>Success Metric: Average 42% reduction in support costs</li>
-<p></ul></p>
+<ul><ul><li>Success Metric: Average 42% reduction in support costs</li>
+<p></ul></ul></p>
 <p>Case 4: Automated Document Processing</p>
 <p>Implementation:</p>
-<ul><li>Target Market: Legal firms and compliance departments</li>
+<ul><ul><li>Target Market: Legal firms and compliance departments</li>
 <li>Service Offering: Contract analysis and risk assessment</li>
 <li>Technical Setup:</li>
-<p></ul>```python</p>
+<p></ul></ul>```python</p>
 <p>from openclaw import DocumentProcessor</p>
 <p>import docx</p>
 
@@ -238,31 +238,31 @@
 <p>    )</p>
 <p>    return analysis</p>
 <p>```</p>
-<ul><li>Pricing Structure:</li>
-<p></ul>  * Standard: $399/month (100 documents)</p>
+<ul><ul><li>Pricing Structure:</li>
+<p></ul></ul>  * Standard: $399/month (100 documents)</p>
 <p>  * Professional: $899/month (500 documents)</p>
 <p>  * Enterprise: $2499/month (unlimited)</p>
-<ul><li>Integration Points:</li>
-<p></ul>  * DocuSign for signatures</p>
+<ul><ul><li>Integration Points:</li>
+<p></ul></ul>  * DocuSign for signatures</p>
 <p>  * SharePoint for document management</p>
 <p>  * Custom reporting dashboard</p>
-<ul><li>Key Challenge: Managing data privacy compliance</li>
-<p></ul></p>
-<p>4. RESULTS/ROI</p>
+<ul><ul><li>Key Challenge: Managing data privacy compliance</li>
+<p></ul></ul></p>
+<h2>4. RESULTS/ROI</h2>
 <p>Based on aggregated data from 50+ implementations:</p>
-<ul><li>Average Monthly Recurring Revenue (MRR): $15,000-$25,000 per service</li>
+<ul><ul><li>Average Monthly Recurring Revenue (MRR): $15,000-$25,000 per service</li>
 <li>Customer Acquisition Cost (CAC): $500-$1,500</li>
 <li>Lifetime Value (LTV): $8,000-$12,000</li>
 <li>Churn Rate: 5-7% monthly</li>
 <li>Gross Margin: 75-85%</li>
-<p></ul></p>
+<p></ul></ul></p>
 <p>Real customer results show:</p>
-<ul><li>40-60% cost reduction in target processes</li>
+<ul><ul><li>40-60% cost reduction in target processes</li>
 <li>3-5x increase in processing speed</li>
 <li>85% customer satisfaction rates</li>
 <li>Average ROI of 300% within first year</li>
-<p></ul></p>
-<p>5. NEXT STEPS/CTA</p>
+<p></ul></ul></p>
+<h2>5. NEXT STEPS/CTA</h2>
 <p>Ready to transform your AI skills into a sustainable subscription business? Here's your action plan:</p>
 
 <p>1. Choose your niche - pick one of the use cases above or identify a specific problem in your target market</p>
