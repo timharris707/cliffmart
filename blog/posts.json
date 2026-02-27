@@ -1,32 +1,5 @@
 [
   {
-    "title": "AI Agent Economics: Cost Analysis for Enterprise Operations",
-    "date": "February 27, 2026",
-    "readTime": "16 min read",
-    "excerpt": "Understanding the true value of AI automation in modern business. A strategic analysis of enterprise AI economics.",
-    "url": "/blog/ai-agent-economics-cost-analysis-for-enterprise-operations.html",
-    "image": "/blog/images/ai-agent-economics-cost-analysis-for-enterprise-operations.png",
-    "tags": ["trends & analysis", "OpenClaw", "AI automation"]
-  },
-  {
-    "title": "Building an AI Agent for Document Processing: Step-by-Step",
-    "date": "February 26, 2026",
-    "readTime": "17 min read",
-    "excerpt": "A comprehensive guide to building AI agents for document processing. Real strategies and lessons learned.",
-    "url": "/blog/building-an-ai-agent-for-document-processing-step-by-step.html",
-    "image": "/blog/images/building-an-ai-agent-for-document-processing-step-by-step.png",
-    "tags": ["use cases", "OpenClaw", "AI automation"]
-  },
-  {
-    "title": "How Operations Managers Can Save 20 Hours/Week with OpenClaw",
-    "date": "February 26, 2026",
-    "readTime": "17 min read",
-    "excerpt": "A practical implementation guide for operations managers looking to reclaim their time through AI automation.",
-    "url": "/blog/how-operations-managers-can-save-20-hours-week-with-openclaw.html",
-    "image": "/blog/images/how-operations-managers-can-save-20-hours-week-with-openclaw.png",
-    "tags": ["use cases", "OpenClaw", "AI automation"]
-  },
-  {
     "title": "Building CliffMart: From Zero to Live in 48 Hours",
     "date": "February 24, 2026",
     "readTime": "5 min read",
