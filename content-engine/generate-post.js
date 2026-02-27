@@ -445,7 +445,7 @@ function createBlogHtml(post) {
                 <img src="/blog/images/${post.slug}.png" alt="${post.title}">
             </div>
             <div class="post-content-v2">
-                <p class="post-subtitle-v2">${subtitle}</p>
+                <p class="post-subtitle-v2">${post.excerpt}</p>
                 <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
                 ${htmlContent}
             </div>
