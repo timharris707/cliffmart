@@ -35,7 +35,7 @@ async function generateHeroImage(post) {
       return null;
     }
 
-    const stylePrompt = `Clean minimalist isometric 3D digital illustration of ${post.title}. Central visual metaphor on a soft glowing floating platform. Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. Modern tech aesthetic, high-end professional render style, light pastel gradient background. No text, no words, no letters.`;
+    const stylePrompt = `Clean minimalist isometric 3D digital illustration of ${post.title}. Central visual metaphor on a soft glowing floating platform. Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. Modern tech aesthetic, high-end professional render style, light pastel gradient background. ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY. Pure visual imagery only.`;
 
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
