@@ -228,12 +228,13 @@ STRUCTURE (follow exactly):
 4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
 5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
 
-EXCERPT/SUBTITLE REQUIREMENT (CRITICAL):
-- Start your response with a compelling 50-100 word standalone teaser
-- This captures the article's core value in engaging marketing copy
+EXCERPT/SUBTITLE REQUIREMENT (CRITICAL - MUST BE 50-100 WORDS):
+- Start your response with a compelling 50-100 word standalone teaser (count: 50-100 words, not characters)
+- This is the ONLY text that appears as the article subtitle - make it substantial
 - DO NOT label it "EXCERPT:" or "SUBTITLE:" - just write the text directly
-- Example format: "Discover how operations managers are reclaiming 20+ hours weekly by automating repetitive tasks with OpenClaw. We break down the exact workflows, implementation timeline, and ROI calculations that make this transformation possible — no coding required."
+- EXAMPLE (65 words): "Tired of drowning in repetitive tasks that drain your productivity? Discover how AI automation is transforming modern business operations. This comprehensive guide reveals proven strategies for reclaiming 20+ hours weekly through intelligent workflow design. We break down the exact implementation steps, ROI calculations, and real-world case studies that make this transformation achievable — no technical expertise required."
 - After the excerpt, add a blank line, then "---", then another blank line, then start the article body
+- Word count check: If your excerpt is under 40 words, EXPAND it with more detail and value
 
 WRITING STYLE:
 - Expert yet conversational. Like a high-level strategist talking to a peer.
