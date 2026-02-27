@@ -260,7 +260,7 @@ WRITING STYLE:
         'X-Title': 'CliffMart Content Engine'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-3.5-sonnet',
+        model: 'anthropic/claude-sonnet-4',
         messages: [
           { role: 'system', content: 'You are an expert technical writer specializing in AI automation, business workflows, and practical implementation guides. You write in a clear, engaging style that balances technical depth with accessibility. Your content is always specific, actionable, and grounded in real-world scenarios.' },
           { role: 'user', content: prompt }
