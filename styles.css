@@ -2449,13 +2449,15 @@ body {
 
 
 .post-content-v2 .post-subtitle-v2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #000000;
-    margin: 0 0 0.4rem 0; /* Tight bottom margin before attribution */
-    padding: 0;
-    border: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin: 0 0 0.75rem 0;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+    border-left: 4px solid #007bff;
+    border-radius: 0 8px 8px 0;
     font-style: normal;
 }
 
