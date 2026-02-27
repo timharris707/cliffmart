@@ -224,6 +224,7 @@ MANDATORY VOICE RULES:
 - Every section must include at least one personal experience, failure, or "what I learned" moment
 - Use ONLY these transition phrases: "Here's the thing," "Turns out," "The honest truth," "What surprised me," "Here's what actually worked"
 - BANNED WORDS (never use): leverage, force multiplier, scalable, transformative, paradigm, synergy, optimization, resource allocation, strategic initiative, best-in-class, bleeding edge
+- NO UNSOURCED STATISTICS: Never cite percentages ("80% of businesses"), dollar amounts ("$4.4 trillion market"), or survey data unless you have a verified source. Use general observations instead: "Many businesses I talk to" or "What I've noticed"
 - When describing outcomes, use specific stories with names/roles instead of statistics: "Sarah's team" not "40% improvement"
 - End every use case section with "What I learned from this..." or "The mistake we made was..."
 - Keep sentences short and conversational. If it sounds like a consultant wrote it, rewrite it.
