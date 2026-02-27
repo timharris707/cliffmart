@@ -357,8 +357,10 @@ async function generateBlogPost(topic) {
     return null;
   }
   
-  const wordCount = articleContent.split(/\\s+/).length;
+  const wordCount = articleContent.trim().split(/\s+/).filter(w => w.length > 0).length;
   const readTime = `${Math.ceil(wordCount / 200)} min read`;
+  
+  const excerpt = generateExcerpt(articleContent);
   
   return {
     title: topic.title,
@@ -367,7 +369,7 @@ async function generateBlogPost(topic) {
     isoDate,
     readTime,
     wordCount,
-    excerpt: generateExcerpt(articleContent),
+    excerpt: excerpt,
     category: topic.category,
     content: articleContent
   };
@@ -376,12 +378,8 @@ async function generateBlogPost(topic) {
 // Create HTML file for the blog post
 function createBlogHtml(post) {
   const htmlContent = markdownToHtml(post.content);
-  // Separate potential subtitle from start of content
-  const lines = post.content.split('\n');
-  let subtitle = "AI-Powered Strategy & Insights";
-  if (lines[0] && lines[0].length < 100 && !lines[0].includes('##')) {
-      subtitle = lines[0].trim();
-  }
+  // Use the excerpt as the subtitle/teaser
+  const subtitle = post.excerpt;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
