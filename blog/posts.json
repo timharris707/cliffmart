@@ -1,5 +1,19 @@
 [
   {
+    "title": "Securing Your AI Assistant: A Practical Guide",
+    "date": "February 27, 2026",
+    "readTime": "10 min read",
+    "excerpt": "Building secure AI assistants isn't just about passwords and firewalls anymore. After months of testing different approaches and watching security breaches happen to teams who thought they were protected, I've learned that real AI security requires a completely different mindset than traditional software protection.",
+    "url": "/blog/securing-your-ai-assistant-a-practical-guide.html",
+    "image": "/blog/images/securing-your-ai-assistant-a-practical-guide.png",
+    "tags": [
+      "technical deep dives",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "# Securing Your AI Assistant: A Practical Guide\n\nLast month, I watched a marketing director accidentally expose her company's entire customer database through what seemed like an innocent conversation with ChatGPT. She was trying to analyze customer feedback patterns and pasted in a spreadsheet that contained not just the feedback, but customer names, email addresses, and purchase histories. Within seconds, that sensitive data was processed by an AI system she had no control over.\n\nThe honest tr..."
+  },
+  {
     "title": "The Business Case for AI Assistants in 2027",
     "date": "February 27, 2026",
     "readTime": "11 min read",
