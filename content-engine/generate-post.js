@@ -35,7 +35,22 @@ async function generateHeroImage(post) {
       return null;
     }
 
-    const stylePrompt = `Whimsical, playful isometric 3D illustration telling a visual story about ${post.title}. Create a charming miniature scene with tiny characters or elements that metaphorically represent the topic — like construction workers building something, a rocket launching from everyday objects, or tools coming to life. Soft pastel background with warm, inviting lighting. Use high-tech blues, purples, and teals but with a friendly, approachable vibe. The scene should feel magical and narrative-driven, not abstract or corporate. ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY. Pure visual storytelling only.`;
+    const stylePrompt = `Create a unique hero image for: ${post.title}
+
+VARIETY REQUIREMENTS (rotate through different styles):
+- Mix 3D isometric scenes, 2D flat illustrations, stylized photography, or painterly digital art
+- Alternate perspectives: overhead view, side angle, dramatic close-up, wide establishing shot
+- Vary the scale: tiny diorama worlds, life-sized objects, macro details, or expansive landscapes
+- Different lighting moods: warm sunset glow, cool moonlight, neon city lights, soft morning light
+
+NARRATIVE APPROACH (choose one that fits the topic):
+- Metaphorical scenes: tools building tools, books creating knowledge, plants growing ideas
+- Character-driven: person interacting with technology, craftsman at work, explorer discovering
+- Object-focused: a single powerful object telling the story (laptop, phone, tool, book transforming)
+- Environment-driven: room/workspace evolving, cityscape changing, nature meeting technology
+
+COLOR PALETTE: High-tech blues, purples, teals with warm accents. Friendly and approachable.
+NO TEXT OF ANY KIND. PURE VISUAL. Make this image completely different from previous ones.`;
 
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
