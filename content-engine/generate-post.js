@@ -357,10 +357,16 @@ async function generateBlogPost(topic) {
     return null;
   }
   
-  const wordCount = articleContent.trim().split(/\s+/).filter(w => w.length > 0).length;
+  // Split content on --- separator (excerpt vs body)
+  const rawContent = articleContent.trim();
+  const sections = rawContent.split(/\n?---\n?/);
+  const excerptSource = sections[0] ? sections[0].trim() : rawContent;
+  const bodyContent = sections.length > 1 ? sections.slice(1).join('\n').trim() : rawContent;
+  
+  const wordCount = bodyContent.split(/\s+/).filter(w => w.length > 0).length;
   const readTime = `${Math.ceil(wordCount / 200)} min read`;
   
-  const excerpt = generateExcerpt(articleContent);
+  const excerpt = generateExcerpt(excerptSource);
   
   return {
     title: topic.title,
@@ -371,15 +377,14 @@ async function generateBlogPost(topic) {
     wordCount,
     excerpt: excerpt,
     category: topic.category,
-    content: articleContent
+    content: bodyContent
   };
 }
 
 // Create HTML file for the blog post
 function createBlogHtml(post) {
   const htmlContent = markdownToHtml(post.content);
-  // Use the excerpt as the subtitle/teaser
-  const subtitle = post.excerpt;
+  // Use excerpt directly as subtitle
 
   const html = `<!DOCTYPE html>
 <html lang="en">
