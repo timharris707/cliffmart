@@ -317,26 +317,28 @@ function markdownToHtml(content) {
     .replace(/<p><\/p>/g, "");
 }
 
-// Generate a compelling excerpt (50-100 words) from article content
+// Extract the excerpt from article content (first section before ---)
 function generateExcerpt(content) {
-  // Remove EXCERPT: prefix if present
-  let cleanContent = content.replace(/^EXCERPT:\s*/i, '');
+  // The excerpt should already be the first section before ---
+  // Just clean it up and ensure proper length
+  let cleanContent = content.replace(/^EXCERPT:\s*/i, '').trim();
   
-  // Clean up the content - remove markdown headers and extra whitespace
-  cleanContent = cleanContent
-    .replace(/^#+\s+/gm, '')
-    .replace(/^HOOK:|^SOLUTION OVERVIEW:|^USE CASES|^ROI|^CTA:/gim, '')
-    .replace(/\n+/g, ' ')
-    .trim();
+  // If content is already reasonable length (50-200 words), use it as-is
+  const words = cleanContent.split(/\s+/).filter(w => w.length > 0);
+  if (words.length >= 40 && words.length <= 120) {
+    // Ensure it ends with proper punctuation
+    let excerpt = cleanContent;
+    if (!excerpt.match(/[.!?]$/)) {
+      excerpt += '.';
+    }
+    return excerpt;
+  }
   
-  // Get first 80-100 words (aiming for 50-100 word excerpt)
-  const words = cleanContent.split(/\s+/);
-  let excerpt = words.slice(0, 18).join(' ');
-  
-  // Ensure it ends with a complete sentence or add ellipsis
+  // Otherwise fall back to truncated version
+  let excerpt = words.slice(0, 25).join(' ');
   if (excerpt.length > 0 && !excerpt.match(/[.!?]$/)) {
     const lastPeriod = excerpt.lastIndexOf('.');
-    if (lastPeriod > 40) {
+    if (lastPeriod > 50) {
       excerpt = excerpt.substring(0, lastPeriod + 1);
     } else {
       excerpt += '...';
