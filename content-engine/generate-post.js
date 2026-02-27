@@ -210,7 +210,11 @@ async function generateArticleContent(topic) {
     
     const prompt = `Write a comprehensive, engaging, and highly readable blog post about "${topic.title}".
 
-TARGET: 3,000-3,500 words of compelling narrative that explains the possibilities of AI and OpenClaw.
+TARGET LENGTH: 3,000-3,500 words (THIS IS MANDATORY - WRITE A LONG, COMPREHENSIVE ARTICLE)
+- Each section must be FULLY DEVELOPED with rich detail and examples
+- The USE CASES section alone should be 1,800-2,200 words (4-6 detailed scenarios)
+- If your output is under 2,500 words, you have NOT written enough. EXPAND each section.
+- Aim for SUBSTANTIAL content in every paragraph - not brief summaries
 
 CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
 - NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets, programming lines, or pseudo-code.
@@ -221,12 +225,17 @@ CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
 - SEO OPTIMIZED: Use natural language and headings that perform well in search engines.
 - FACTUAL INTEGRITY: All examples, statistics, and case studies must be grounded in reality. Use general scenarios rather than specific fake data.
 
-STRUCTURE (follow exactly):
-1. HOOK (250-350 words): Relatable problem or pain point. Use real-world scenarios to build empathy.
-2. SOLUTION OVERVIEW (300-400 words): How OpenClaw/AI fixes the issue from a strategic level. 
-3. USE CASES & POSSIBILITIES (1,800-2,200 words): Provide 4-6 detailed sections exploring different applications. Focus on the workflow, the user experience, and the business impact.
-4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
-5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
+STRUCTURE (follow exactly - WORD COUNTS ARE MANDATORY MINIMUMS):
+1. HOOK (300-400 words): Relatable problem with detailed scenario. Build empathy with specific, vivid examples.
+2. SOLUTION OVERVIEW (400-500 words): Strategic explanation of how AI/OpenClaw solves the problem. Include concrete benefits and transformation logic.
+3. USE CASES & POSSIBILITIES (1,800-2,200 words): MANDATORY - This is the bulk of the article. Provide 4-6 FULLY DEVELOPED sections with:
+   - Detailed scenario setup
+   - Step-by-step workflow explanation
+   - User experience narrative
+   - Specific business impact and outcomes
+   EACH use case should be 300-400 words minimum.
+4. ROI & STRATEGY (350-450 words): Comprehensive breakdown of time savings, efficiency gains, and revenue potential with specific examples.
+5. THE FUTURE / CTA (200-300 words): Actionable next steps and future outlook.
 
 EXCERPT/SUBTITLE REQUIREMENT (CRITICAL - ENFORCED 40-60 WORDS):
 - Start your response with a compelling 40-60 word standalone teaser (COUNT THE WORDS: 40-60 words exactly)
@@ -269,7 +278,7 @@ WRITING STYLE:
     const content = data.choices[0].message.content;
     
     // Count words
-    const wordCount = content.split(/\\s+/).length;
+    const wordCount = content.split(/\s+/).filter(w => w.length > 0).length;
     console.log(`✅ Generated ${wordCount} words`);
     
     return content;
