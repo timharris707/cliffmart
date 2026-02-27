@@ -437,6 +437,7 @@ function createBlogHtml(post) {
                 Copy as Markdown for Your Agent
             </button>
             <div class="post-content-v2">
+                <p class="post-attribution-v2">By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></p>
                 ${htmlContent}
             </div>
         </div>
