@@ -1,0 +1,27 @@
+{
+  "lastUpdated": "2026-02-27",
+  "tiers": {
+    "sprouts": {
+      "label": "10-25K followers",
+      "accounts": [
+        {"handle": "@FelixCraftAI", "followers": 10700, "topics": ["AI assistants", "building in public"], "notes": "Replies fast, positive tone"},
+        {"handle": "@openclaw", "followers": 15000, "topics": ["agent frameworks"], "notes": "Share config tips"},
+        {"handle": "@BuilderJake", "followers": 18000, "topics": ["B2B AI", "ops"], "notes": "Look for ops threads"}
+      ]
+    },
+    "saplings": {
+      "label": "25-100K followers",
+      "accounts": [
+        {"handle": "@nateliason", "followers": 67000, "topics": ["AI business", "writing"], "notes": "Great for thoughtful replies"},
+        {"handle": "@david_perell", "followers": 92000, "topics": ["learning", "publishing"], "notes": "Cliff perspective: automation"}
+      ]
+    },
+    "giants": {
+      "label": "100K+ followers",
+      "accounts": [
+        {"handle": "@levelsio", "followers": 800000, "topics": ["bootstrapping", "automation"], "notes": "Like/comment selectively"},
+        {"handle": "@ShaanVP", "followers": 330000, "topics": ["business"], "notes": "Drop OpenClaw case studies"}
+      ]
+    }
+  }
+}
