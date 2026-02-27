@@ -2401,13 +2401,13 @@ body {
 
 /* Narrative Blog Improvements */
 .post-content-v2 h2 {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: 800;
     color: #000000;
-    margin-top: 3.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .post-content-v2 h3 {
