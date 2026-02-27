@@ -1,5 +1,19 @@
 [
   {
+    "title": "Building an AI Agent for Data Entry: Step-by-Step",
+    "date": "February 27, 2026",
+    "readTime": "5 min read",
+    "excerpt": "Discover how modern AI agents are revolutionizing data entry workflows, saving organizations thousands of hours and dramatically reducing errors. This comprehensive guide walks you through creating intelligent automation systems that can handle complex form filling, document processing, and database management. Learn how to implement AI solutions that adapt to your specific needs, integrate with existing systems, and deliver measurable ROI. Whether you're managing customer records, processing invoices, or handling compliance documentation, this practical roadmap shows you exactly how to build and deploy AI agents that transform tedious manual work into streamlined digital efficiency.",
+    "url": "/blog/building-an-ai-agent-for-data-entry-step-by-step.html",
+    "image": "/blog/images/building-an-ai-agent-for-data-entry-step-by-step.png",
+    "tags": [
+      "use cases",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "Building an AI Agent for Data Entry: Step-by-Step\n\nThe Data Entry Dilemma: A Modern Business Challenge\n\nPicture this: Your team arrives Monday morning to face hundreds of paper forms, spreadsheets, and digital documents that need processing. Customer information, invoice details, and regulatory compliance data all waiting to be manually entered into various systems. Sound familiar? For countless organizations, data entry remains a significant bottleneck that drains resources, increases error rat..."
+  },
+  {
     "title": "The Business Case for AI Assistants in 2028",
     "date": "February 27, 2026",
     "readTime": "5 min read",
