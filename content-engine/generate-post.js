@@ -454,7 +454,7 @@ function createBlogHtml(post) {
     <title>${post.title} | Building in Public</title>
     <meta name="description" content="${post.excerpt}">
     <link rel="canonical" href="https://shopcliffmart.com/blog/${post.slug}.html">
-    <link rel="icon" type="image/svg+xml" href="/favicon.png?v2">
+    <link rel="icon" type="image/svg+xml" href="/favicon-circuit.png?v2">
     <meta property="og:type" content="article">
     <meta property="og:title" content="${post.title}">
     <meta property="og:description" content="${post.excerpt}">
