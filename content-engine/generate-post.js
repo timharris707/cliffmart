@@ -275,12 +275,22 @@ Make this genuinely useful - something you'd bookmark and reference later.`;
 
 // Convert markdown-style content to HTML
 function markdownToHtml(content) {
-  let cleanContent = content;
+  let cleanContent = content.trim();
   
   // Remove redundant title and "HOOK:" labels at the start
-  // Matches title repeating at start or "HOOK:" or "1. HOOK" labels
-  cleanContent = cleanContent.replace(/^# .*$/m, ''); 
-  cleanContent = cleanContent.replace(/^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM):?\s*$/gim, '');
+  // This version is more aggressive to ensure we catch variations
+  // 1. Remove very first line if it's identical or very similar to the actual title
+  const lines = cleanContent.split('\n');
+  if (lines.length > 0) {
+      const firstLine = lines[0].replace(/^#+\s*/, '').trim();
+      // If the first line of content is just a repeat of the title, discard it
+      // Note: We'll compare titles loosely in the main loop or just trust manual removal for now
+      // Actually, let's just use regex to strip common "header" patterns at the start
+      cleanContent = cleanContent.replace(/^#+ .*$/m, ''); 
+  }
+
+  // 2. Continuous cleanup of labels
+  cleanContent = cleanContent.replace(/^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|Introduction):?\s*$/gim, '');
 
   return cleanContent.trim()
     // Headers
@@ -437,7 +447,7 @@ function createBlogHtml(post) {
                 Copy as Markdown for Your Agent
             </button>
             <div class="post-content-v2">
-                <p class="post-attribution-v2">By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></p>
+                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
                 ${htmlContent}
             </div>
         </div>

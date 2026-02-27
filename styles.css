@@ -2394,6 +2394,7 @@ body {
 }
 
 .post-attribution-v2 {
+    font-style: italic;
     font-size: 0.9rem;
     color: var(--text-light);
     margin-bottom: 2rem;
