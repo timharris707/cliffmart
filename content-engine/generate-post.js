@@ -12,7 +12,7 @@ const { execSync } = require('child_process');
 
 // Configuration
 const CONFIG = {
-  targetWordCount: { min: 3000, max: 3500 },
+  targetWordCount: { min: 1500, max: 3500 },
   blogDir: path.join(__dirname, '..', 'blog'),
   imagesDir: path.join(__dirname, '..', 'blog', 'images'),
   sitemapPath: path.join(__dirname, '..', 'sitemap.xml'),
@@ -210,11 +210,11 @@ async function generateArticleContent(topic) {
     
     const prompt = `Write a comprehensive, engaging, and highly readable blog post about "${topic.title}".
 
-TARGET LENGTH: 3,000-3,500 words (THIS IS MANDATORY - WRITE A LONG, COMPREHENSIVE ARTICLE)
+TARGET LENGTH: 1,500-3,500 words (FLEXIBLE - WRITE A SUBSTANTIAL, COMPREHENSIVE ARTICLE)
 - Each section must be FULLY DEVELOPED with rich detail and examples
-- The USE CASES section alone should be 1,800-2,200 words (4-6 detailed scenarios)
-- If your output is under 2,500 words, you have NOT written enough. EXPAND each section.
-- Aim for SUBSTANTIAL content in every paragraph - not brief summaries
+- The USE CASES section should be substantial (4-6 detailed scenarios)
+- If your output is under 1,500 words, you have NOT written enough. EXPAND each section.
+- Aim for SUBSTANTIAL content - quality over strict word count, but minimum 1,500 words
 
 CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
 - NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets, programming lines, or pseudo-code.
@@ -225,17 +225,17 @@ CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
 - SEO OPTIMIZED: Use natural language and headings that perform well in search engines.
 - FACTUAL INTEGRITY: All examples, statistics, and case studies must be grounded in reality. Use general scenarios rather than specific fake data.
 
-STRUCTURE (follow exactly - WORD COUNTS ARE MANDATORY MINIMUMS):
-1. HOOK (300-400 words): Relatable problem with detailed scenario. Build empathy with specific, vivid examples.
-2. SOLUTION OVERVIEW (400-500 words): Strategic explanation of how AI/OpenClaw solves the problem. Include concrete benefits and transformation logic.
-3. USE CASES & POSSIBILITIES (1,800-2,200 words): MANDATORY - This is the bulk of the article. Provide 4-6 FULLY DEVELOPED sections with:
+STRUCTURE (follow exactly - ADJUST DEPTH BASED ON TARGET LENGTH):
+1. HOOK (200-400 words): Relatable problem with detailed scenario. Build empathy with specific, vivid examples.
+2. SOLUTION OVERVIEW (300-500 words): Strategic explanation of how AI/OpenClaw solves the problem. Include concrete benefits and transformation logic.
+3. USE CASES & POSSIBILITIES (800-1,800 words): The bulk of the article. Provide 4-6 FULLY DEVELOPED sections with:
    - Detailed scenario setup
    - Step-by-step workflow explanation
    - User experience narrative
    - Specific business impact and outcomes
-   EACH use case should be 300-400 words minimum.
-4. ROI & STRATEGY (350-450 words): Comprehensive breakdown of time savings, efficiency gains, and revenue potential with specific examples.
-5. THE FUTURE / CTA (200-300 words): Actionable next steps and future outlook.
+   EACH use case should be substantial and well-developed.
+4. ROI & STRATEGY (250-450 words): Comprehensive breakdown of time savings, efficiency gains, and revenue potential with specific examples.
+5. THE FUTURE / CTA (150-300 words): Actionable next steps and future outlook.
 
 EXCERPT/SUBTITLE REQUIREMENT (CRITICAL - ENFORCED 40-60 WORDS):
 - Start your response with a compelling 40-60 word standalone teaser (COUNT THE WORDS: 40-60 words exactly)

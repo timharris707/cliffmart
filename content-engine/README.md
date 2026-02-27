@@ -1,10 +1,11 @@
 # CliffMart Content Engine
 ## Automated Blog Generation System
 
-**Status:** ✅ Infrastructure Ready | ⏳ AI Integration Pending  
-**Target Output:** ~19 articles/day (~30/day with 75-min intervals)  
-**Word Count:** 3,000-3,500 words per article  
-**Schedule:** Every 75 minutes (cron)
+**Status:** ✅ LIVE — Fully Operational  
+**Target Output:** ~12 articles/day (every 2 hours)  
+**Word Count:** 1,500-3,500 words per article (flexible)  
+**Schedule:** Every 120 minutes (2 hours) via cron  
+**AI Model:** Claude 4 Sonnet via OpenRouter
 
 ---
 
@@ -16,11 +17,11 @@ This system automatically generates SEO-optimized blog content for shopcliffmart
 
 | Metric | Target | Calculation |
 |--------|--------|-------------|
-| Articles per day | ~19 | 24 hours ÷ 75 minutes |
-| Words per article | 3,000-3,500 | Average: 3,250 |
-| Daily word output | ~61,750 words | 19 × 3,250 |
-| Monthly word output | ~1.9M words | 585 × 3,250 |
-| Posting schedule | Every 75 min | `*/75 * * * *` |
+| Articles per day | ~12 | 24 hours ÷ 120 minutes |
+| Words per article | 1,500-3,500 | Average: 2,500 |
+| Daily word output | ~18,000-42,000 words | 12 × 1,500-3,500 |
+| Monthly word output | ~540K-1.26M words | 360 × 1,500-3,500 |
+| Posting schedule | Every 2 hours | `0 */2 * * *` |
 
 ---
 
@@ -228,13 +229,13 @@ The content engine rotates through these categories:
 
 ## Cron Configuration
 
-### Schedule: Every 75 Minutes
+### Schedule: Every 120 Minutes (2 Hours)
 
 ```bash
 # Add to crontab with: crontab -e
-# Format: */75 * * * * command
+# Format: 0 */2 * * * command (runs at :00 every 2 hours)
 
-*/75 * * * * /Users/openclaw/.openclaw/workspace/cliffmart/content-engine/cron-runner.sh >> /Users/openclaw/.openclaw/workspace/cliffmart/content-engine/logs/cron.log 2>&1
+0 */2 * * * /Users/openclaw/.openclaw/workspace/cliffmart/content-engine/cron-runner.sh >> /Users/openclaw/.openclaw/workspace/cliffmart/content-engine/logs/cron.log 2>&1
 ```
 
 ### Daily Output Schedule
@@ -297,7 +298,7 @@ The content engine rotates through these categories:
 
 2. **Image Generation**
    - DALL-E 3 or Midjourney integration
-   - Generate hero images (1200×630)
+   - Generate hero images (1792×1024, 16:9)
    - Style consistency
 
 3. **Twitter Integration**
