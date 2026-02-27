@@ -38,7 +38,7 @@ async function generateHeroImage(post) {
       return null;
     }
 
-    const stylePrompt = `Clean minimalist digital illustration for a blog post titled "${post.title}". The image should have the title "${post.title}" clearly written in a modern, legible sans-serif font at the bottom of the image in a dark overlay bar. Use a primary palette of soft high-tech blues and purples with subtle gradients, modern tech aesthetic, professional digital illustration style, light background.`;
+    const stylePrompt = `Clean minimalist isometric 3D digital illustration of ${post.title}. The subject should be a central 3D visual metaphor on a soft glowing floating platform. Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. Modern tech aesthetic, high-end professional render style, light pastel gradient background. No text, no words, no letters, no characters.`;
 
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
