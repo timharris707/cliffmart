@@ -99,14 +99,14 @@ cliffmart/
 
 Each article follows this structure:
 
-**Excerpt/Subtitle Requirements (CRITICAL):**
-- **Length:** 50-100 words
+**Excerpt/Subtitle Requirements (CRITICAL - ENFORCED 40-60 WORDS):**
+- **Length:** Exactly 40-60 words (enforced by content validation)
 - **Purpose:** Compelling teaser that appears as the article subtitle and in SEO meta descriptions
 - **Style:** Engaging marketing copy that captures the article's core value proposition
 - **Format:** Write as standalone text (no "EXCERPT:" label), followed by `---` separator, then article body
-- **Example:** "Transform your business operations from chaotic to clockwork with AI-powered automation. This comprehensive guide reveals how forward-thinking businesses are using artificial intelligence to deliver 24/7 personalized responses while reducing response times by up to 80%."
+- **Example (48 words):** "Discover how AI automation is reclaiming 20+ hours weekly for operations managers. This guide reveals proven workflow strategies, implementation timelines, and ROI calculations. Learn how forward-thinking businesses use intelligent automation to eliminate tedious tasks and boost productivity — no coding required."
 
-The excerpt is automatically extracted and displayed as the subtitle on the blog post, appears in social media previews, and is used for SEO meta descriptions.
+The excerpt is automatically extracted and displayed as the subtitle on the blog post, appears in social media previews, and is used for SEO meta descriptions. Content outside the 40-60 word range will be truncated or flagged for review.
 
 **Summary/Excerpt Requirements:**
 - **Length:** 50-100 words (compelling summary of the article)

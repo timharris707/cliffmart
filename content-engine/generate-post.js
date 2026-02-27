@@ -228,13 +228,13 @@ STRUCTURE (follow exactly):
 4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
 5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
 
-EXCERPT/SUBTITLE REQUIREMENT (CRITICAL - MUST BE 50-100 WORDS):
-- Start your response with a compelling 50-100 word standalone teaser (count: 50-100 words, not characters)
-- This is the ONLY text that appears as the article subtitle - make it substantial
+EXCERPT/SUBTITLE REQUIREMENT (CRITICAL - ENFORCED 40-60 WORDS):
+- Start your response with a compelling 40-60 word standalone teaser (COUNT THE WORDS: 40-60 words exactly)
+- This is the ONLY text that appears as the article subtitle - must be substantial
 - DO NOT label it "EXCERPT:" or "SUBTITLE:" - just write the text directly
-- EXAMPLE (65 words): "Tired of drowning in repetitive tasks that drain your productivity? Discover how AI automation is transforming modern business operations. This comprehensive guide reveals proven strategies for reclaiming 20+ hours weekly through intelligent workflow design. We break down the exact implementation steps, ROI calculations, and real-world case studies that make this transformation achievable — no technical expertise required."
+- EXAMPLE (48 words): "Discover how AI automation is reclaiming 20+ hours weekly for operations managers. This guide reveals proven workflow strategies, implementation timelines, and ROI calculations. Learn how forward-thinking businesses use intelligent automation to eliminate tedious tasks and boost productivity — no coding required."
 - After the excerpt, add a blank line, then "---", then another blank line, then start the article body
-- Word count check: If your excerpt is under 40 words, EXPAND it with more detail and value
+- WORD COUNT CHECK: Count your words. If under 40, add more detail. If over 60, trim it down.
 
 WRITING STYLE:
 - Expert yet conversational. Like a high-level strategist talking to a peer.
@@ -318,15 +318,14 @@ function markdownToHtml(content) {
 }
 
 // Extract the excerpt from article content (first section before ---)
+// ENFORCED: Must be between 40-60 words
 function generateExcerpt(content) {
   // The excerpt should already be the first section before ---
-  // Just clean it up and ensure proper length
   let cleanContent = content.replace(/^EXCERPT:\s*/i, '').trim();
-  
-  // If content is already reasonable length (50-200 words), use it as-is
   const words = cleanContent.split(/\s+/).filter(w => w.length > 0);
-  if (words.length >= 40 && words.length <= 120) {
-    // Ensure it ends with proper punctuation
+  
+  // If content is within 40-60 words, use it as-is
+  if (words.length >= 40 && words.length <= 60) {
     let excerpt = cleanContent;
     if (!excerpt.match(/[.!?]$/)) {
       excerpt += '.';
@@ -334,17 +333,25 @@ function generateExcerpt(content) {
     return excerpt;
   }
   
-  // Otherwise fall back to truncated version
-  let excerpt = words.slice(0, 25).join(' ');
-  if (excerpt.length > 0 && !excerpt.match(/[.!?]$/)) {
+  // If too long, truncate to ~50 words at sentence boundary
+  if (words.length > 60) {
+    let excerpt = words.slice(0, 50).join(' ');
+    // Find last complete sentence
     const lastPeriod = excerpt.lastIndexOf('.');
-    if (lastPeriod > 50) {
+    if (lastPeriod > 30) {
       excerpt = excerpt.substring(0, lastPeriod + 1);
     } else {
       excerpt += '...';
     }
+    return excerpt;
   }
   
+  // If too short, return as-is (flag for content review)
+  // Content quality check will catch this
+  let excerpt = cleanContent;
+  if (!excerpt.match(/[.!?]$/)) {
+    excerpt += '...';
+  }
   return excerpt;
 }
 
