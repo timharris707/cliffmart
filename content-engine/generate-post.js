@@ -208,11 +208,14 @@ async function generateArticleContent(topic) {
 
 TARGET: 3,000-3,500 words of compelling narrative that explains the possibilities of AI and OpenClaw.
 
-CONTENT GUIDELINES (CRITICAL):
-- NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets or programming lines.
+CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
+- NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets, programming lines, or pseudo-code.
+- NO FAKE PRODUCTS: NEVER invent fictional products, frameworks, npm packages, or APIs. Do not make up company names, case studies, or statistics. Only reference real, verifiable AI tools and concepts.
+- NO FAKE URLs: NEVER include links to non-existent websites (like docs.openclaw.dev, openclaw.dev, etc.). If mentioning OpenClaw, describe it conceptually without fake documentation sites.
 - HUMAN-CENTRIC: Write for business owners, project managers, and AI enthusiasts. Make it accessible and "attractive" to humans, not just developers.
 - STRATEGIC DEPTH: Focus on the "What" and the "Why." Explain how these tools change workflows, save time, and generate revenue.
 - SEO OPTIMIZED: Use natural language and headings that perform well in search engines.
+- FACTUAL INTEGRITY: All examples, statistics, and case studies must be grounded in reality. Use general scenarios rather than specific fake data.
 
 STRUCTURE (follow exactly):
 1. HOOK (250-350 words): Relatable problem or pain point. Use real-world scenarios to build empathy.
