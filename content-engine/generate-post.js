@@ -224,11 +224,12 @@ STRUCTURE (follow exactly):
 4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
 5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
 
-EXCERPT REQUIREMENT:
-- Create a compelling 50-100 word summary at the very beginning of your response
-- This should be a standalone teaser that captures the article's core value
-- Write it as engaging marketing copy, not just a dry summary
-- Example: "Discover how operations managers are reclaiming 20+ hours weekly by automating repetitive tasks with OpenClaw. We break down the exact workflows, implementation timeline, and ROI calculations that make this transformation possible — no coding required."
+EXCERPT/SUBTITLE REQUIREMENT (CRITICAL):
+- Start your response with a compelling 50-100 word standalone teaser
+- This captures the article's core value in engaging marketing copy
+- DO NOT label it "EXCERPT:" or "SUBTITLE:" - just write the text directly
+- Example format: "Discover how operations managers are reclaiming 20+ hours weekly by automating repetitive tasks with OpenClaw. We break down the exact workflows, implementation timeline, and ROI calculations that make this transformation possible — no coding required."
+- After the excerpt, add a blank line, then "---", then another blank line, then start the article body
 
 WRITING STYLE:
 - Expert yet conversational. Like a high-level strategist talking to a peer.
@@ -278,9 +279,13 @@ WRITING STYLE:
 function markdownToHtml(content) {
   let lines = content.trim().split('\n');
   let startIndex = 0;
-  for (let i = 0; i < Math.min(lines.length, 10); i++) {
+  for (let i = 0; i < Math.min(lines.length, 15); i++) {
     const line = lines[i].trim();
-    if (line.startsWith('#') || /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION|SUBTITLE):?$/i.test(line) || line === "") {
+    // Skip headers, labels, empty lines, and EXCERPT section
+    if (line.startsWith('#') || 
+        /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION|SUBTITLE|EXCERPT):?$/i.test(line) ||
+        line === "" ||
+        line === "---") {
       startIndex = i + 1;
     } else {
       break;
@@ -309,21 +314,24 @@ function markdownToHtml(content) {
 
 // Generate a compelling excerpt (50-100 words) from article content
 function generateExcerpt(content) {
+  // Remove EXCERPT: prefix if present
+  let cleanContent = content.replace(/^EXCERPT:\s*/i, '');
+  
   // Clean up the content - remove markdown headers and extra whitespace
-  let cleanContent = content
+  cleanContent = cleanContent
     .replace(/^#+\s+/gm, '')
     .replace(/^HOOK:|^SOLUTION OVERVIEW:|^USE CASES|^ROI|^CTA:/gim, '')
     .replace(/\n+/g, ' ')
     .trim();
   
-  // Get first 80-100 words
+  // Get first 80-100 words (aiming for 50-100 word excerpt)
   const words = cleanContent.split(/\s+/);
-  let excerpt = words.slice(0, 25).join(' ');
+  let excerpt = words.slice(0, 18).join(' ');
   
   // Ensure it ends with a complete sentence or add ellipsis
   if (excerpt.length > 0 && !excerpt.match(/[.!?]$/)) {
     const lastPeriod = excerpt.lastIndexOf('.');
-    if (lastPeriod > 50) {
+    if (lastPeriod > 40) {
       excerpt = excerpt.substring(0, lastPeriod + 1);
     } else {
       excerpt += '...';
