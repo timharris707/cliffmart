@@ -9,7 +9,6 @@ async function fix() {
     const filePath = path.join(blogDir, file);
     let html = fs.readFileSync(filePath, 'utf8');
     
-    // Look for content section
     const startTag = '<div class="post-content-v2">';
     const findTag = html.indexOf(startTag);
     if (findTag === -1) continue;
@@ -19,32 +18,31 @@ async function fix() {
     const endIndex = after.indexOf(endTag);
     let body = after.substring(0, endIndex).trim();
 
-    // 1. Extract first subtitle candidate
-    // Usually it was being stripped by previous logic or left in <p>
-    // We'll look for the first <p> which often contained the subtitle 
-    // OR we will create one from the topic.
-    let subtitle = "Understanding AI-Powered Strategic Workflows";
+    // Reset everything
+    let subtitle = "AI-Driven Strategic Insights";
     
-    // Cleanup body: remove existing attribution and redundant titles
-    body = body.replace(/<p class="post-attribution-v2">.*?<\/p>/gi, '');
-    
-    // Find the first paragraph
-    const pMatch = body.match(/<p>(.*?)<\/p>/i);
-    if (pMatch && pMatch[1].length < 120 && !pMatch[1].includes('##')) {
-        subtitle = pMatch[1];
-        body = body.replace(pMatch[0], ''); // Remove subtitle from body
+    // Identify existing subtitle and attribution
+    const subtitleMatch = body.match(/<p class="post-subtitle-v2">(.*?)<\/p>/i);
+    const attrMatch = body.match(/<p class="post-attribution-v2">.*?<\/p>/i);
+
+    if (subtitleMatch) {
+       subtitle = subtitleMatch[1];
+       body = body.replace(subtitleMatch[0], '');
+    }
+    if (attrMatch) {
+       body = body.replace(attrMatch[0], '');
     }
 
-    // Reconstruction
+    // New Reconstruction: Subtitle THEN Attribution
     const newContent = `
                 <p class="post-subtitle-v2">${subtitle}</p>
-                <p class="post-attribution-v2">By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></p>
+                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
                 ${body.trim()}`;
     
     const newHtml = html.substring(0, findTag + startTag.length) + newContent + "\n            " + after.substring(endIndex);
     
     fs.writeFileSync(filePath, newHtml);
-    console.log(`✅ Finalized structure for: ${file}`);
+    console.log(`✅ Fixed Order for: ${file}`);
   }
 }
 
