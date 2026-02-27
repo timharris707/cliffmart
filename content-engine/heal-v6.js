@@ -18,10 +18,8 @@ async function fix() {
     const endIndex = after.indexOf(endTag);
     let body = after.substring(0, endIndex).trim();
 
-    // Reset everything
     let subtitle = "AI-Driven Strategic Insights";
     
-    // Identify existing subtitle and attribution
     const subtitleMatch = body.match(/<p class="post-subtitle-v2">(.*?)<\/p>/i);
     const attrMatch = body.match(/<p class="post-attribution-v2">.*?<\/p>/i);
 
@@ -33,10 +31,10 @@ async function fix() {
        body = body.replace(attrMatch[0], '');
     }
 
-    // New Reconstruction: Subtitle THEN Attribution
+    // Swapped order: Attribution first, THEN Subtitle
     const newContent = `
-                <p class="post-subtitle-v2">${subtitle}</p>
                 <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
+                <p class="post-subtitle-v2">${subtitle}</p>
                 ${body.trim()}`;
     
     const newHtml = html.substring(0, findTag + startTag.length) + newContent + "\n            " + after.substring(endIndex);
