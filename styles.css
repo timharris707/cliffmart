@@ -2458,7 +2458,7 @@ body {
     background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
     border-left: 4px solid #007bff;
     border-radius: 0 8px 8px 0;
-    font-style: normal;
+    font-style: italic;
 }
 
 .post-attribution-v2 {
