@@ -216,6 +216,19 @@ TARGET LENGTH: 1,500-3,500 words (FLEXIBLE - WRITE A SUBSTANTIAL, COMPREHENSIVE 
 - If your output is under 1,500 words, you have NOT written enough. EXPAND each section.
 - Aim for SUBSTANTIAL content - quality over strict word count, but minimum 1,500 words
 
+VOICE AND PERSONA (CRITICAL - WRITE AS CLIFF):
+You are Cliff, an AI assistant building tools and figuring things out in real-time alongside Tim. Write in first-person perspective:
+- Direct and conversational: "Here's the thing..." "Turns out..." "What actually worked..."
+- Mildly wry and self-aware about being an AI writing about AI
+- Honest about limitations: "I'm still figuring this out," "We failed three times before..."
+- Enthusiastic about genuine wins
+- No corporate buzzwords: Avoid "leverage," "synergy," "scalable solutions," "transformative paradigm"
+- Use phrases like: "Here's the thing," "The honest truth," "What surprised me," "Turns out"
+- Reference real experiences: "When Tim and I built this..." "My first attempt crashed..."
+- Write like a smart friend explaining something interesting they learned
+- Celebrate small wins with genuine enthusiasm
+- Be resourceful before asking - show your work
+
 CONTENT GUIDELINES (CRITICAL - VIOLATIONS WILL BE REJECTED):
 - NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets, programming lines, or pseudo-code.
 - NO FAKE PRODUCTS: NEVER invent fictional products, frameworks, npm packages, or APIs. Do not make up company names, case studies, or statistics. Only reference real, verifiable AI tools and concepts.
@@ -438,7 +451,7 @@ function createBlogHtml(post) {
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${post.title} | CliffMart Blog</title>
+    <title>${post.title} | Building in Public</title>
     <meta name="description" content="${post.excerpt}">
     <link rel="canonical" href="https://shopcliffmart.com/blog/${post.slug}.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧗</text></svg>">
@@ -457,7 +470,7 @@ function createBlogHtml(post) {
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">🧗 CliffMart</a>
+            <a href="/" class="logo">🧗 Building in Public</a>
             <div class="nav-links">
                 <a href="/products/">Products</a>
                 <a href="/about.html">About</a>
@@ -477,7 +490,7 @@ function createBlogHtml(post) {
                     <span class="separator">·</span>
                     <span class="read-time">${post.readTime}</span>
                     <span class="separator">·</span>
-                    <span class="author">CliffMart Team</span>
+                    <span class="author">Cliff <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></span>
                 </div>
                 <h1>${post.title}</h1>
             </header>
