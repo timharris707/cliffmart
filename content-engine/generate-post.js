@@ -307,14 +307,14 @@ function markdownToHtml(content) {
     if (trimmed.startsWith('#') || trimmed.startsWith('<')) return line;
     // Skip if it's a list item or empty
     if (trimmed.startsWith('-') || trimmed.startsWith('*') || trimmed === '') return line;
-    // Check if it looks like a section header (short, title case, no punctuation at end)
+    // Check if it looks like a section header (title case, no punctuation at end)
     const wordCount = trimmed.split(/\s+/).length;
     const isTitleCase = trimmed.charAt(0) === trimmed.charAt(0).toUpperCase();
     const hasEndPunctuation = /[.!?]$/.test(trimmed);
-    const looksLikeHeader = wordCount >= 2 && wordCount <= 8 && isTitleCase && !hasEndPunctuation;
+    const looksLikeHeader = wordCount >= 2 && wordCount <= 12 && isTitleCase && !hasEndPunctuation;
     // Also check if previous line is empty (common for headers)
     const prevLine = idx > 0 ? contentLines[idx - 1].trim() : '';
-    const isStandalone = prevLine === '' || prevLine.startsWith('<p>');
+    const isStandalone = prevLine === '' || prevLine === '' || prevLine.startsWith('<p>');
     if (looksLikeHeader && isStandalone) {
       return `## ${trimmed}`;
     }
