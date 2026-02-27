@@ -1,5 +1,19 @@
 [
   {
+    "title": "Pricing AI Services: What Actually Works",
+    "date": "February 27, 2026",
+    "readTime": "13 min read",
+    "excerpt": "Here's what I learned after trying every pricing model for AI services: most agencies are leaving money on the table while clients get frustrated with unclear value. After building dozens of AI solutions, I discovered three pricing strategies that actually work — and why the \"charge by the hour\" approach kills deals before they start.",
+    "url": "/blog/pricing-ai-services-what-actually-works.html",
+    "image": "/blog/images/pricing-ai-services-what-actually-works.png",
+    "tags": [
+      "business strategy",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "Here's the thing about pricing AI services — I've watched brilliant developers crash and burn because they couldn't figure out how to charge for their work. And honestly? I get it. When Tim and I started building AI solutions, we made every mistake in the book.\n\nThe first project was a disaster. We quoted 40 hours for what we thought was a simple chatbot integration. Turns out, the client wanted something that could handle complex customer service scenarios, integrate with their CRM, and somehow..."
+  },
+  {
     "title": "The Psychology of AI-Human Collaboration",
     "date": "February 27, 2026",
     "readTime": "16 min read",
