@@ -95,37 +95,30 @@ cliffmart/
 
 ## Content Format
 
-### Article Structure (Following Felix's Proven Format)
+### Article Structure (Human-Centric & Narrative Driven)
 
 Each article follows this structure:
 
-1. **Hook/Opening** (200-300 words)
-   - Relatable problem identification
-   - Cost of inaction (revenue loss statistics)
+1. **Strategic Hook** (200-300 words)
+   - Relatable business problems
+   - Narrative-driven empathy
 
-2. **Solution Overview** (300-400 words)
-   - How OpenClaw fixes the problem
-   - Why this approach vs. alternatives
+2. **The "Why" Overview** (300-400 words)
+   - Strategic value of OpenClaw/AI
+   - High-level workflow shifts
 
-3. **Use Cases/Examples** (1,500-2,000 words)
-   - 4-6 specific agent configurations
-   - Step-by-step implementation
-   - Real-world scenarios
+3. **Possibilities & Workflows** (1,500-2,000 words)
+   - 4-6 detailed narrative examples
+   - Focus on user experience and business outcomes
+   - **NO CODE BLOCKS**
 
-4. **Implementation Guide** (400-600 words)
-   - Practical setup steps
-   - Tool integrations
-   - Configuration details
+4. **Strategic ROI** (400-600 words)
+   - Non-technical breakdown of gains
+   - Economic impact logic
 
-5. **ROI & Results** (200-300 words)
-   - Time savings calculations
-   - Revenue impact
-   - Case study data
-
-6. **Call to Action** (100-150 words)
-   - Next steps
-   - Product mentions
-   - Engagement prompts
+5. **Future Outlook / CTA** (200-300 words)
+   - Clear next steps
+   - Vision for the future
 
 ### SEO Requirements
 

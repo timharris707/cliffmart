@@ -204,36 +204,27 @@ async function generateArticleContent(topic) {
       return null;
     }
     
-    const prompt = `Write a comprehensive, engaging, and practical blog post about "${topic.title}".
+    const prompt = `Write a comprehensive, engaging, and highly readable blog post about "${topic.title}".
 
-TARGET: 3,000-3,500 words of high-quality content that genuinely helps readers.
+TARGET: 3,000-3,500 words of compelling narrative that explains the possibilities of AI and OpenClaw.
+
+CONTENT GUIDELINES (CRITICAL):
+- NO CODE BLOCKS: Focus on the logic, strategy, and outcomes. Do not include technical code snippets or programming lines.
+- HUMAN-CENTRIC: Write for business owners, project managers, and AI enthusiasts. Make it accessible and "attractive" to humans, not just developers.
+- STRATEGIC DEPTH: Focus on the "What" and the "Why." Explain how these tools change workflows, save time, and generate revenue.
+- SEO OPTIMIZED: Use natural language and headings that perform well in search engines.
 
 STRUCTURE (follow exactly):
-1. HOOK (250-350 words): Start with a relatable problem or pain point. Use specific statistics or real-world scenarios. Make the reader feel understood.
-
-2. SOLUTION OVERVIEW (300-400 words): Introduce OpenClaw as the solution. Explain what it is briefly but focus on WHY it matters for this specific use case.
-
-3. USE CASES/IMPLEMENTATION (1,800-2,200 words): Provide 4-6 specific, detailed use cases or implementation steps. Include:
-   - Real scenarios with concrete examples
-   - Specific tool integrations (Twilio, Google Calendar, Stripe, etc.)
-   - Configuration details and code snippets where relevant
-   - Actual business outcomes and ROI
-   - Common pitfalls and how to avoid them
-
-4. RESULTS/ROI (250-350 words): Share specific metrics, time savings, revenue impact. Use realistic numbers based on industry standards.
-
-5. NEXT STEPS/CTA (150-200 words): Clear action items. What should the reader do today? Mention relevant CliffMart skills or products naturally.
+1. HOOK (250-350 words): Relatable problem or pain point. Use real-world scenarios to build empathy.
+2. SOLUTION OVERVIEW (300-400 words): How OpenClaw/AI fixes the issue from a strategic level. 
+3. USE CASES & POSSIBILITIES (1,800-2,200 words): Provide 4-6 detailed sections exploring different applications. Focus on the workflow, the user experience, and the business impact.
+4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
+5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
 
 WRITING STYLE:
-- Conversational but authoritative (like talking to a smart colleague)
-- Specific, not generic. Avoid buzzwords.
-- Include real statistics and data where possible
-- Use bullet points and subheadings for readability
-- Write in second person ("you", "your")
-- Include specific tool names, integration methods, and practical details
-- Avoid filler content - every paragraph should deliver value
-
-Make this genuinely useful - something you'd bookmark and reference later.`;
+- Expert yet conversational. Like a high-level strategist talking to a peer.
+- Narrative-driven. Tell stories of how this changes a day-in-the-life.
+- Avoid tech-jargon and filler. Every section must be interesting and valuable.`;
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
