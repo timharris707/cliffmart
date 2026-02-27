@@ -387,7 +387,6 @@ function createBlogHtml(post) {
                     <span class="author">CliffMart Team</span>
                 </div>
                 <h1>${post.title}</h1>
-                <p class="post-subtitle-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
             </header>
             <div class="post-hero-image">
                 <img src="/blog/images/${post.slug}.png" alt="${post.title}">
