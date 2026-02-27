@@ -2444,23 +2444,27 @@ body {
 
 
 
-.post-attribution-v2 {
-    font-size: 1rem;
-    color: #555;
-    margin: 0 0 0.4rem 0; /* Tight bottom margin before subtitle */
-    padding: 0;
-    border: none;
-    line-height: 1;
-    font-style: italic;
-}
+
+
+
 
 .post-content-v2 .post-subtitle-v2 {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.2;
     color: #000000;
-    margin: 0 0 2.5rem 0; /* More space below the subtitle/attribution block */
+    margin: 0 0 0.4rem 0; /* Tight bottom margin before attribution */
     padding: 0;
     border: none;
     font-style: normal;
+}
+
+.post-attribution-v2 {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 0 2.5rem 0; /* More space below the attribution */
+    padding: 0;
+    border: none;
+    line-height: 1;
+    font-style: italic;
 }

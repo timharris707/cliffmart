@@ -31,10 +31,10 @@ async function fix() {
        body = body.replace(attrMatch[0], '');
     }
 
-    // Swapped order: Attribution first, THEN Subtitle
+    // Final Order: Subtitle THEN Attribution
     const newContent = `
-                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
                 <p class="post-subtitle-v2">${subtitle}</p>
+                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
                 ${body.trim()}`;
     
     const newHtml = html.substring(0, findTag + startTag.length) + newContent + "\n            " + after.substring(endIndex);
