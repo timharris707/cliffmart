@@ -266,26 +266,40 @@ WRITING STYLE:
 
 // Convert markdown-style content to HTML
 function markdownToHtml(content) {
-  let cleanContent = content.trim();
+  let lines = content.trim().split('\n');
   
-  // Remove redundant title and "HOOK:" labels at the start
-  // This version is more aggressive to ensure we catch variations
-  // 1. Remove very first line if it's identical or very similar to the actual title
-  const lines = cleanContent.split('\n');
-  if (lines.length > 0) {
-      const firstLine = lines[0].replace(/^#+\s*/, '').trim();
-      // If the first line of content is just a repeat of the title, discard it
-      // Note: We'll compare titles loosely in the main loop or just trust manual removal for now
-      // Actually, let's just use regex to strip common "header" patterns at the start
-      cleanContent = cleanContent.replace(/^#+ .*$/m, ''); 
+  // Aggressively remove redundant headers at the start
+  // Skip lines until we find the real body text (paragraphs or secondary headers)
+  let startIndex = 0;
+  for (let i = 0; i < Math.min(lines.length, 5); i++) {
+    const line = lines[i].trim();
+    // If line is a header (starts with #) or specific labels, skip it
+    if (line.startsWith('#') || 
+        /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION):?$/i.test(line)) {
+      startIndex = i + 1;
+    } else if (line === '') {
+      continue;
+    } else {
+      break;
+    }
   }
+  
+  let cleanContent = lines.slice(startIndex).join('\n').trim();
 
-  // 2. Continuous cleanup of labels
-  cleanContent = cleanContent.replace(/^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|Introduction):?\s*$/gim, '');
-
-  return cleanContent.trim()
-    // Headers
+  return cleanContent
+    // Headers - Map ## to <h2> and ### to <h3>
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    // Bold and italic
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // Lists
+    .replace(/^- (.*$)/gim, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    // Paragraphs - wrap non-tag lines
+    .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
+    .replace(/<p><\/p>/g, '');
+}
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
     // Bold and italic
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')

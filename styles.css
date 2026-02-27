@@ -2411,3 +2411,49 @@ body {
 .post-attribution-v2 a:hover {
     text-decoration: underline;
 }
+
+/* Narrative Blog Improvements */
+.post-content-v2 h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-main, #1a1a1a);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.post-content-v2 h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main, #333);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-subtitle-v2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-light, #666);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--accent-blue, #007bff);
+    padding-left: 1.5rem;
+    font-style: italic;
+}
+
+.post-content-v2 p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.post-content-v2 ul, .post-content-v2 ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.post-content-v2 li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
