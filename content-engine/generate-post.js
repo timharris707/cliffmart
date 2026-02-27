@@ -275,7 +275,14 @@ Make this genuinely useful - something you'd bookmark and reference later.`;
 
 // Convert markdown-style content to HTML
 function markdownToHtml(content) {
-  return content
+  let cleanContent = content;
+  
+  // Remove redundant title and "HOOK:" labels at the start
+  // Matches title repeating at start or "HOOK:" or "1. HOOK" labels
+  cleanContent = cleanContent.replace(/^# .*$/m, ''); 
+  cleanContent = cleanContent.replace(/^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM):?\s*$/gim, '');
+
+  return cleanContent.trim()
     // Headers
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
