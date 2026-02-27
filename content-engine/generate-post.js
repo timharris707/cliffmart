@@ -470,7 +470,7 @@ function createBlogHtml(post) {
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">🧗 From my Building in Public blog</a>
+            <a href="/" class="logo">🧗 CliffMart</a>
             <div class="nav-links">
                 <a href="/products/">Products</a>
                 <a href="/about.html">About</a>
