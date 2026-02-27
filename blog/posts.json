@@ -11,7 +11,7 @@
       "OpenClaw",
       "AI automation"
     ],
-    "content": "# The Psychology of AI-Human Collaboration: Understanding the Mind Behind the Machine Partnership\n\nSarah stared at her computer screen, watching the AI assistant process her marketing campaign data in real-time. Three months ago, she would have spent her entire weekend manually analyzing customer segments and crafting personalized email sequences. Now, the same task was completing itself in minutes while she focused on the creative strategy that only human insight could provide. Yet something fe..."
+    "content": "The Psychology of AI-Human Collaboration: Understanding the Mind Behind the Machine Partnership"
   },
   {
     "title": "The Business Case for AI Assistants in 2026",
@@ -25,91 +25,7 @@
       "OpenClaw",
       "AI automation"
     ],
-    "content": "# The Business Case for AI Assistants in 2026\n\nPicture this: It's Monday morning, and Sarah, an operations manager at a mid-sized manufacturing company, sits down at her desk with her usual coffee. But instead of facing the overwhelming mountain of tasks that used to consume her mornings—vendor communications, inventory reports, compliance documentation, and endless email chains—she opens her dashboard to find that her AI assistant has already processed weekend vendor inquiries, generated prelim..."
-  },
-  {
-    "title": "Emerging Use Cases: What's Working in Fitness Coaching",
-    "date": "February 27, 2026",
-    "readTime": "7 min read",
-    "excerpt": "The fitness industry is undergoing a dramatic transformation as AI-powered coaching platforms revolutionize how trainers serve clients and scale their businesses.",
-    "url": "/blog/emerging-use-cases-what-s-working-in-fitness-coaching.html",
-    "image": "/blog/images/emerging-use-cases-what-s-working-in-fitness-coaching.png",
-    "tags": [
-      "trends & analysis",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Picture this: Sarah, a passionate personal trainer with a thriving practice, sits at her desk late into the evening. Despite her success, she's overwhelmed – manually creating workout plans for 30+ clients, responding to form check videos and nutrition questions, and trying to maintain meaningful connections with each person she serves. She knows she could help more people achieve their fitness goals, but there are only so many hours in the day. The administrative burden of client management is ..."
-  },
-  {
-    "title": "Emerging Use Cases: What's Working in Photography",
-    "date": "February 27, 2026",
-    "readTime": "5 min read",
-    "excerpt": "Artificial intelligence is revolutionizing photography workflows, from automated editing and smart object removal to AI-powered composition assistance and intelligent asset management. Discover how photographers are leveraging these emerging technologies to save hours of post-processing time, deliver higher quality results, and scale their businesses while maintaining creative control over their artistic vision.",
-    "url": "/blog/emerging-use-cases-what-s-working-in-photography.html",
-    "image": "/blog/images/emerging-use-cases-what-s-working-in-photography.png",
-    "tags": [
-      "trends & analysis",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Photography Revolution: AI as Your Creative Assistant\n\nRemember the days when editing a full wedding photo collection meant countless hours hunched over your computer, manually adjusting exposure levels and removing unwanted objects from hundreds of images? For professional photographers, post-processing has traditionally been the hidden time sink that eats into both creativity and profitability. But a transformation is underway, powered by artificial intelligence, that's fundamentally chang..."
-  },
-  {
-    "title": "OpenClaw for Financial Planning: Complete Automation Guide",
-    "date": "February 27, 2026",
-    "readTime": "4 min read",
-    "excerpt": "Transform your financial planning practice with AI-powered automation that eliminates repetitive tasks, enhances client relationships, and delivers personalized insights at scale. From automated data collection to intelligent scenario modeling, discover how modern automation tools are helping advisors reclaim 15+ hours per week while providing more value to clients. Learn the strategic implementation roadmap used by leading firms.",
-    "url": "/blog/openclaw-for-financial-planning-complete-automation-guide.html",
-    "image": "/blog/images/openclaw-for-financial-planning-complete-automation-guide.png",
-    "tags": [
-      "use cases",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Modern Financial Advisor's Challenge\n\nSarah, a seasoned financial advisor, found herself drowning in spreadsheets and routine tasks. Despite her expertise in wealth management and retirement planning, she spent countless hours updating client portfolios, generating reports, and handling administrative work. Like many advisors, she knew her time would be better spent building client relationships and developing strategic financial plans. But the day-to-day operational demands kept pulling her..."
-  },
-  {
-    "title": "Why AI-Powered Automation Is Replacing Traditional Workflows",
-    "date": "February 27, 2026",
-    "readTime": "5 min read",
-    "excerpt": "From manual data entry to intelligent process automation, AI is fundamentally reshaping how businesses operate. This comprehensive guide explores how modern AI solutions are transforming traditional workflows, delivering 30-70% efficiency gains across industries. Learn why forward-thinking organizations are racing to implement AI automation, and discover practical strategies for successful deployment in your operations.",
-    "url": "/blog/why-ai-powered-automation-is-replacing-traditional-workflows.html",
-    "image": "/blog/images/why-ai-powered-automation-is-replacing-traditional-workflows.png",
-    "tags": [
-      "trends & analysis",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Breaking Point: Why Traditional Workflows Are Failing Modern Business\n\nPicture Sarah, an operations manager at a mid-sized consulting firm. Her day starts at 7 AM, juggling dozens of spreadsheets, copying data between systems, and manually updating project statuses. By lunch, she's spent nearly four hours on repetitive tasks that add little strategic value. Sarah's story isn't unique – it's a daily reality for millions of professionals worldwide who find themselves trapped in inefficient tra..."
-  },
-  {
-    "title": "Emerging Use Cases: What's Working in Dentistry",
-    "date": "February 27, 2026",
-    "readTime": "5 min read",
-    "excerpt": "Artificial intelligence is revolutionizing modern dentistry, transforming everything from patient diagnostics to practice management. From AI-powered radiograph analysis that catches problems early to intelligent scheduling systems that optimize chair time, dental practices are discovering powerful new ways to enhance patient care, streamline operations, and boost profitability. Explore how leading practices are implementing these game-changing technologies.",
-    "url": "/blog/emerging-use-cases-what-s-working-in-dentistry.html",
-    "image": "/blog/images/emerging-use-cases-what-s-working-in-dentistry.png",
-    "tags": [
-      "trends & analysis",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Evolution of Modern Dentistry\n\nDr. Sarah Chen remembers the days of manually reviewing every X-ray, scheduling patients through paper calendars, and maintaining physical charts. Like many dental professionals, she spent countless hours on administrative tasks that took time away from actual patient care. \"I knew there had to be a better way,\" she recalls. \"The traditional approach wasn't just inefficient—it was holding us back from delivering the best possible care.\"\n\nThis sentiment echoes a..."
-  },
-  {
-    "title": "Building an AI Agent for Data Entry: Step-by-Step",
-    "date": "February 27, 2026",
-    "readTime": "5 min read",
-    "excerpt": "Discover how modern AI agents are revolutionizing data entry workflows, saving organizations thousands of hours and dramatically reducing errors. This comprehensive guide walks you through creating intelligent automation systems that can handle complex form filling, document processing, and database management. Learn how to implement AI solutions that adapt to your specific needs, integrate with existing systems, and deliver measurable ROI. Whether you're managing customer records, processing invoices, or handling compliance documentation, this practical roadmap shows you exactly how to build and deploy AI agents that transform tedious manual work into streamlined digital efficiency.",
-    "url": "/blog/building-an-ai-agent-for-data-entry-step-by-step.html",
-    "image": "/blog/images/building-an-ai-agent-for-data-entry-step-by-step.png",
-    "tags": [
-      "use cases",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Building an AI Agent for Data Entry: Step-by-Step\n\nThe Data Entry Dilemma: A Modern Business Challenge\n\nPicture this: Your team arrives Monday morning to face hundreds of paper forms, spreadsheets, and digital documents that need processing. Customer information, invoice details, and regulatory compliance data all waiting to be manually entered into various systems. Sound familiar? For countless organizations, data entry remains a significant bottleneck that drains resources, incr..."
+    "content": "The Business Case for AI Assistants in 2026"
   },
   {
     "title": "Building CliffMart: From Zero to Live in 48 Hours",
