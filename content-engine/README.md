@@ -99,6 +99,15 @@ cliffmart/
 
 Each article follows this structure:
 
+**Summary/Excerpt Requirements:**
+- **Length:** 50-100 words (compelling summary of the article)
+- **Purpose:** Appears in blog index, social previews, and SEO meta description
+- **Style:** Engaging teaser that makes readers want to click
+- **Content:** Capture the core value proposition and hook
+
+**Example good excerpt:**
+> "Discover how operations managers are reclaiming 20+ hours weekly by automating repetitive tasks with OpenClaw. We break down the exact workflows, implementation timeline, and ROI calculations that make this transformation possible — no coding required."
+
 1. **Strategic Hook** (200-300 words)
    - Relatable business problems
    - Narrative-driven empathy

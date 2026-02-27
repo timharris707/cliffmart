@@ -224,6 +224,12 @@ STRUCTURE (follow exactly):
 4. ROI & STRATEGY (250-350 words): Break down the time savings, efficiency gains, and revenue potential. Use clear, non-technical logic.
 5. THE FUTURE / CTA (150-200 words): How to get started and what to look forward to.
 
+EXCERPT REQUIREMENT:
+- Create a compelling 50-100 word summary at the very beginning of your response
+- This should be a standalone teaser that captures the article's core value
+- Write it as engaging marketing copy, not just a dry summary
+- Example: "Discover how operations managers are reclaiming 20+ hours weekly by automating repetitive tasks with OpenClaw. We break down the exact workflows, implementation timeline, and ROI calculations that make this transformation possible — no coding required."
+
 WRITING STYLE:
 - Expert yet conversational. Like a high-level strategist talking to a peer.
 - Narrative-driven. Tell stories of how this changes a day-in-the-life.
@@ -301,6 +307,32 @@ function markdownToHtml(content) {
     .replace(/<p><\/p>/g, "");
 }
 
+// Generate a compelling excerpt (50-100 words) from article content
+function generateExcerpt(content) {
+  // Clean up the content - remove markdown headers and extra whitespace
+  let cleanContent = content
+    .replace(/^#+\s+/gm, '')
+    .replace(/^HOOK:|^SOLUTION OVERVIEW:|^USE CASES|^ROI|^CTA:/gim, '')
+    .replace(/\n+/g, ' ')
+    .trim();
+  
+  // Get first 80-100 words
+  const words = cleanContent.split(/\s+/);
+  let excerpt = words.slice(0, 25).join(' ');
+  
+  // Ensure it ends with a complete sentence or add ellipsis
+  if (excerpt.length > 0 && !excerpt.match(/[.!?]$/)) {
+    const lastPeriod = excerpt.lastIndexOf('.');
+    if (lastPeriod > 50) {
+      excerpt = excerpt.substring(0, lastPeriod + 1);
+    } else {
+      excerpt += '...';
+    }
+  }
+  
+  return excerpt;
+}
+
 async function generateBlogPost(topic) {
   const date = new Date();
   const dateStr = date.toLocaleDateString('en-US', { 
@@ -327,7 +359,7 @@ async function generateBlogPost(topic) {
     isoDate,
     readTime,
     wordCount,
-    excerpt: `A comprehensive guide to ${topic.title.toLowerCase()}. Real strategies, working code, and lessons learned from production deployments.`,
+    excerpt: generateExcerpt(articleContent),
     category: topic.category,
     content: articleContent
   };
@@ -505,11 +537,13 @@ async function main() {
     const deployed = deployToVercel();
     
     // 3. Post to Twitter only if deploy succeeded
-    if (deployed) {
-      await postToTwitter(post);
-    } else {
-      console.error('❌ Skipping Twitter post due to deploy failure');
-    }
+    // TEMPORARILY DISABLED - Enable after blog format is confirmed working
+    // if (deployed) {
+    //   await postToTwitter(post);
+    // } else {
+    //   console.error('❌ Skipping Twitter post due to deploy failure');
+    // }
+    console.log('🐦 Twitter posting temporarily disabled for testing');
     
     console.log('\
 🎉 Content generation complete!');
