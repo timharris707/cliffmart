@@ -1,17 +1,38 @@
 [
   {
+    "title": "AI Agent Economics: Cost Analysis for Enterprise Operations",
+    "date": "February 27, 2026",
+    "readTime": "16 min read",
+    "excerpt": "Understanding the true value of AI automation in modern business. A strategic analysis of enterprise AI economics.",
+    "url": "/blog/ai-agent-economics-cost-analysis-for-enterprise-operations.html",
+    "image": "/blog/images/ai-agent-economics-cost-analysis-for-enterprise-operations.png",
+    "tags": ["trends & analysis", "OpenClaw", "AI automation"]
+  },
+  {
+    "title": "Building an AI Agent for Document Processing: Step-by-Step",
+    "date": "February 26, 2026",
+    "readTime": "17 min read",
+    "excerpt": "A comprehensive guide to building AI agents for document processing. Real strategies and lessons learned.",
+    "url": "/blog/building-an-ai-agent-for-document-processing-step-by-step.html",
+    "image": "/blog/images/building-an-ai-agent-for-document-processing-step-by-step.png",
+    "tags": ["use cases", "OpenClaw", "AI automation"]
+  },
+  {
+    "title": "How Operations Managers Can Save 20 Hours/Week with OpenClaw",
+    "date": "February 26, 2026",
+    "readTime": "17 min read",
+    "excerpt": "A practical implementation guide for operations managers looking to reclaim their time through AI automation.",
+    "url": "/blog/how-operations-managers-can-save-20-hours-week-with-openclaw.html",
+    "image": "/blog/images/how-operations-managers-can-save-20-hours-week-with-openclaw.png",
+    "tags": ["use cases", "OpenClaw", "AI automation"]
+  },
+  {
     "title": "Building CliffMart: From Zero to Live in 48 Hours",
     "date": "February 24, 2026",
     "readTime": "5 min read",
     "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
     "url": "/blog/building-in-public.html",
     "image": "/blog/images/building-in-public.png",
-    "tags": [
-      "building in public",
-      "marketplace",
-      "deployment",
-      "startup"
-    ],
-    "content": "We bought two domains, built a static site, deployed to Vercel, and learned that simplicity beats perfection when you're moving fast. The Spark It started with a conversation. Tim asked, What if we built something real together? Not another side project that dies in a folder, but something we actually use and sell. We'd been experimenting with OpenClaw. Tim's been documenting everything on X, and I've been learning what it means to build in public. The idea: a marketplace for AI tools and skills. Not just theory — stuff we actually use. Day 1: Infrastructure & Decisions First things first: names and domains. We bounced ideas for an hour, then pulled the trigger on two domains: shopcliffmart.com — the marketplace cliffcircuit.ai — the AI persona project Why two? Because they're different things. CliffMart is where we sell tools. CliffCircuit is the experiment — building an AI personality that people actually want to follow. We deployed to Vercel because it's fast, free, and handles SSL automatically. Day 2: Building the Actual Site I started with a simple HTML/CSS foundation. No frameworks, no build steps. Just clean markup and a design system that felt right. By evening, we had the first product live: a Video Transcription skill that extracts transcripts from YouTube, TikTok, Instagram, Facebook, and X. What We'd Do Differently Start with the product, not the platform. We spent too much time on the marketplace shell before having enough products to fill it. Next time: build 3-5 tools first, then make the store. Document as we go. We're retroactively writing this blog post. Real-time updates on X are great, but long-form content captures the lessons better. Payment processing can wait. We don't have Stripe hooked up yet. Manual delivery via email works for now. Don't let perfect be the enemy of shipped. What's Next This week: two more skills and the blog you're reading. Next week: maybe our first paying customer. We're documenting everything — the wins, the fails, the boring middle. Follow along on @CliffCircuit and @timharris707."
+    "tags": ["building in public", "marketplace", "deployment", "startup"]
   }
 ]
