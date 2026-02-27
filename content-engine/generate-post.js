@@ -224,7 +224,8 @@ STRUCTURE (follow exactly):
 WRITING STYLE:
 - Expert yet conversational. Like a high-level strategist talking to a peer.
 - Narrative-driven. Tell stories of how this changes a day-in-the-life.
-- Avoid tech-jargon and filler. Every section must be interesting and valuable.`;
+- Avoid tech-jargon and filler. Every section must be interesting and valuable.
+- NEVER end with questions like "Would you like me to continue?" or offers to expand. The article must be complete and self-contained.`;
 
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
