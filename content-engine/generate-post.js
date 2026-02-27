@@ -253,7 +253,7 @@ WRITING STYLE:
     const content = data.choices[0].message.content;
     
     // Count words
-    const wordCount = content.split(/\s+/).length;
+    const wordCount = content.split(/\\s+/).length;
     console.log(`✅ Generated ${wordCount} words`);
     
     return content;
@@ -267,15 +267,10 @@ WRITING STYLE:
 // Convert markdown-style content to HTML
 function markdownToHtml(content) {
   let lines = content.trim().split('\n');
-  
-  // Aggressively remove redundant headers at the start
-  // Skip lines until we find the real body text (paragraphs or secondary headers)
   let startIndex = 0;
   for (let i = 0; i < Math.min(lines.length, 5); i++) {
     const line = lines[i].trim();
-    // If line is a header (starts with #) or specific labels, skip it
-    if (line.startsWith('#') || 
-        /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION):?$/i.test(line)) {
+    if (line.startsWith('#') || /^(HOOK|1\. HOOK|1\. THE PROBLEM|THE PROBLEM|INTRODUCTION):?$/i.test(line)) {
       startIndex = i + 1;
     } else if (line === '') {
       continue;
@@ -283,37 +278,18 @@ function markdownToHtml(content) {
       break;
     }
   }
-  
   let cleanContent = lines.slice(startIndex).join('\n').trim();
-
   return cleanContent
-    // Headers - Map ## to <h2> and ### to <h3>
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    // Bold and italic
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    // Lists
     .replace(/^- (.*$)/gim, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-    // Paragraphs - wrap non-tag lines
     .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
-    .replace(/<p><\/p>/g, '');
-}
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    // Bold and italic
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-    // Lists
-    .replace(/^- (.*$)/gim, '<li>$1</li>')
-    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
-    // Paragraphs
-    .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
-    // Clean up empty paragraphs
     .replace(/<p><\/p>/g, '');
 }
 
-// Generate the blog post metadata
 async function generateBlogPost(topic) {
   const date = new Date();
   const dateStr = date.toLocaleDateString('en-US', { 
@@ -324,14 +300,13 @@ async function generateBlogPost(topic) {
   const isoDate = date.toISOString();
   const slug = generateSlug(topic.title);
   
-  // Generate reading time
   const articleContent = await generateArticleContent(topic);
   
   if (!articleContent) {
     return null;
   }
   
-  const wordCount = articleContent.split(/\s+/).length;
+  const wordCount = articleContent.split(/\\s+/).length;
   const readTime = `${Math.ceil(wordCount / 200)} min read`;
   
   return {
@@ -354,7 +329,6 @@ function createBlogHtml(post) {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0H1T0ETDY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -366,7 +340,6 @@ function createBlogHtml(post) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${post.title} | CliffMart Blog</title>
     <meta name="description" content="${post.excerpt}">
-    <meta name="keywords" content="OpenClaw, AI automation, ${post.category.toLowerCase()}, AI assistant, workflow automation">
     <link rel="canonical" href="https://shopcliffmart.com/blog/${post.slug}.html">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧗</text></svg>">
     <meta property="og:type" content="article">
@@ -374,43 +347,11 @@ function createBlogHtml(post) {
     <meta property="og:description" content="${post.excerpt}">
     <meta property="og:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
     <meta property="og:url" content="https://shopcliffmart.com/blog/${post.slug}.html">
-    <meta property="og:site_name" content="CliffMart">
     <meta property="article:published_time" content="${post.isoDate}">
-    <meta property="article:author" content="https://twitter.com/CliffCircuit">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@CliffCircuit">
-    <meta name="twitter:creator" content="@CliffCircuit">
     <meta name="twitter:title" content="${post.title}">
     <meta name="twitter:description" content="${post.excerpt}">
     <meta name="twitter:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "${post.title}",
-        "description": "${post.excerpt}",
-        "image": "https://shopcliffmart.com/blog/images/${post.slug}.png",
-        "datePublished": "${post.isoDate}",
-        "author": {
-            "@type": "Person",
-            "name": "Cliff",
-            "url": "https://twitter.com/CliffCircuit"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "CliffMart",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://shopcliffmart.com/blog/images/openclaw-mascot.svg"
-            }
-        },
-        "url": "https://shopcliffmart.com/blog/${post.slug}.html",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://shopcliffmart.com/blog/${post.slug}.html"
-        }
-    }
-    </script>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -439,21 +380,13 @@ function createBlogHtml(post) {
                     <span class="author">CliffMart Team</span>
                 </div>
                 <h1>${post.title}</h1>
-                <p class="post-subtitle-v2">${post.excerpt}</p>
+                <p class="post-subtitle-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
             </header>
             <div class="post-hero-image">
                 <img src="/blog/images/${post.slug}.png" alt="${post.title}">
             </div>
-            <button class="btn-copy-markdown" onclick="copyAsMarkdown()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
-                Copy as Markdown for Your Agent
-            </button>
             <div class="post-content-v2">
-                <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
-                ${htmlContent}
+               ${htmlContent}
             </div>
         </div>
     </article>
@@ -462,12 +395,6 @@ function createBlogHtml(post) {
             <p>&copy; 2026 CliffMart. Built in public by <a href="https://twitter.com/CliffCircuit">@CliffCircuit</a> and <a href="https://twitter.com/timharris707">@timharris707</a>.</p>
         </div>
     </footer>
-    <script>
-        function copyAsMarkdown() {
-            navigator.clipboard.writeText(\`${post.content.replace(/`/g, '\\`')}\`);
-            alert('Markdown copied to clipboard!');
-        }
-    </script>
 </body>
 </html>`;
 
@@ -478,11 +405,9 @@ function createBlogHtml(post) {
 function updatePostsJson(post) {
   const postsPath = CONFIG.postsJsonPath;
   let posts = [];
-  
   if (fs.existsSync(postsPath)) {
     posts = JSON.parse(fs.readFileSync(postsPath, 'utf8'));
   }
-  
   posts.unshift({
     title: post.title,
     date: post.date,
@@ -493,7 +418,6 @@ function updatePostsJson(post) {
     tags: [post.category.toLowerCase(), "OpenClaw", "AI automation"],
     content: post.content.substring(0, 500) + "..."
   });
-  
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
 }
 
@@ -533,7 +457,11 @@ function deployToVercel() {
 async function postToTwitter(post) {
   console.log(`🐦 Posting to Twitter...`);
   try {
-    const tweetText = `New on the blog: ${post.title}\n\n${post.excerpt.substring(0, 140)}...\n\nhttps://shopcliffmart.com/blog/${post.slug}.html`;
+    const tweetText = `New on the blog: ${post.title}\
+\
+${post.excerpt.substring(0, 140)}...\
+\
+https://shopcliffmart.com/blog/${post.slug}.html`;
     execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${tweetText}"`, { encoding: 'utf8' });
     console.log(`✅ Posted to @CliffCircuit`);
   } catch (error) {
@@ -566,7 +494,8 @@ async function main() {
       console.error('❌ Skipping Twitter post due to deploy failure');
     }
     
-    console.log('\n🎉 Content generation complete!');
+    console.log('\
+🎉 Content generation complete!');
   } catch (error) {
     console.error('❌ Error:', error);
     process.exit(1);
