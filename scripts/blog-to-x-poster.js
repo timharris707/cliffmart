@@ -72,7 +72,7 @@ function generateTweet(post) {
 // Post to X using the existing script
 function postToX(tweet) {
   const { execSync } = require('child_process');
-  const postScript = path.join(__dirname, '..', '..', '.openclaw', 'bin', 'post-to-cliffcircuit.js');
+  const postScript = path.join(process.env.HOME, '.openclaw', 'bin', 'post-to-cliffcircuit.js');
   
   try {
     execSync(`node "${postScript}" "${tweet.replace(/"/g, '\\"')}"`, { stdio: 'inherit' });

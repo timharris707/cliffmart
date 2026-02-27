@@ -20,6 +20,63 @@ const CONFIG = {
   openRouterApiKey: process.env.OPENROUTER_API_KEY || null
 };
 
+
+const HERO_IMAGE_SIZE = '1200x630';
+
+async function generateHeroImage(post) {
+  const imagePath = path.join(CONFIG.imagesDir, `${post.slug}.png`);
+  
+  try {
+    console.log(`🎨 Generating AI hero image for: ${post.title}...`);
+    
+    // Get OpenAI API key from keychain
+    let apiKey;
+    try {
+      apiKey = execSync('security find-generic-password -s openai-api-key -w', { encoding: 'utf8' }).trim();
+    } catch (e) {
+      console.error('❌ OpenAI API key not found in keychain.');
+      return null;
+    }
+
+    const stylePrompt = `Clean minimalist digital illustration for a blog post titled "${post.title}". The image should have the title "${post.title}" clearly written in a modern, legible sans-serif font at the bottom of the image in a dark overlay bar. Use a primary palette of soft high-tech blues and purples with subtle gradients, modern tech aesthetic, professional digital illustration style, light background.`;
+
+    const response = await fetch('https://api.openai.com/v1/images/generations', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: "dall-e-3",
+        prompt: stylePrompt,
+        n: 1,
+        size: "1792x1024",
+        quality: "standard"
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`OpenAI API error: ${response.status} ${await response.text()}`);
+    }
+
+    const data = await response.json();
+    const imageUrl = data.data[0].url;
+    
+    // Download the generated image
+    execSync(`curl -sL "${imageUrl}" -o "${imagePath}"`);
+    console.log(`✅ Success: Generated and saved hero image.`);
+    return imagePath;
+
+  } catch (error) {
+    console.error('❌ Failed to generate hero image:', error.message);
+    // Fallback to mascot
+    try {
+      fs.copyFileSync(path.join(CONFIG.imagesDir, 'openclaw-mascot.png'), imagePath);
+    } catch(e) {}
+    return null;
+  }
+}
+
 // Topic pool for AI/OpenClaw content
 const TOPIC_TEMPLATES = [
   {
@@ -471,7 +528,7 @@ async function postToTwitter(post) {
   console.log(`🐦 Posting to Twitter...`);
   
   try {
-    const tweetText = `New on the blog: ${post.title}\n\n${post.excerpt.substring(0, 100)}...\n\nhttps://shopcliffmart.com/blog/${post.slug}.html\n\n#OpenClaw #AI #Automation`;
+    const tweetText = `New on the blog: ${post.title}\n\n${post.excerpt.substring(0, 140)}...\n\nhttps://shopcliffmart.com/blog/${post.slug}.html`;
     
     // Call the post-to-cliffcircuit script
     execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${tweetText}"`, { encoding: 'utf8' });
@@ -519,8 +576,8 @@ async function main() {
     // Update sitemap
     updateSitemap(post);
     
-    // Create image placeholder
-    createImagePlaceholder(post);
+    // Create image
+    await generateHeroImage(post);
     
     // Post to Twitter
     await postToTwitter(post);
