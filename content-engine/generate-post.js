@@ -117,6 +117,7 @@ const TOPIC_TEMPLATES = [
       "Pricing AI Services: What Actually Works"
     ],
     models: ["SaaS", "Marketplace", "Consulting", "Hybrid", "Subscription", "Usage-Based"],
+    numbers: ["1", "2", "3", "4", "5", "6", "12"],
     amounts: ["1,000", "10,000", "100,000", "1,000,000"],
     years: ["2026", "2027", "2028"]
   },
@@ -130,7 +131,10 @@ const TOPIC_TEMPLATES = [
       "Emerging Use Cases: What's Working in {industry}"
     ],
     months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    scales: ["Small Business", "Enterprise", "Solo", "Team", "Agency", "Startup"]
+    years: ["2026", "2027", "2028"],
+    scales: ["Small Business", "Enterprise", "Solo", "Team", "Agency", "Startup"],
+    approaches: ["AI-Powered Automation", "Agent-Based Workflows", "Hybrid Human-AI Systems", "No-Code AI Tools", "Conversational AI"],
+    industries: ["E-commerce", "Consulting", "Real Estate", "Healthcare", "Marketing Agencies", "Law Firms", "Accounting", "Photography", "Event Planning", "Fitness Coaching", "Dentistry", "Chiropractic", "Financial Planning"]
   }
 ];
 
