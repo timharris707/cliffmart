@@ -499,8 +499,16 @@ function deployToVercel() {
   console.log('🚀 Deploying to Vercel and waiting for propagation...');
   try {
     const VERCEL_TOKEN = execSync('security find-generic-password -s vercel-token -w', { encoding: 'utf8' }).trim();
-    execSync('git add -A && git commit -m "Auto-generated blog content" && git push origin main', { stdio: 'inherit' });
-    execSync(`vercel --prod --token ${VERCEL_TOKEN} --yes`, { stdio: 'inherit' });
+    // Change to workspace root for git operations
+    const workspaceRoot = path.join(__dirname, '..');
+    execSync('git add -A && git commit -m "Auto-generated blog content" && git push origin main', { 
+      stdio: 'inherit',
+      cwd: workspaceRoot
+    });
+    execSync(`vercel --prod --token ${VERCEL_TOKEN} --yes`, { 
+      stdio: 'inherit',
+      cwd: workspaceRoot
+    });
     console.log('⏳ Waiting 45 seconds for CDN propagation...');
     execSync('sleep 45');
     return true;
