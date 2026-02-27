@@ -18,20 +18,26 @@ async function fix() {
     const endIndex = after.indexOf(endTag);
     let body = after.substring(0, endIndex).trim();
 
-    let subtitle = "AI-Driven Strategic Insights";
+    // Remove existing subtitle and attribution from body
+    body = body.replace(/<p class="post-subtitle-v2">.*?<\/p>/gi, '');
+    body = body.replace(/<p class="post-attribution-v2">.*?<\/p>/gi, '');
     
-    const subtitleMatch = body.match(/<p class="post-subtitle-v2">(.*?)<\/p>/i);
-    const attrMatch = body.match(/<p class="post-attribution-v2">.*?<\/p>/i);
-
-    if (subtitleMatch) {
-       subtitle = subtitleMatch[1];
-       body = body.replace(subtitleMatch[0], '');
+    // Find the subtitle: it's the first paragraph that looks like a subtitle (starts with "Understanding", "A Strategic", "The", etc.)
+    let subtitle = "AI-Driven Strategic Insights";
+    const pMatches = body.match(/<p>(.*?)<\/p>/gi);
+    if (pMatches) {
+        for (const p of pMatches) {
+            const text = p.replace(/<\/?p>/g, '').trim();
+            // Look for subtitle-like patterns
+            if (text.match(/^(Understanding|A Strategic|The Future|Exploring|How|The Complete|Transforming|Maximizing)/i) && text.length < 100) {
+                subtitle = text;
+                body = body.replace(p, ''); // Remove from body
+                break;
+            }
+        }
     }
-    if (attrMatch) {
-       body = body.replace(attrMatch[0], '');
-    }
 
-    // Final Order: Subtitle THEN Attribution
+    // Reconstruct with correct order: Subtitle THEN Attribution
     const newContent = `
                 <p class="post-subtitle-v2">${subtitle}</p>
                 <p class="post-attribution-v2"><em>By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></em></p>
@@ -40,7 +46,7 @@ async function fix() {
     const newHtml = html.substring(0, findTag + startTag.length) + newContent + "\n            " + after.substring(endIndex);
     
     fs.writeFileSync(filePath, newHtml);
-    console.log(`✅ Fixed Order for: ${file}`);
+    console.log(`✅ Fixed subtitle for: ${file}`);
   }
 }
 
