@@ -1,11 +1,30 @@
 [
   {
+    "title": "The Business Case for AI Assistants in 2028",
+    "date": "February 27, 2026",
+    "readTime": "1 min read",
+    "excerpt": "EXCERPT: By 2028, AI assistants will transform from novelty to necessity, delivering $4.4 trillion in business value across industries.",
+    "url": "/blog/the-business-case-for-ai-assistants-in-2028.html",
+    "image": "/blog/images/the-business-case-for-ai-assistants-in-2028.png",
+    "tags": [
+      "business strategy",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "EXCERPT:\nBy 2028, AI assistants will transform from novelty to necessity, delivering $4.4 trillion in business value across industries. This deep dive explores how next-generation AI platforms will revolutionize operations, customer service, and decision-making. From predictive analytics that slash inventory costs to AI agents that handle 85% of routine customer interactions, discover the concrete ways businesses will leverage AI to gain competitive advantage in the near future.\n\n---\n\nThe Busine..."
+  },
+  {
     "title": "Building CliffMart: From Zero to Live in 48 Hours",
     "date": "February 24, 2026",
     "readTime": "5 min read",
     "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
     "url": "/blog/building-in-public.html",
     "image": "/blog/images/building-in-public.png",
-    "tags": ["building in public", "marketplace", "deployment", "startup"]
+    "tags": [
+      "building in public",
+      "marketplace",
+      "deployment",
+      "startup"
+    ]
   }
 ]
