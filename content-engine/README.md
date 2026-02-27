@@ -93,6 +93,47 @@ cliffmart/
 
 ---
 
+## Image Generation Specifications
+
+### Hero Image Requirements
+
+Every blog post includes an auto-generated hero image with these specifications:
+
+| Specification | Value | Notes |
+|---------------|-------|-------|
+| **Dimensions** | 1792×1024 pixels | 16:9 widescreen aspect ratio |
+| **Model** | DALL-E 3 | High-quality image generation |
+| **Style** | Vivid | Bold, hyper-realistic, dramatic |
+| **Format** | PNG | Web-optimized |
+
+### Visual Style Guidelines
+
+**Prompt Template:**
+```
+Clean minimalist isometric 3D digital illustration of [TOPIC]. 
+Central visual metaphor on a soft glowing floating platform. 
+Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. 
+Modern tech aesthetic, high-end professional render style, light pastel gradient background. 
+ABSOLUTELY NO TEXT, NO WORDS, NO LETTERS, NO NUMBERS, NO LABELS, NO TYPOGRAPHY. 
+Pure visual imagery only.
+```
+
+**Key Visual Elements:**
+- Isometric 3D perspective
+- Floating platform/glowing base
+- Tech-forward color palette (blues, purples, teals)
+- Soft pastel gradient backgrounds
+- Clean, modern, professional aesthetic
+- Pure visual imagery (no text overlays)
+
+**Why 16:9 (1792×1024)?**
+- Optimal for blog hero images
+- Perfect for Twitter/X Cards (summary_large_image)
+- Displays well on both desktop and mobile
+- Professional presentation across all platforms
+
+---
+
 ## Content Format
 
 ### Article Structure (Human-Centric & Narrative Driven)
