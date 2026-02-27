@@ -332,7 +332,13 @@ async function generateBlogPost(topic) {
 // Create HTML file for the blog post
 function createBlogHtml(post) {
   const htmlContent = markdownToHtml(post.content);
-  
+  // Separate potential subtitle from start of content
+  const lines = post.content.split('\n');
+  let subtitle = "AI-Powered Strategy & Insights";
+  if (lines[0] && lines[0].length < 100 && !lines[0].includes('##')) {
+      subtitle = lines[0].trim();
+  }
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -392,7 +398,9 @@ function createBlogHtml(post) {
                 <img src="/blog/images/${post.slug}.png" alt="${post.title}">
             </div>
             <div class="post-content-v2">
-               ${htmlContent}
+                <p class="post-subtitle-v2">${subtitle}</p>
+                <p class="post-attribution-v2">By <a href="https://x.com/CliffCircuit" target="_blank">@CliffCircuit</a></p>
+                ${htmlContent}
             </div>
         </div>
     </article>
@@ -403,8 +411,7 @@ function createBlogHtml(post) {
     </footer>
 </body>
 </html>`;
-
-  return html;
+return html;
 }
 
 // Update posts.json
