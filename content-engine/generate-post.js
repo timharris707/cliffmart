@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * CliffMart Content Engine - Blog Post Generator
- * Generates 3,000-3,500 word SEO-optimized blog posts every 75 minutes
+ * CliffMart Content Engine - Blog Post Generator with GPT-4
+ * Generates 3,000-3,500 word SEO-optimized blog posts every 48 minutes
  * 
  * Usage: node content-engine/generate-post.js
  */
@@ -16,7 +16,8 @@ const CONFIG = {
   blogDir: path.join(__dirname, '..', 'blog'),
   imagesDir: path.join(__dirname, '..', 'blog', 'images'),
   sitemapPath: path.join(__dirname, '..', 'sitemap.xml'),
-  postsJsonPath: path.join(__dirname, '..', 'blog', 'posts.json')
+  postsJsonPath: path.join(__dirname, '..', 'blog', 'posts.json'),
+  openRouterApiKey: process.env.OPENROUTER_API_KEY || null
 };
 
 // Topic pool for AI/OpenClaw content
@@ -30,10 +31,11 @@ const TOPIC_TEMPLATES = [
       "OpenClaw vs Traditional Automation Tools: A {industry} Comparison",
       "The Complete Guide to AI-Powered {process}"
     ],
-    industries: ["E-commerce", "Consulting", "Real Estate", "Healthcare", "Marketing Agencies", "Law Firms", "Accounting", "Photography", "Event Planning", "Fitness Coaching"],
-    professions: ["Consultant", "Agency Owner", "Coach", "Freelancer", "Creator", "Developer", "Designer"],
-    tasks: ["Lead Generation", "Client Onboarding", "Content Scheduling", "Email Management", "Document Processing"],
-    processes: ["Client Communication", "Project Management", "Invoicing", "Scheduling", "Data Entry"]
+    industries: ["E-commerce", "Consulting", "Real Estate", "Healthcare", "Marketing Agencies", "Law Firms", "Accounting", "Photography", "Event Planning", "Fitness Coaching", "Dentistry", "Chiropractic", "Financial Planning"],
+    professions: ["Consultant", "Agency Owner", "Coach", "Freelancer", "Creator", "Developer", "Designer", "Marketer", "Sales Rep", "Operations Manager"],
+    tasks: ["Lead Generation", "Client Onboarding", "Content Scheduling", "Email Management", "Document Processing", "Meeting Scheduling", "Follow-up Sequences", "Data Entry", "Social Media Management", "Customer Support"],
+    tools: ["Zapier", "Make", "Manual Processes", "Spreadsheets", "Generic Chatbots"],
+    processes: ["Client Communication", "Project Management", "Invoicing", "Scheduling", "Data Entry", "Quality Assurance", "Reporting", "Onboarding"]
   },
   {
     category: "Technical Deep Dives",
@@ -44,9 +46,9 @@ const TOPIC_TEMPLATES = [
       "Scaling OpenClaw: Lessons from {number} Deployments",
       "The Psychology of AI-Human Collaboration"
     ],
-    features: ["Multi-Agent Workflows", "Real-Time Voice Integration", "Autonomous Error Recovery", "Cross-Platform Sync"],
+    features: ["Multi-Agent Workflows", "Real-Time Voice Integration", "Autonomous Error Recovery", "Cross-Platform Sync", "Memory Systems", "Safety Guardrails"],
     approaches: ["Knowledge Graph", "Vector Database", "Hybrid", "Federated"],
-    numbers: ["10", "50", "100", "1,000"]
+    numbers: ["10", "50", "100", "1,000", "10,000"]
   },
   {
     category: "Business Strategy",
@@ -57,9 +59,9 @@ const TOPIC_TEMPLATES = [
       "The Business Case for AI Assistants in {year}",
       "Pricing AI Services: What Actually Works"
     ],
-    models: ["SaaS", "Marketplace", "Consulting", "Hybrid", "Subscription"],
-    amounts: ["1,000", "10,000", "100,000"],
-    years: ["2026", "2027"]
+    models: ["SaaS", "Marketplace", "Consulting", "Hybrid", "Subscription", "Usage-Based"],
+    amounts: ["1,000", "10,000", "100,000", "1,000,000"],
+    years: ["2026", "2027", "2028"]
   },
   {
     category: "Trends & Analysis",
@@ -70,8 +72,8 @@ const TOPIC_TEMPLATES = [
       "The Future of Work: Predictions from the Trenches",
       "Emerging Use Cases: What's Working in {industry}"
     ],
-    months: ["January", "February", "March", "April", "May", "June"],
-    scales: ["Small Business", "Enterprise", "Solo", "Team", "Agency"]
+    months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    scales: ["Small Business", "Enterprise", "Solo", "Team", "Agency", "Startup"]
   }
 ];
 
@@ -83,40 +85,40 @@ function generateTopic() {
   let title = template;
   
   // Replace placeholders
-  if (title.includes('{industry}')) {
+  if (title.includes('{industry}') && category.industries) {
     title = title.replace('{industry}', category.industries[Math.floor(Math.random() * category.industries.length)]);
   }
-  if (title.includes('{profession}')) {
+  if (title.includes('{profession}') && category.professions) {
     title = title.replace('{profession}', category.professions[Math.floor(Math.random() * category.professions.length)]);
   }
-  if (title.includes('{task}')) {
+  if (title.includes('{task}') && category.tasks) {
     title = title.replace('{task}', category.tasks[Math.floor(Math.random() * category.tasks.length)]);
   }
-  if (title.includes('{process}')) {
+  if (title.includes('{process}') && category.processes) {
     title = title.replace('{process}', category.processes[Math.floor(Math.random() * category.processes.length)]);
   }
-  if (title.includes('{feature}')) {
+  if (title.includes('{feature}') && category.features) {
     title = title.replace('{feature}', category.features[Math.floor(Math.random() * category.features.length)]);
   }
-  if (title.includes('{approach}')) {
+  if (title.includes('{approach}') && category.approaches) {
     title = title.replace('{approach}', category.approaches[Math.floor(Math.random() * category.approaches.length)]);
   }
-  if (title.includes('{number}')) {
+  if (title.includes('{number}') && category.numbers) {
     title = title.replace('{number}', category.numbers[Math.floor(Math.random() * category.numbers.length)]);
   }
-  if (title.includes('{model}')) {
+  if (title.includes('{model}') && category.models) {
     title = title.replace('{model}', category.models[Math.floor(Math.random() * category.models.length)]);
   }
-  if (title.includes('{amount}')) {
+  if (title.includes('{amount}') && category.amounts) {
     title = title.replace('{amount}', category.amounts[Math.floor(Math.random() * category.amounts.length)]);
   }
-  if (title.includes('{year}')) {
+  if (title.includes('{year}') && category.years) {
     title = title.replace('{year}', category.years[Math.floor(Math.random() * category.years.length)]);
   }
-  if (title.includes('{month}')) {
+  if (title.includes('{month}') && category.months) {
     title = title.replace('{month}', category.months[Math.floor(Math.random() * category.months.length)]);
   }
-  if (title.includes('{scale}')) {
+  if (title.includes('{scale}') && category.scales) {
     title = title.replace('{scale}', category.scales[Math.floor(Math.random() * category.scales.length)]);
   }
   
@@ -131,7 +133,108 @@ function generateSlug(title) {
     .substring(0, 60);
 }
 
-// Generate the blog post content (this will be replaced with actual AI generation)
+// Generate article content via GPT-4 through OpenRouter
+async function generateArticleContent(topic) {
+  console.log(`🤖 Generating content for: ${topic.title}`);
+  
+  try {
+    // Get API key from keychain
+    let apiKey;
+    try {
+      apiKey = execSync('security find-generic-password -s openrouter-api-key -w', { encoding: 'utf8' }).trim();
+    } catch (e) {
+      console.error('❌ OpenRouter API key not found in keychain. Run: security add-generic-password -s openrouter-api-key -a cliffcircuit -w "YOUR_KEY"');
+      return null;
+    }
+    
+    const prompt = `Write a comprehensive, engaging, and practical blog post about "${topic.title}".
+
+TARGET: 3,000-3,500 words of high-quality content that genuinely helps readers.
+
+STRUCTURE (follow exactly):
+1. HOOK (250-350 words): Start with a relatable problem or pain point. Use specific statistics or real-world scenarios. Make the reader feel understood.
+
+2. SOLUTION OVERVIEW (300-400 words): Introduce OpenClaw as the solution. Explain what it is briefly but focus on WHY it matters for this specific use case.
+
+3. USE CASES/IMPLEMENTATION (1,800-2,200 words): Provide 4-6 specific, detailed use cases or implementation steps. Include:
+   - Real scenarios with concrete examples
+   - Specific tool integrations (Twilio, Google Calendar, Stripe, etc.)
+   - Configuration details and code snippets where relevant
+   - Actual business outcomes and ROI
+   - Common pitfalls and how to avoid them
+
+4. RESULTS/ROI (250-350 words): Share specific metrics, time savings, revenue impact. Use realistic numbers based on industry standards.
+
+5. NEXT STEPS/CTA (150-200 words): Clear action items. What should the reader do today? Mention relevant CliffMart skills or products naturally.
+
+WRITING STYLE:
+- Conversational but authoritative (like talking to a smart colleague)
+- Specific, not generic. Avoid buzzwords.
+- Include real statistics and data where possible
+- Use bullet points and subheadings for readability
+- Write in second person ("you", "your")
+- Include specific tool names, integration methods, and practical details
+- Avoid filler content - every paragraph should deliver value
+
+Make this genuinely useful - something you'd bookmark and reference later.`;
+
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://shopcliffmart.com',
+        'X-Title': 'CliffMart Content Engine'
+      },
+      body: JSON.stringify({
+        model: 'anthropic/claude-3.5-sonnet',
+        messages: [
+          { role: 'system', content: 'You are an expert technical writer specializing in AI automation, business workflows, and practical implementation guides. You write in a clear, engaging style that balances technical depth with accessibility. Your content is always specific, actionable, and grounded in real-world scenarios.' },
+          { role: 'user', content: prompt }
+        ],
+        max_tokens: 4000,
+        temperature: 0.7
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status} ${await response.text()}`);
+    }
+    
+    const data = await response.json();
+    const content = data.choices[0].message.content;
+    
+    // Count words
+    const wordCount = content.split(/\s+/).length;
+    console.log(`✅ Generated ${wordCount} words`);
+    
+    return content;
+    
+  } catch (error) {
+    console.error('❌ Error generating content:', error.message);
+    return null;
+  }
+}
+
+// Convert markdown-style content to HTML
+function markdownToHtml(content) {
+  return content
+    // Headers
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    // Bold and italic
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // Lists
+    .replace(/^- (.*$)/gim, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>')
+    // Paragraphs
+    .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
+    // Clean up empty paragraphs
+    .replace(/<p><\/p>/g, '');
+}
+
+// Generate the blog post metadata
 async function generateBlogPost(topic) {
   const date = new Date();
   const dateStr = date.toLocaleDateString('en-US', { 
@@ -146,20 +249,31 @@ async function generateBlogPost(topic) {
   const wordCount = Math.floor(Math.random() * (CONFIG.targetWordCount.max - CONFIG.targetWordCount.min) + CONFIG.targetWordCount.min);
   const readTime = `${Math.ceil(wordCount / 200)} min read`;
   
+  // Generate actual content
+  const articleContent = await generateArticleContent(topic);
+  
+  if (!articleContent) {
+    console.error('❌ Failed to generate article content');
+    return null;
+  }
+  
   return {
     title: topic.title,
     slug,
     date: dateStr,
     isoDate,
     readTime,
-    wordCount,
+    wordCount: articleContent.split(/\s+/).length,
     excerpt: `A comprehensive guide to ${topic.title.toLowerCase()}. Real strategies, working code, and lessons learned from production deployments.`,
-    category: topic.category
+    category: topic.category,
+    content: articleContent
   };
 }
 
 // Create HTML file for the blog post
 function createBlogHtml(post) {
+  const htmlContent = markdownToHtml(post.content);
+  
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -275,19 +389,7 @@ function createBlogHtml(post) {
             </button>
 
             <div class="post-content-v2">
-                <p class="lead">Content placeholder - AI generation to be implemented. Target: ${post.wordCount} words on ${post.category}.</p>
-                
-                <h2>Coming Soon</h2>
-                <p>This article is being generated by our content engine. Check back shortly for the full ${post.wordCount}-word guide.</p>
-                
-                <h2>The Key Topics We'll Cover</h2>
-                <ul>
-                    <li>Practical implementation strategies</li>
-                    <li>Real-world examples and case studies</li>
-                    <li>Step-by-step configuration guides</li>
-                    <li>ROI calculations and business impact</li>
-                    <li>Common pitfalls and how to avoid them</li>
-                </ul>
+                ${htmlContent}
             </div>
         </div>
     </article>
@@ -300,8 +402,8 @@ function createBlogHtml(post) {
 
     <script>
         function copyAsMarkdown() {
-            // Markdown copy functionality to be implemented
-            alert('Markdown copy feature coming soon!');
+            navigator.clipboard.writeText(\`${post.content.replace(/`/g, '\\`')}\`);
+            alert('Markdown copied to clipboard!');
         }
     </script>
 </body>
@@ -327,11 +429,11 @@ function updatePostsJson(post) {
     url: `/blog/${post.slug}.html`,
     image: `/blog/images/${post.slug}.png`,
     tags: [post.category.toLowerCase(), "OpenClaw", "AI automation"],
-    content: "Full article content to be generated..."
+    content: post.content.substring(0, 500) + "..."
   });
   
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
-  console.log(`✅ Updated posts.json with: ${post.title}`);
+  console.log(`✅ Updated posts.json`);
 }
 
 // Update sitemap.xml
@@ -354,47 +456,62 @@ function updateSitemap(post) {
   sitemap = sitemap.replace('</urlset>', newEntry + '</urlset>');
   
   fs.writeFileSync(sitemapPath, sitemap);
-  console.log(`✅ Updated sitemap.xml with: ${post.slug}`);
+  console.log(`✅ Updated sitemap.xml`);
 }
 
 // Create placeholder image reference
 function createImagePlaceholder(post) {
-  const imagePath = path.join(CONFIG.imagesDir, `${post.slug}.png`);
-  
-  // Create a text file noting the image needs to be generated
   const notePath = path.join(CONFIG.imagesDir, `${post.slug}.txt`);
   fs.writeFileSync(notePath, `Image needed for: ${post.title}\nTopic: ${post.category}\nGenerated: ${new Date().toISOString()}`);
-  
-  console.log(`📝 Image placeholder created: ${post.slug}.png`);
+  console.log(`📝 Image placeholder created`);
 }
 
 // Post to Twitter
 async function postToTwitter(post) {
-  console.log(`🐦 Would post to Twitter: "${post.title}" - https://shopcliffmart.com/blog/${post.slug}.html`);
-  // Twitter posting to be implemented
+  console.log(`🐦 Posting to Twitter...`);
+  
+  try {
+    const tweetText = `New on the blog: ${post.title}\n\n${post.excerpt.substring(0, 100)}...\n\nhttps://shopcliffmart.com/blog/${post.slug}.html\n\n#OpenClaw #AI #Automation`;
+    
+    // Call the post-to-cliffcircuit script
+    execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${tweetText}"`, { encoding: 'utf8' });
+    console.log(`✅ Posted to @CliffCircuit`);
+    
+  } catch (error) {
+    console.error('❌ Twitter post failed:', error.message);
+  }
 }
 
 // Main execution
 async function main() {
   console.log('🚀 CliffMart Content Engine Starting...');
   console.log(`⏰ ${new Date().toLocaleString()}`);
+  console.log('');
   
   try {
     // Generate topic
     const topic = generateTopic();
-    console.log(`\n📝 Topic: ${topic.title}`);
+    console.log(`📝 Topic: ${topic.title}`);
     console.log(`📁 Category: ${topic.category}`);
+    console.log('');
     
-    // Generate post metadata
+    // Generate post with AI content
     const post = await generateBlogPost(topic);
-    console.log(`🎯 Target: ${post.wordCount} words`);
+    
+    if (!post) {
+      console.error('❌ Failed to generate blog post');
+      process.exit(1);
+    }
+    
+    console.log(`🎯 Word count: ${post.wordCount}`);
     console.log(`🔗 Slug: ${post.slug}`);
+    console.log('');
     
     // Create HTML file
     const html = createBlogHtml(post);
     const filePath = path.join(CONFIG.blogDir, `${post.slug}.html`);
     fs.writeFileSync(filePath, html);
-    console.log(`✅ Created: ${filePath}`);
+    console.log(`✅ Created: blog/${post.slug}.html`);
     
     // Update posts.json
     updatePostsJson(post);
@@ -408,14 +525,12 @@ async function main() {
     // Post to Twitter
     await postToTwitter(post);
     
-    console.log('\n🎉 Content generation complete!');
-    console.log(`\nNext steps:`);
-    console.log(`1. Review: ${filePath}`);
-    console.log(`2. Generate image: blog/images/${post.slug}.png`);
-    console.log(`3. Commit and deploy`);
+    console.log('');
+    console.log('🎉 Content generation complete!');
+    console.log(`📄 Article: https://shopcliffmart.com/blog/${post.slug}.html`);
     
   } catch (error) {
-    console.error('❌ Error generating content:', error);
+    console.error('❌ Error:', error);
     process.exit(1);
   }
 }
