@@ -297,28 +297,45 @@ function markdownToHtml(content) {
     }
   }
   let cleanContent = lines.slice(startIndex).join('\n').trim();
-  const linesAfterCleanup = cleanContent.split('\n');
-  const processedLines = linesAfterCleanup.map(line => {
-      const trimmed = line.trim();
-      if (trimmed.length > 5 && trimmed.length < 65 && /^[A-Z0-9\\s\\W]+$/.test(trimmed) && !trimmed.startsWith('<')) {
-          return `## ${trimmed}`;
-      }
-      return line;
+  
+  // HEALING: Convert standalone title-like lines to h2 headers
+  // These are lines that look like section headers but aren't marked with ##
+  const contentLines = cleanContent.split('\n');
+  const processedLines = contentLines.map((line, idx) => {
+    const trimmed = line.trim();
+    // Skip if already a markdown header or HTML tag
+    if (trimmed.startsWith('#') || trimmed.startsWith('<')) return line;
+    // Skip if it's a list item or empty
+    if (trimmed.startsWith('-') || trimmed.startsWith('*') || trimmed === '') return line;
+    // Check if it looks like a section header (short, title case, no punctuation at end)
+    const wordCount = trimmed.split(/\s+/).length;
+    const isTitleCase = trimmed.charAt(0) === trimmed.charAt(0).toUpperCase();
+    const hasEndPunctuation = /[.!?]$/.test(trimmed);
+    const looksLikeHeader = wordCount >= 2 && wordCount <= 8 && isTitleCase && !hasEndPunctuation;
+    // Also check if previous line is empty (common for headers)
+    const prevLine = idx > 0 ? contentLines[idx - 1].trim() : '';
+    const isStandalone = prevLine === '' || prevLine.startsWith('<p>');
+    if (looksLikeHeader && isStandalone) {
+      return `## ${trimmed}`;
+    }
+    return line;
   });
   cleanContent = processedLines.join('\n');
+
   return cleanContent
+    // Headers - Map ## to <h2> and ### to <h3>
     .replace(/^## (.*$)/gim, '<h2>$1</h2>')
     .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    // Bold and italic
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    // Lists
     .replace(/^- (.*$)/gim, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/g, "<ul>$&</ul>")
+    // Paragraphs - wrap non-tag lines
     .replace(/^(?!<[hlu])(.*$)/gim, '<p>$1</p>')
     .replace(/<p><\/p>/g, "");
 }
-
-// Extract the excerpt from article content (first section before ---)
-// ENFORCED: Must be between 40-60 words
 function generateExcerpt(content) {
   // The excerpt should already be the first section before ---
   let cleanContent = content.replace(/^EXCERPT:\s*/i, '').trim();
