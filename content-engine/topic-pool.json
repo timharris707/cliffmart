@@ -1,0 +1,148 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-02-27",
+  "categories": {
+    "useCases": {
+      "weight": 0.40,
+      "templates": [
+        {
+          "title": "OpenClaw for {industry}: Complete Automation Guide",
+          "description": "Industry-specific automation workflows"
+        },
+        {
+          "title": "How {profession}s Can Save 20 Hours/Week with OpenClaw",
+          "description": "Profession-focused productivity guide"
+        },
+        {
+          "title": "Building an AI Agent for {task}: Step-by-Step",
+          "description": "Task-specific agent building tutorial"
+        },
+        {
+          "title": "OpenClaw vs Traditional {tool}: A {industry} Comparison",
+          "description": "Competitive analysis and migration guide"
+        },
+        {
+          "title": "The Complete Guide to AI-Powered {process}",
+          "description": "Process automation deep dive"
+        }
+      ],
+      "industries": [
+        "E-commerce", "Consulting", "Real Estate", "Healthcare", "Marketing Agencies",
+        "Law Firms", "Accounting", "Photography", "Event Planning", "Fitness Coaching",
+        "Dentistry", "Chiropractic", "Physical Therapy", "Financial Planning", "Insurance"
+      ],
+      "professions": [
+        "Consultant", "Agency Owner", "Coach", "Freelancer", "Creator",
+        "Developer", "Designer", "Marketer", "Sales Rep", "Operations Manager"
+      ],
+      "tasks": [
+        "Lead Generation", "Client Onboarding", "Content Scheduling", "Email Management",
+        "Document Processing", "Meeting Scheduling", "Follow-up Sequences", "Data Entry",
+        "Social Media Management", "Customer Support"
+      ],
+      "tools": [
+        "Zapier", "Make", "Zapier and Make", "Manual Processes", "Spreadsheets",
+        "Generic Chatbots", "Traditional Software"
+      ],
+      "processes": [
+        "Client Communication", "Project Management", "Invoicing", "Scheduling",
+        "Data Entry", "Quality Assurance", "Reporting", "Onboarding"
+      ]
+    },
+    "technical": {
+      "weight": 0.25,
+      "templates": [
+        {
+          "title": "How We Built {feature}: Technical Architecture",
+          "description": "Deep technical implementation guide"
+        },
+        {
+          "title": "OpenClaw Memory Systems: {approach} Approach",
+          "description": "Memory architecture comparison"
+        },
+        {
+          "title": "Securing Your AI Assistant: A Practical Guide",
+          "description": "Security best practices"
+        },
+        {
+          "title": "Scaling OpenClaw: Lessons from {number} Deployments",
+          "description": "Scaling insights and patterns"
+        },
+        {
+          "title": "The Psychology of AI-Human Collaboration",
+          "description": "Human-AI interaction principles"
+        }
+      ],
+      "features": [
+        "Multi-Agent Workflows", "Real-Time Voice Integration", "Autonomous Error Recovery",
+        "Cross-Platform Sync", "Memory Systems", "Safety Guardrails"
+      ],
+      "approaches": [
+        "Knowledge Graph", "Vector Database", "Hybrid", "Federated"
+      ],
+      "numbers": ["10", "50", "100", "1,000", "10,000"]
+    },
+    "business": {
+      "weight": 0.20,
+      "templates": [
+        {
+          "title": "Monetizing AI Skills: The {model} Model",
+          "description": "Revenue model analysis"
+        },
+        {
+          "title": "Building in Public: Month {number} Results",
+          "description": "Transparent progress report"
+        },
+        {
+          "title": "From Zero to Revenue: Our First ${amount} Journey",
+          "description": "Growth story and lessons"
+        },
+        {
+          "title": "The Business Case for AI Assistants in {year}",
+          "description": "ROI analysis and predictions"
+        },
+        {
+          "title": "Pricing AI Services: What Actually Works",
+          "description": "Pricing strategy guide"
+        }
+      ],
+      "models": [
+        "SaaS", "Marketplace", "Consulting", "Hybrid", "Subscription", "Usage-Based"
+      ],
+      "amounts": ["1,000", "10,000", "100,000", "1,000,000"],
+      "years": ["2026", "2027", "2028"]
+    },
+    "trends": {
+      "weight": 0.15,
+      "templates": [
+        {
+          "title": "The State of AI Assistants: {month} {year} Update",
+          "description": "Monthly market analysis"
+        },
+        {
+          "title": "Why {approach} Is Replacing Traditional Workflows",
+          "description": "Trend analysis and predictions"
+        },
+        {
+          "title": "AI Agent Economics: Cost Analysis for {scale} Operations",
+          "description": "Economic analysis by scale"
+        },
+        {
+          "title": "The Future of Work: Predictions from the Trenches",
+          "description": "Future-looking insights"
+        },
+        {
+          "title": "Emerging Use Cases: What's Working in {industry}",
+          "description": "New use case exploration"
+        }
+      ],
+      "months": [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ],
+      "scales": [
+        "Small Business", "Enterprise", "Solo", "Team", "Agency", "Startup"
+      ]
+    }
+  }
+}
