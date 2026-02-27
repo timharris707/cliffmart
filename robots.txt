@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://shopcliffmart.com/sitemap.xml
+
+# Disallow admin/checkout specific paths
+Disallow: /checkout.html
+Disallow: /login.html
+Disallow: /api/
+
+# Crawl-delay for slower bots
+Crawl-delay: 10
