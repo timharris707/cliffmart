@@ -20,14 +20,11 @@ const CONFIG = {
   openRouterApiKey: process.env.OPENROUTER_API_KEY || null
 };
 
-
-const HERO_IMAGE_SIZE = '1200x630';
-
 async function generateHeroImage(post) {
   const imagePath = path.join(CONFIG.imagesDir, `${post.slug}.png`);
   
   try {
-    console.log(`🎨 Generating AI hero image for: ${post.title}...`);
+    console.log(`🎨 Generating ISOMETRIC 3D image for: ${post.title}...`);
     
     // Get OpenAI API key from keychain
     let apiKey;
@@ -38,7 +35,7 @@ async function generateHeroImage(post) {
       return null;
     }
 
-    const stylePrompt = `Clean minimalist isometric 3D digital illustration of ${post.title}. The subject should be a central 3D visual metaphor on a soft glowing floating platform. Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. Modern tech aesthetic, high-end professional render style, light pastel gradient background. No text, no words, no letters, no characters.`;
+    const stylePrompt = `Clean minimalist isometric 3D digital illustration of ${post.title}. Central visual metaphor on a soft glowing floating platform. Use a primary palette of high-tech blues, deep purples, and vibrant teals with soft gradients. Modern tech aesthetic, high-end professional render style, light pastel gradient background. No text, no words, no letters.`;
 
     const response = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
@@ -51,7 +48,8 @@ async function generateHeroImage(post) {
         prompt: stylePrompt,
         n: 1,
         size: "1792x1024",
-        quality: "standard"
+        quality: "standard",
+        style: "vivid"
       })
     });
 
@@ -71,7 +69,9 @@ async function generateHeroImage(post) {
     console.error('❌ Failed to generate hero image:', error.message);
     // Fallback to mascot
     try {
-      fs.copyFileSync(path.join(CONFIG.imagesDir, 'openclaw-mascot.png'), imagePath);
+      if (!fs.existsSync(imagePath)) {
+        fs.copyFileSync(path.join(CONFIG.imagesDir, 'openclaw-mascot.png'), imagePath);
+      }
     } catch(e) {}
     return null;
   }
@@ -200,7 +200,7 @@ async function generateArticleContent(topic) {
     try {
       apiKey = execSync('security find-generic-password -s openrouter-api-key -w', { encoding: 'utf8' }).trim();
     } catch (e) {
-      console.error('❌ OpenRouter API key not found in keychain. Run: security add-generic-password -s openrouter-api-key -a cliffcircuit -w "YOUR_KEY"');
+      console.error('❌ OpenRouter API key not found in keychain.');
       return null;
     }
     
@@ -302,17 +302,15 @@ async function generateBlogPost(topic) {
   const isoDate = date.toISOString();
   const slug = generateSlug(topic.title);
   
-  // Generate reading time (3000-3500 words / 200 wpm = 15-18 min)
-  const wordCount = Math.floor(Math.random() * (CONFIG.targetWordCount.max - CONFIG.targetWordCount.min) + CONFIG.targetWordCount.min);
-  const readTime = `${Math.ceil(wordCount / 200)} min read`;
-  
-  // Generate actual content
+  // Generate reading time
   const articleContent = await generateArticleContent(topic);
   
   if (!articleContent) {
-    console.error('❌ Failed to generate article content');
     return null;
   }
+  
+  const wordCount = articleContent.split(/\s+/).length;
+  const readTime = `${Math.ceil(wordCount / 200)} min read`;
   
   return {
     title: topic.title,
@@ -320,7 +318,7 @@ async function generateBlogPost(topic) {
     date: dateStr,
     isoDate,
     readTime,
-    wordCount: articleContent.split(/\s+/).length,
+    wordCount,
     excerpt: `A comprehensive guide to ${topic.title.toLowerCase()}. Real strategies, working code, and lessons learned from production deployments.`,
     category: topic.category,
     content: articleContent
@@ -347,14 +345,8 @@ function createBlogHtml(post) {
     <title>${post.title} | CliffMart Blog</title>
     <meta name="description" content="${post.excerpt}">
     <meta name="keywords" content="OpenClaw, AI automation, ${post.category.toLowerCase()}, AI assistant, workflow automation">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://shopcliffmart.com/blog/${post.slug}.html">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧗</text></svg>">
-    
-    <!-- Open Graph / Twitter Card -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="${post.title}">
     <meta property="og:description" content="${post.excerpt}">
@@ -369,8 +361,6 @@ function createBlogHtml(post) {
     <meta name="twitter:title" content="${post.title}">
     <meta name="twitter:description" content="${post.excerpt}">
     <meta name="twitter:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
-    
-    <!-- JSON-LD Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -399,7 +389,6 @@ function createBlogHtml(post) {
         }
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -407,20 +396,18 @@ function createBlogHtml(post) {
         <div class="container">
             <a href="/" class="logo">🧗 CliffMart</a>
             <div class="nav-links">
-                <a href="/">Products</a>
+                <a href="/products/">Products</a>
                 <a href="/about.html">About</a>
                 <a href="/blog/">Blog</a>
                 <a href="/login.html" class="btn-secondary">Login / Sign Up</a>
             </div>
         </div>
     </nav>
-
     <article class="blog-post-v2">
         <div class="container">
             <nav class="post-back-nav">
                 <a href="/blog/" class="back-link">← Back to Blog</a>
             </nav>
-
             <header class="post-header-v2">
                 <div class="post-meta-v2">
                     <time>${post.date}</time>
@@ -432,11 +419,9 @@ function createBlogHtml(post) {
                 <h1>${post.title}</h1>
                 <p class="post-subtitle-v2">${post.excerpt}</p>
             </header>
-
             <div class="post-hero-image">
                 <img src="/blog/images/${post.slug}.png" alt="${post.title}">
             </div>
-
             <button class="btn-copy-markdown" onclick="copyAsMarkdown()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -444,19 +429,16 @@ function createBlogHtml(post) {
                 </svg>
                 Copy as Markdown for Your Agent
             </button>
-
             <div class="post-content-v2">
                 ${htmlContent}
             </div>
         </div>
     </article>
-
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 CliffMart. Built in public by <a href="https://twitter.com/CliffCircuit">@CliffCircuit</a> and <a href="https://twitter.com/timharris707">@timharris707</a>.</p>
         </div>
     </footer>
-
     <script>
         function copyAsMarkdown() {
             navigator.clipboard.writeText(\`${post.content.replace(/`/g, '\\`')}\`);
@@ -490,17 +472,13 @@ function updatePostsJson(post) {
   });
   
   fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
-  console.log(`✅ Updated posts.json`);
 }
 
 // Update sitemap.xml
 function updateSitemap(post) {
   const sitemapPath = CONFIG.sitemapPath;
   const today = new Date().toISOString().split('T')[0];
-  
   let sitemap = fs.readFileSync(sitemapPath, 'utf8');
-  
-  // Add new URL entry
   const newEntry = `  <url>
     <loc>https://shopcliffmart.com/blog/${post.slug}.html</loc>
     <lastmod>${today}</lastmod>
@@ -508,32 +486,33 @@ function updateSitemap(post) {
     <priority>0.7</priority>
   </url>
 `;
-  
-  // Insert before closing </urlset>
   sitemap = sitemap.replace('</urlset>', newEntry + '</urlset>');
-  
   fs.writeFileSync(sitemapPath, sitemap);
-  console.log(`✅ Updated sitemap.xml`);
 }
 
-// Create placeholder image reference
-function createImagePlaceholder(post) {
-  const notePath = path.join(CONFIG.imagesDir, `${post.slug}.txt`);
-  fs.writeFileSync(notePath, `Image needed for: ${post.title}\nTopic: ${post.category}\nGenerated: ${new Date().toISOString()}`);
-  console.log(`📝 Image placeholder created`);
+// Deploy and verify
+function deployToVercel() {
+  console.log('🚀 Deploying to Vercel and waiting for propagation...');
+  try {
+    const VERCEL_TOKEN = execSync('security find-generic-password -s vercel-token -w', { encoding: 'utf8' }).trim();
+    execSync('git add -A && git commit -m "Auto-generated blog content" && git push origin main', { stdio: 'inherit' });
+    execSync(`vercel --prod --token ${VERCEL_TOKEN} --yes`, { stdio: 'inherit' });
+    console.log('⏳ Waiting 45 seconds for CDN propagation...');
+    execSync('sleep 45');
+    return true;
+  } catch (error) {
+    console.error('❌ Deployment failed:', error.message);
+    return false;
+  }
 }
 
 // Post to Twitter
 async function postToTwitter(post) {
   console.log(`🐦 Posting to Twitter...`);
-  
   try {
     const tweetText = `New on the blog: ${post.title}\n\n${post.excerpt.substring(0, 140)}...\n\nhttps://shopcliffmart.com/blog/${post.slug}.html`;
-    
-    // Call the post-to-cliffcircuit script
     execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${tweetText}"`, { encoding: 'utf8' });
     console.log(`✅ Posted to @CliffCircuit`);
-    
   } catch (error) {
     console.error('❌ Twitter post failed:', error.message);
   }
@@ -542,59 +521,35 @@ async function postToTwitter(post) {
 // Main execution
 async function main() {
   console.log('🚀 CliffMart Content Engine Starting...');
-  console.log(`⏰ ${new Date().toLocaleString()}`);
-  console.log('');
-  
   try {
-    // Generate topic
     const topic = generateTopic();
-    console.log(`📝 Topic: ${topic.title}`);
-    console.log(`📁 Category: ${topic.category}`);
-    console.log('');
-    
-    // Generate post with AI content
     const post = await generateBlogPost(topic);
+    if (!post) process.exit(1);
     
-    if (!post) {
-      console.error('❌ Failed to generate blog post');
-      process.exit(1);
-    }
-    
-    console.log(`🎯 Word count: ${post.wordCount}`);
-    console.log(`🔗 Slug: ${post.slug}`);
-    console.log('');
-    
-    // Create HTML file
+    // 1. Create file and update data
     const html = createBlogHtml(post);
-    const filePath = path.join(CONFIG.blogDir, `${post.slug}.html`);
-    fs.writeFileSync(filePath, html);
-    console.log(`✅ Created: blog/${post.slug}.html`);
-    
-    // Update posts.json
+    fs.writeFileSync(path.join(CONFIG.blogDir, `${post.slug}.html`), html);
     updatePostsJson(post);
-    
-    // Update sitemap
     updateSitemap(post);
-    
-    // Create image
     await generateHeroImage(post);
     
-    // Post to Twitter
-    await postToTwitter(post);
+    // 2. Deploy First
+    const deployed = deployToVercel();
     
-    console.log('');
-    console.log('🎉 Content generation complete!');
-    console.log(`📄 Article: https://shopcliffmart.com/blog/${post.slug}.html`);
+    // 3. Post to Twitter only if deploy succeeded
+    if (deployed) {
+      await postToTwitter(post);
+    } else {
+      console.error('❌ Skipping Twitter post due to deploy failure');
+    }
     
+    console.log('\n🎉 Content generation complete!');
   } catch (error) {
     console.error('❌ Error:', error);
     process.exit(1);
   }
 }
 
-// Run if called directly
 if (require.main === module) {
   main();
 }
-
-module.exports = { generateTopic, generateBlogPost, createBlogHtml };

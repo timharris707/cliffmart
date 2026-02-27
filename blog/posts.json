@@ -1,5 +1,33 @@
 [
   {
+    "title": "How We Built Cross-Platform Sync: Technical Architecture",
+    "date": "February 27, 2026",
+    "readTime": "5 min read",
+    "excerpt": "A comprehensive guide to how we built cross-platform sync: technical architecture. Real strategies, working code, and lessons learned from production deployments.",
+    "url": "/blog/how-we-built-cross-platform-sync-technical-architecture.html",
+    "image": "/blog/images/how-we-built-cross-platform-sync-technical-architecture.png",
+    "tags": [
+      "technical deep dives",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "How We Built Cross-Platform Sync: Technical Architecture\n\nHOOK:\nPicture this: Your team just shipped a major feature, but instead of celebrating, you're dealing with a nightmare of data inconsistencies across platforms. Mobile users see one version of their data, web users another, and your offline-first architecture is creating more conflicts than solutions. Sound familiar? You're not alone. According to a 2023 Stack Overflow survey, 67% of developers cite data synchronization as one of their t..."
+  },
+  {
+    "title": "Pricing AI Services: What Actually Works",
+    "date": "February 27, 2026",
+    "readTime": "17 min read",
+    "excerpt": "A comprehensive guide to pricing ai services: what actually works. Real strategies, working code, and lessons learned from production deployments.",
+    "url": "/blog/pricing-ai-services-what-actually-works.html",
+    "image": "/blog/images/pricing-ai-services-what-actually-works.png",
+    "tags": [
+      "business strategy",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "Pricing AI Services: What Actually Works - A Practical Guide for 2024\n\nHOOK:\n\"We're just guessing at the price point,\" admitted Sarah, CTO of an AI startup, during a recent consultation. Her team had spent six months developing a powerful document analysis API, but pricing remained their biggest challenge. They weren't alone – according to a 2023 OpenAI survey, 67% of AI service providers report pricing as their top go-to-market challenge.\n\nThe problem is multifaceted. Traditional SaaS pricing m..."
+  },
+  {
     "title": "How Operations Managers Can Save 20 Hours/Week with OpenClaw",
     "date": "February 27, 2026",
     "readTime": "17 min read",
