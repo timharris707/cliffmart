@@ -35,9 +35,9 @@ function extractPostData(filePath) {
   const titleMatch = html.match(/<h1>([^<]+)<\/h1>/);
   const title = titleMatch ? titleMatch[1].trim() : 'Untitled';
   
-  // Extract subtitle from <p class="post-subtitle">
-  const subtitleMatch = html.match(/<p class="post-subtitle">([^<]+)<\/p>/);
-  const subtitle = subtitleMatch ? subtitleMatch[1].trim() : '';
+  // Extract excerpt from <p class="post-subtitle-v2">
+  const excerptMatch = html.match(/<p class="post-subtitle-v2">([^<]+)<\/p>/);
+  const excerpt = excerptMatch ? excerptMatch[1].trim() : '';
   
   // Extract date from <time>
   const dateMatch = html.match(/<time>([^<]+)<\/time>/);
@@ -47,24 +47,18 @@ function extractPostData(filePath) {
   const fileName = path.basename(filePath);
   const url = `${SITE_URL}/blog/${fileName}`;
   
-  return { title, subtitle, date, url, file: fileName };
+  return { title, excerpt, date, url, file: fileName };
 }
 
-// Generate tweet text
+// Generate engaging tweet with hook
 function generateTweet(post) {
-  // Felix style: hook + link + minimal hashtags
-  let tweet = post.title;
+  // Use excerpt as the hook - it's already written in Cliff's voice (40-60 words)
+  // Take first sentence or two for punchiness
+  const sentences = post.excerpt.split(/[.!?]+/).filter(s => s.trim().length > 10);
+  const hook = sentences.slice(0, 2).join('. ') + '.';
   
-  if (post.subtitle) {
-    // Add a relevant excerpt (keep it under 280 chars total)
-    const maxSubtitleLen = 100;
-    const excerpt = post.subtitle.length > maxSubtitleLen 
-      ? post.subtitle.substring(0, maxSubtitleLen) + '...'
-      : post.subtitle;
-    tweet += `\n\n${excerpt}`;
-  }
-  
-  tweet += `\n\n${post.url}`;
+  // Format: Hook + Link (Cliff's conversational voice)
+  const tweet = `${hook}\n\n${post.url}`;
   
   return tweet;
 }
@@ -100,7 +94,7 @@ function main() {
     const tweet = generateTweet(post);
     
     console.log(`\n📝 New blog post found: ${post.title}`);
-    console.log(`🐦 Generated tweet:\n${tweet}\n`);
+    console.log(`🐦 Generated tweet (${tweet.length} chars):\n${tweet}\n`);
     
     // Post to X
     if (postToX(tweet)) {
