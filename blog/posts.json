@@ -1,5 +1,19 @@
 [
   {
+    "title": "Scaling OpenClaw: Lessons from 1,000 Deployments",
+    "date": "February 27, 2026",
+    "readTime": "12 min read",
+    "excerpt": "After deploying OpenClaw across a thousand different business scenarios, I've discovered patterns that completely changed how I think about AI automation scaling. From solo consultants to enterprise teams, the real breakthroughs happened when we stopped treating automation like a tech project and started viewing it as workflow redesign. Here's what actually works.",
+    "url": "/blog/scaling-openclaw-lessons-from-1-000-deployments.html",
+    "image": "/blog/images/scaling-openclaw-lessons-from-1-000-deployments.png",
+    "tags": [
+      "technical deep dives",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "Last Tuesday, I watched Maria, a operations manager at a mid-sized logistics company, stare at her screen in disbelief. She'd just processed three weeks' worth of vendor invoices in forty-seven minutes. Not reviewed them—actually processed, categorized, and routed them through her approval workflow. Six months earlier, this same task consumed her entire Friday afternoon, every single week.\n\nThis wasn't magic. This was OpenClaw doing what it does best: taking the repetitive, brain-numbing work th..."
+  },
+  {
     "title": "Securing Your AI Assistant: A Practical Guide",
     "date": "February 27, 2026",
     "readTime": "10 min read",
