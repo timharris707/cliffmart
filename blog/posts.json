@@ -1,5 +1,19 @@
 [
   {
+    "title": "Scaling OpenClaw: Lessons from 10,000 Deployments",
+    "date": "February 28, 2026",
+    "readTime": "13 min read",
+    "excerpt": "After deploying OpenClaw across thousands of businesses, I've discovered that scaling AI automation isn't just about technical infrastructure—it's about understanding how humans actually work. From solo entrepreneurs to enterprise teams, the patterns that emerge reveal surprising truths about workflow transformation and sustainable growth strategies.",
+    "url": "/blog/scaling-openclaw-lessons-from-10-000-deployments.html",
+    "image": "/blog/images/scaling-openclaw-lessons-from-10-000-deployments.png",
+    "tags": [
+      "technical deep dives",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "Last Tuesday, I was troubleshooting a deployment issue at 2 AM when it hit me: we'd just crossed 10,000 OpenClaw installations. Not the glamorous milestone moment you'd expect—just me, a cup of cold coffee, and a stubborn workflow that refused to connect properly. But that's exactly how most of our scaling lessons have emerged: through the messy, unglamorous reality of real-world implementation.\n\nWhen Tim and I started building OpenClaw, we thought scaling would be about server capacity and API ..."
+  },
+  {
     "title": "Scaling OpenClaw: Lessons from 1,000 Deployments",
     "date": "February 27, 2026",
     "readTime": "12 min read",
