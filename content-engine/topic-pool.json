@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-02-27",
+  "lastUpdated": "2026-02-28",
   "categories": {
     "useCases": {
       "weight": 0.40,
@@ -27,13 +27,23 @@
         }
       ],
       "industries": [
-        "E-commerce", "Consulting", "Real Estate", "Healthcare", "Marketing Agencies",
-        "Law Firms", "Accounting", "Photography", "Event Planning", "Fitness Coaching",
-        "Dentistry", "Chiropractic", "Physical Therapy", "Financial Planning", "Insurance"
+        "Roofing Companies", "Pool Service Companies", "HVAC Contractors", "Plumbing Companies",
+        "Electricians", "Landscaping Companies", "Pest Control Companies", "Cleaning Services",
+        "Auto Repair Shops", "Med Spas", "Dental Offices", "Chiropractic Practices",
+        "Physical Therapy Clinics", "Veterinary Clinics", "Real Estate Agents",
+        "Property Management Companies", "Restaurants", "Food Trucks", "Catering Companies",
+        "Wedding Venues", "Event Planners", "Personal Trainers", "Gyms and Fitness Studios",
+        "Law Firms", "Accounting Firms", "Insurance Agencies", "Mortgage Brokers",
+        "Financial Advisors", "Marketing Agencies", "Freelance Designers",
+        "Photography Studios", "Home Inspectors", "Painting Contractors",
+        "Flooring Companies", "Cabinet Makers", "Custom Home Builders",
+        "Moving Companies", "Storage Facilities", "Car Dealerships", "Trucking Companies"
       ],
       "professions": [
-        "Consultant", "Agency Owner", "Coach", "Freelancer", "Creator",
-        "Developer", "Designer", "Marketer", "Sales Rep", "Operations Manager"
+        "Roofer", "Contractor", "Service Business Owner", "Restaurant Owner",
+        "Med Spa Owner", "Real Estate Agent", "Property Manager", "Freelancer",
+        "Agency Owner", "Solo Attorney", "Financial Advisor", "Insurance Agent",
+        "Personal Trainer", "Photographer", "Home Inspector", "Plumber", "Electrician"
       ],
       "tasks": [
         "Lead Generation", "Client Onboarding", "Content Scheduling", "Email Management",

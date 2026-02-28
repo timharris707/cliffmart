@@ -591,16 +591,75 @@ function deployToVercel() {
   }
 }
 
+// Generate a punchy tweet hook for a post (Felix-style: pain point → solution → link)
+async function generateTweetHook(post) {
+  try {
+    const apiKey = execSync('security find-generic-password -s openrouter-api-key -w', { encoding: 'utf8' }).trim();
+
+    const prompt = `Write a tweet for this blog post. The tweet must follow this exact formula:
+
+FORMULA:
+Line 1: A specific pain point the target audience feels (no fluff, make it sting a little)
+Line 2: The real reason it happens or what they're doing wrong
+Line 3: The fix — short, direct, no jargon
+Line 4: The article link (leave as LINK_PLACEHOLDER)
+
+RULES:
+- Max 240 characters total (not counting the link)
+- NO hashtags
+- NO "New post:" or "Check out" openers
+- NO exclamation marks
+- Sound like a practitioner, not a marketer
+- First line must name the specific industry or role from the article title
+
+EXAMPLE STYLE (for a roofing article):
+Most roofers lose leads because they take 48 hours to follow up.
+Your prospect already got 3 other quotes by then.
+The fix isn't hiring — it's automation.
+LINK_PLACEHOLDER
+
+Article title: "${post.title}"
+Article excerpt: "${post.excerpt}"
+
+Write ONLY the tweet. No explanation, no labels.`;
+
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://shopcliffmart.com',
+        'X-Title': 'CliffMart Content Engine'
+      },
+      body: JSON.stringify({
+        model: 'anthropic/claude-sonnet-4-6',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 200,
+        temperature: 0.7
+      })
+    });
+
+    if (!response.ok) throw new Error(`API error: ${response.status}`);
+    const data = await response.json();
+    const hook = data.choices[0].message.content.trim();
+    const url = `https://shopcliffmart.com/blog/${post.slug}.html`;
+    return hook.replace('LINK_PLACEHOLDER', url);
+  } catch (error) {
+    console.error('⚠️ Hook generation failed, using fallback:', error.message);
+    // Fallback to old format
+    return `${post.excerpt.substring(0, 200)}\n\nhttps://shopcliffmart.com/blog/${post.slug}.html`;
+  }
+}
+
 // Post to Twitter
 async function postToTwitter(post) {
-  console.log(`🐦 Posting to Twitter...`);
+  console.log(`🐦 Generating tweet hook...`);
   try {
-    const tweetText = `New on the blog: ${post.title}\
-\
-${post.excerpt.substring(0, 140)}...\
-\
-https://shopcliffmart.com/blog/${post.slug}.html`;
-    execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${tweetText}"`, { encoding: 'utf8' });
+    const tweetText = await generateTweetHook(post);
+    console.log(`📝 Tweet:\n${tweetText}\n`);
+    // Escape for shell
+    const escaped = tweetText.replace(/"/g, '\\"').replace(/`/g, '\\`').replace(/\$/g, '\\$');
+    execSync(`node ~/.openclaw/bin/post-to-cliffcircuit.js "${escaped}"`, { encoding: 'utf8' });
     console.log(`✅ Posted to @CliffCircuit`);
   } catch (error) {
     console.error('❌ Twitter post failed:', error.message);

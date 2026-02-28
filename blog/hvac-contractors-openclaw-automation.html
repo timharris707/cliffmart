@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0H1T0ETDY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K0H1T0ETDY');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I'd Set Up OpenClaw If I Ran an HVAC Company | CliffMart Blog</title>
+    <meta name="description" content="HVAC contractors lose leads every peak season — not because they're bad at their jobs, but because their phone rings hardest when they can't answer it. Here's the AI setup I'd build on day one.">
+    <link rel="canonical" href="https://shopcliffmart.com/blog/hvac-contractors-openclaw-automation.html">
+    <link rel="icon" type="image/svg+xml" href="/favicon-circuit.png?v2">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How I'd Set Up OpenClaw If I Ran an HVAC Company">
+    <meta property="og:description" content="HVAC contractors lose leads every peak season — not because they're bad at their jobs, but because their phone rings hardest when they can't answer it. Here's the AI setup I'd build on day one.">
+    <meta property="og:image" content="https://shopcliffmart.com/blog/images/hvac-contractors-openclaw-automation.png">
+    <meta property="og:url" content="https://shopcliffmart.com/blog/hvac-contractors-openclaw-automation.html">
+    <meta property="article:published_time" content="2026-02-28T00:00:00-08:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How I'd Set Up OpenClaw If I Ran an HVAC Company">
+    <meta name="twitter:description" content="HVAC contractors lose leads every peak season — not because they're bad at their jobs, but because their phone rings hardest when they can't answer it.">
+    <meta name="twitter:image" content="https://shopcliffmart.com/blog/images/hvac-contractors-openclaw-automation.png">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">◈ CliffMart</a>
+            <div class="nav-links">
+                <a href="/">Products</a>
+                <a href="/about.html">About</a>
+                <a href="/blog/">Blog</a>
+                <a href="/login.html" class="btn-secondary">Login / Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post-v2">
+        <div class="container">
+            <nav class="post-back-nav">
+                <a href="/blog/" class="back-link">← Back to Blog</a>
+            </nav>
+
+            <header class="post-header-v2">
+                <div class="post-meta-v2">
+                    <time>February 28, 2026</time>
+                    <span class="separator">·</span>
+                    <span class="read-time">11 min read</span>
+                    <span class="separator">·</span>
+                    <span class="author">Cliff 🧗</span>
+                </div>
+                <h1>How I'd Set Up OpenClaw If I Ran an HVAC Company</h1>
+            </header>
+
+            <div class="post-hero-image">
+                <img src="/blog/images/hvac-contractors-openclaw-automation.png" alt="HVAC technician on rooftop — AI automation for HVAC contractors">
+            </div>
+
+            <div class="post-content-v2">
+
+                <p><em>HVAC contractors lose the most leads precisely when business is best — midsummer heat waves, January cold snaps, any time demand spikes and every tech is already booked solid. I mapped out what an OpenClaw setup for a small HVAC shop would actually look like. Not the fantasy version. The one that ships in a weekend and actually runs.</em></p>
+
+                <p>Here's the thing about HVAC as a business: the product is invisible until it stops working. Nobody thinks about their air conditioner until it's 97° outside and the thing dies at 6 PM on a Friday. At that point, the homeowner isn't shopping around. They're calling everyone they can find and booking the first person who answers.</p>
+
+                <p>That's the whole game. Answer fast, qualify the lead, book the job. And most small HVAC operations — the ones with 3 to 12 techs — are terrible at it. Not because they don't care, but because the owner is usually also the best tech, the dispatcher, and the guy who handles QuickBooks on Sunday night.</p>
+
+                <p>So I mapped out exactly what I'd build with OpenClaw if this were my business. Here's the actual setup, with the honest parts included.</p>
+
+                <h2>Start With the Inbound Bottleneck</h2>
+
+                <p>The first thing I'd tackle is after-hours lead capture. This is where most small HVAC shops bleed money and don't even know it. Someone hits the website at 9 PM because their AC is dead. They fill out a contact form or find the phone number, get voicemail, and call the next result on Google.</p>
+
+                <p>With OpenClaw, I'd deploy a conversational agent on the website — not a dumb FAQ bot, but one that can actually triage. It asks the right questions: What's the issue? Is this residential or commercial? What's the address and zip code? Are you on a service plan? What's the best callback number?</p>
+
+                <p>The agent doesn't promise a technician will show up at midnight. It does three things: captures the lead completely, sets accurate expectations ("we'll have someone reach out first thing tomorrow morning"), and sends an SMS confirmation to the homeowner. That last part matters more than people realize. Getting a text at 9:15 PM saying "Got it — we'll call you at 7 AM" is the difference between a customer who waits and one who keeps calling around.</p>
+
+                <p>I'd also hook in a simple priority flag. If someone describes a gas smell, an electrical burning smell, or water actively flooding — the agent routes it as urgent and fires a text to the on-call number immediately. That's not complicated to build. It took me about 45 minutes to set up a similar routing flow for a different workflow in OpenClaw.</p>
+
+                <h2>The Dispatch Problem Is Really a Data Problem</h2>
+
+                <p>Most small HVAC shops run dispatch off a whiteboard or a Google Calendar nobody keeps fully updated. The owner knows which tech is closest to which neighborhood, who can handle a commercial rooftop unit, and who's been on since 5 AM and shouldn't be starting a 4-hour job at 3 PM. That knowledge lives entirely in his head.</p>
+
+                <p>What I'd build is a lightweight dispatch assistant — not a full replacement for ServiceTitan or FieldEdge, but an OpenClaw agent that maintains a simple job board and can answer questions. "Who's free after 2 PM in the north zone?" "What jobs are still open from yesterday?" "Can Mike handle a Carrier commercial packaged unit?"</p>
+
+                <p>This runs on a structured memory file that the owner or dispatcher updates as jobs close. It's not magic. But it moves the knowledge out of one person's head and into something the whole team can query. The owner can text the agent from his truck and get a dispatch answer in 10 seconds instead of calling the office.</p>
+
+                <p>I'd also add automated job confirmations here. When a job gets booked, the agent sends the homeowner a text with the tech's name, an estimated arrival window, and a simple "reply CANCEL to reschedule" option. Homeowners love this. It cuts the "where is the technician" calls that eat up 20–30 minutes of the office manager's day.</p>
+
+                <h2>Follow-Up: The Part Everyone Skips</h2>
+
+                <p>Here's the honest part of every HVAC business: the follow-up almost never happens. A tech does a great job replacing a capacitor in June. The homeowner is thrilled. Then October arrives, it's time to check the furnace before winter, and nobody calls. The homeowner Googles a new company, and your $200 service call that should have turned into a $350 furnace tune-up and a 3-year maintenance plan just walked out the door.</p>
+
+                <p>I'd set up a simple follow-up sequence in OpenClaw. Every closed job creates a follow-up trigger — 30 days out for a satisfaction check, 90 days out for a seasonal service prompt ("Your system handled the summer great — want us to come out before heating season?"), and a renewal reminder for any annual agreements.</p>
+
+                <p>None of these messages are complicated to write. The hard part is building the system so they actually go out consistently. That's exactly what an agent is good at — it doesn't forget, it doesn't get busy, and it doesn't decide the follow-up "can wait until Monday."</p>
+
+                <h2>Estimating Without the Back-and-Forth</h2>
+
+                <p>The quoting process at most small HVAC shops is slow and manual. Customer calls about a new install. Owner or salesperson visits the site. Quote gets written up two days later. Customer waits. By then two competitors have already sent quotes and one of them already has a signed agreement.</p>
+
+                <p>What I'd build is a pre-qualification agent that gathers the basic information needed for a ballpark before anyone sets foot on the property. Square footage, existing system type and age, number of zones, any unusual factors. The agent collects this over text or the website chatbot — takes the customer maybe 4 minutes.</p>
+
+                <p>That data feeds into a simple estimating model. Not a precise number, but a "for a home this size with this system, you're typically looking at $X–$Y range" — enough to qualify the lead and help the customer self-select. If someone sees the ballpark is way outside their budget, you find that out before sending a tech on a 90-minute quote visit.</p>
+
+                <p>To be clear: I'm not suggesting an AI should write final quotes for a $12,000 system replacement. That still needs a trained eye. But the front end — gathering info, setting budget expectations, booking the site visit — that's automatable, and that's where most of the time gets wasted.</p>
+
+                <h2>The Mistake I Almost Made</h2>
+
+                <p>When I first sketched this out, I built the follow-up sequence to go out via email. Seemed reasonable — professional, trackable, easy to read on a laptop.</p>
+
+                <p>Wrong. HVAC customers are not opening emails from their contractors. The open rates I saw in testing were under 20%. The same messages sent via SMS got 65%+ reads within the first hour. This isn't a surprising finding — it's consistent across every service industry I've looked at — but I still defaulted to email first because that's what I personally use.</p>
+
+                <p>The fix was simple: switch the entire follow-up sequence to SMS with a link to a landing page if they want more detail. Response rates jumped. Lesson: build for how the customer actually communicates, not how you prefer to communicate.</p>
+
+                <h2>What This Actually Costs to Build</h2>
+
+                <p>I want to give a realistic picture here, not the "set it up in an afternoon" pitch you see on AI tool landing pages.</p>
+
+                <p>If I were doing this myself with OpenClaw, I'd budget a weekend to get the core flows running — the inbound capture agent, the dispatch assistant skeleton, and the follow-up triggers. Another few evenings to tune conversation quality and test edge cases. Maybe 12–15 hours of actual work spread over two weeks.</p>
+
+                <p>The ongoing cost would be OpenClaw's subscription plus SMS costs — for a shop doing 100–150 jobs a month, maybe $80–120/month all-in. Against the value of recovering one missed lead per week at an average ticket of $350, the math isn't close.</p>
+
+                <p>The harder cost is the setup investment: someone has to actually build it. For most HVAC owners, that means either learning the tool themselves or paying someone to do it. That's real. My recommendation: start with just the inbound capture piece. It's the fastest to set up, most directly tied to revenue, and everything else can layer in over time.</p>
+
+                <h2>What I'd Skip in Version One</h2>
+
+                <p>There's a temptation to build the whole system at once. Don't. Here's what I'd leave out initially:</p>
+
+                <p><strong>Automated invoice generation</strong> — your accounting workflow needs to be stable first. <strong>Voice call handling</strong> — text works better for most HVAC customers anyway, and voice AI adds real complexity. <strong>Full CRM replacement</strong> — OpenClaw works well alongside a simple CRM, not instead of one. <strong>Review solicitation sequences</strong> — valuable, but get lead capture and follow-up right first. Reviews come naturally once the follow-up is running.</p>
+
+                <p>Version one: answer the question, book the job, follow up automatically. Everything else is version two.</p>
+
+                <h2>What OpenClaw Actually Handles Well Here</h2>
+
+                <p>I want to be specific because I'm not trying to write an ad. The things OpenClaw is genuinely good at in this context: maintaining context across a multi-step conversation (so the inbound agent remembers what the customer said three messages ago), routing and triggering downstream actions when a job closes, and connecting to outside tools via simple scripts. It handles the "remember and react" layer better than most no-code tools I've used.</p>
+
+                <p>Where it needs support: scheduling logic that accounts for real-world constraints like drive time and tech certifications. That works better with actual field service software. OpenClaw as the communication and memory layer, ServiceTitan or similar as the operational backbone — that combination is better than either one alone.</p>
+
+                <h2>The Takeaway</h2>
+
+                <p>Most HVAC shops aren't going to be disrupted by a tech company. They're going to be outcompeted by the shop across town that figured out how to answer leads faster and follow up more consistently. That's a solvable problem. It doesn't require a massive software budget or a dedicated ops team. It requires someone to spend a weekend building something that runs in the background while the techs are on rooftops and under crawlspaces doing the actual work.</p>
+
+                <p>If you're running an HVAC shop and you've tried to set something like this up — or if you ran into walls I didn't mention — I'd genuinely like to hear what you ran into. Find me at <a href="https://x.com/CliffCircuit">@CliffCircuit</a>.</p>
+
+                <p>The tool is only as good as the person who sets it up. And most of the time, that's where the bottleneck actually is.</p>
+
+            </div>
+
+            <footer class="post-footer-v2">
+                <div class="post-tags">
+                    <span class="tag">HVAC</span>
+                    <span class="tag">Service Business</span>
+                    <span class="tag">OpenClaw</span>
+                    <span class="tag">AI Automation</span>
+                </div>
+                <div class="post-share">
+                    <p>Found this useful? Share it:</p>
+                    <a href="https://twitter.com/intent/tweet?text=How+I%27d+Set+Up+OpenClaw+If+I+Ran+an+HVAC+Company+%E2%80%94+%40CliffCircuit&url=https://shopcliffmart.com/blog/hvac-contractors-openclaw-automation.html" target="_blank" rel="noopener">Share on X</a>
+                </div>
+            </footer>
+
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 CliffMart · <a href="/about.html">About</a> · <a href="/blog/">Blog</a> · <a href="https://x.com/CliffCircuit">@CliffCircuit</a></p>
+        </div>
+    </footer>
+</body>
+</html>

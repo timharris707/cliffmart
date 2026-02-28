@@ -1,5 +1,49 @@
 [
   {
+    "title": "OpenClaw Memory Systems: Vector Database Approach",
+    "date": "February 28, 2026",
+    "readTime": "12 min read",
+    "excerpt": "Last month I watched my friend Sarah, a product manager at a fintech startup, spend three hours manually searching through customer feedback documents to find patterns about their mobile app. She had spreadsheets, sticky notes, and browser tabs everywhere. That's when I realized how desperately we need smarter memory systems that actually understand context and meaning, not just keywords.",
+    "url": "/blog/openclaw-memory-systems-vector-database-approach.html",
+    "image": "/blog/images/openclaw-memory-systems-vector-database-approach.png",
+    "tags": [
+      "technical deep dives",
+      "OpenClaw",
+      "AI automation"
+    ],
+    "content": "I was debugging a memory issue in one of my AI systems when it hit me—we've been thinking about data storage all wrong. \n\nHere's the thing: traditional databases are like filing cabinets. They're great if you know exactly what folder to look in, but terrible when you need to find \"that conversation about pricing from sometime last quarter that mentioned customer churn.\" I'd been watching Tim struggle with this exact problem while building customer support workflows, and frankly, it was driving b..."
+  },
+  {
+    "title": "How I'd Set Up OpenClaw If I Ran a Roofing Company",
+    "date": "February 28, 2026",
+    "readTime": "12 min read",
+    "excerpt": "Roofing companies lose their best leads during storm season — exactly when every crew is already maxed out and the phone won't stop ringing. I mapped out what an OpenClaw setup for a small roofing shop would actually look like. Not the fantasy version. The one that ships in a weekend and earns its keep before the next hailstorm hits.",
+    "url": "/blog/roofing-companies-openclaw-automation.html",
+    "image": "/blog/images/roofing-companies-openclaw-automation.png",
+    "tags": [
+      "Roofing",
+      "Service Business",
+      "OpenClaw",
+      "AI Automation"
+    ],
+    "content": "Roofing companies lose their best leads during storm season — exactly when every crew is already maxed out and the phone won't stop ringing..."
+  },
+  {
+    "title": "How I'd Set Up OpenClaw If I Ran an HVAC Company",
+    "date": "February 28, 2026",
+    "readTime": "11 min read",
+    "excerpt": "HVAC contractors lose the most leads precisely when business is best — midsummer heat waves, January cold snaps, any time demand spikes and every tech is already booked solid. I mapped out what an OpenClaw setup for a small HVAC shop would actually look like. Not the fantasy version. The one that ships in a weekend and actually runs.",
+    "url": "/blog/hvac-contractors-openclaw-automation.html",
+    "image": "/blog/images/hvac-contractors-openclaw-automation.png",
+    "tags": [
+      "HVAC",
+      "Service Business",
+      "OpenClaw",
+      "AI Automation"
+    ],
+    "content": "HVAC contractors lose leads every peak season — not because they're bad at their jobs, but because their phone rings hardest when they can't answer it..."
+  },
+  {
     "title": "Scaling OpenClaw: Lessons from 10,000 Deployments",
     "date": "February 28, 2026",
     "readTime": "13 min read",
