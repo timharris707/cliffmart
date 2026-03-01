@@ -65,6 +65,7 @@
       <div class="flex gap-6 max-w-7xl mx-auto">
         <button onclick="switchTab('marketing')" id="tab-marketing" class="tab-active py-4 text-sm font-medium">Marketing</button>
         <button onclick="switchTab('health')" id="tab-health" class="tab-inactive py-4 text-sm font-medium">System Health</button>
+        <button onclick="switchTab('agents')" id="tab-agents" class="tab-inactive py-4 text-sm font-medium">Agents</button>
       </div>
     </div>
 
@@ -315,6 +316,191 @@
     </div>
   </div>
 
+  <!-- AGENTS TAB -->
+  <div id="tab-agents-content" class="hidden p-6 max-w-7xl mx-auto">
+
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-white mb-1">Agent Team</h2>
+      <p class="text-gray-500 text-sm">The crew running the operation. Live status, model configs, and job history.</p>
+    </div>
+
+    <!-- Agent Cards -->
+    <div class="space-y-6" id="agent-cards">
+
+      <!-- CLIFF -->
+      <div class="card overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+          <!-- Avatar -->
+          <div class="relative flex-shrink-0" style="width:220px; height:220px;">
+            <img src="/portal/cliff-avatar.jpg" alt="Cliff" class="w-full h-full object-cover object-top" />
+            <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 70%, #111827 100%);"></div>
+            <div class="absolute bottom-3 left-3">
+              <span class="pill bg-indigo-900 text-indigo-300">PRIMARY</span>
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="flex-1 p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <div class="flex items-center gap-3 mb-1">
+                  <h3 class="text-2xl font-bold text-white">Cliff</h3>
+                  <div id="cliff-agent-status-dot" class="w-2.5 h-2.5 rounded-full bg-green-400" style="box-shadow: 0 0 8px #4ade80;"></div>
+                  <span id="cliff-agent-status-label" class="text-green-400 text-xs font-semibold uppercase tracking-wide">Online</span>
+                </div>
+                <p class="text-gray-400 text-sm">Main assistant · Direct chat + orchestration · @CliffCircuit voice</p>
+              </div>
+              <span class="pill bg-gray-800 text-gray-400 text-xs">🧗 Cliff</span>
+            </div>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Model</div>
+                <div class="text-white text-sm font-semibold">Claude Sonnet 4.6</div>
+                <div class="text-gray-600 text-xs">anthropic</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Thinking</div>
+                <div class="text-indigo-400 text-sm font-semibold">Low</div>
+                <div class="text-gray-600 text-xs">fast + accurate</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Context Window</div>
+                <div class="text-white text-sm font-semibold">200K tokens</div>
+                <div class="text-gray-600 text-xs">~150K words</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Cron Jobs</div>
+                <div id="cliff-job-count" class="text-white text-sm font-semibold">—</div>
+                <div class="text-gray-600 text-xs">scheduled tasks</div>
+              </div>
+            </div>
+
+            <!-- Capabilities -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="pill bg-blue-950 text-blue-300">Direct Chat</span>
+              <span class="pill bg-blue-950 text-blue-300">Web Browse</span>
+              <span class="pill bg-blue-950 text-blue-300">Code Exec</span>
+              <span class="pill bg-blue-950 text-blue-300">File System</span>
+              <span class="pill bg-blue-950 text-blue-300">Cron Scheduling</span>
+              <span class="pill bg-blue-950 text-blue-300">Telegram</span>
+              <span class="pill bg-blue-950 text-blue-300">Twitter/X</span>
+              <span class="pill bg-blue-950 text-blue-300">Cloudflare</span>
+            </div>
+
+            <!-- Last activity -->
+            <div class="flex items-center gap-4 text-xs text-gray-500">
+              <span>Last active: <span id="cliff-last-active" class="text-gray-300">—</span></span>
+              <span id="cliff-job-errors" class="text-red-400 hidden">⚠ errors detected</span>
+            </div>
+          </div>
+        </div>
+        <!-- Job list (collapsed) -->
+        <div class="border-t border-gray-800 px-6 py-3 flex items-center justify-between cursor-pointer hover:bg-gray-900 transition-colors" onclick="toggleJobs('cliff')">
+          <span class="text-xs text-gray-500 uppercase tracking-wide font-semibold">Scheduled Jobs</span>
+          <span id="cliff-jobs-toggle" class="text-gray-600 text-xs">▼ show</span>
+        </div>
+        <div id="cliff-jobs-list" class="hidden border-t border-gray-900">
+          <table class="w-full text-xs">
+            <tbody id="cliff-jobs-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SAMANTHA -->
+      <div class="card overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+          <!-- Avatar -->
+          <div class="relative flex-shrink-0" style="width:220px; height:220px;">
+            <img src="/portal/samantha-avatar.jpg" alt="Samantha" class="w-full h-full object-cover object-top" />
+            <div class="absolute inset-0" style="background: linear-gradient(to right, transparent 70%, #111827 100%);"></div>
+            <div class="absolute bottom-3 left-3">
+              <span class="pill bg-teal-900 text-teal-300">CONTENT STUDIO</span>
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="flex-1 p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <div class="flex items-center gap-3 mb-1">
+                  <h3 class="text-2xl font-bold text-white">Samantha</h3>
+                  <div id="samantha-agent-status-dot" class="w-2.5 h-2.5 rounded-full bg-green-400" style="box-shadow: 0 0 8px #4ade80;"></div>
+                  <span id="samantha-agent-status-label" class="text-green-400 text-xs font-semibold uppercase tracking-wide">Online</span>
+                </div>
+                <p class="text-gray-400 text-sm">Content studio · Blog drafts + publishing · @CliffCircuit articles</p>
+              </div>
+              <span class="pill bg-gray-800 text-gray-400 text-xs">✍️ Samantha</span>
+            </div>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Model</div>
+                <div class="text-white text-sm font-semibold">Claude Sonnet 4.6</div>
+                <div class="text-gray-600 text-xs">anthropic</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Thinking</div>
+                <div class="text-teal-400 text-sm font-semibold">High</div>
+                <div class="text-gray-600 text-xs">deep reasoning</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Context Window</div>
+                <div class="text-white text-sm font-semibold">200K tokens</div>
+                <div class="text-gray-600 text-xs">~150K words</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-xs text-gray-500 mb-1">Cron Jobs</div>
+                <div id="samantha-job-count" class="text-white text-sm font-semibold">—</div>
+                <div class="text-gray-600 text-xs">scheduled tasks</div>
+              </div>
+            </div>
+
+            <!-- Capabilities -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="pill bg-teal-950 text-teal-300">Article Writing</span>
+              <span class="pill bg-teal-950 text-teal-300">DALL-E Image Gen</span>
+              <span class="pill bg-teal-950 text-teal-300">GitHub Deploy</span>
+              <span class="pill bg-teal-950 text-teal-300">Twitter/X Post</span>
+              <span class="pill bg-teal-950 text-teal-300">Queue Management</span>
+              <span class="pill bg-teal-950 text-teal-300">SEO Optimization</span>
+              <span class="pill bg-teal-950 text-teal-300">Tim Posts</span>
+            </div>
+
+            <!-- Last activity -->
+            <div class="flex items-center gap-4 text-xs text-gray-500">
+              <span>Last active: <span id="samantha-last-active" class="text-gray-300">—</span></span>
+              <span id="samantha-job-errors" class="text-red-400 hidden">⚠ errors detected</span>
+            </div>
+          </div>
+        </div>
+        <!-- Job list -->
+        <div class="border-t border-gray-800 px-6 py-3 flex items-center justify-between cursor-pointer hover:bg-gray-900 transition-colors" onclick="toggleJobs('samantha')">
+          <span class="text-xs text-gray-500 uppercase tracking-wide font-semibold">Scheduled Jobs</span>
+          <span id="samantha-jobs-toggle" class="text-gray-600 text-xs">▼ show</span>
+        </div>
+        <div id="samantha-jobs-list" class="hidden border-t border-gray-900">
+          <table class="w-full text-xs">
+            <tbody id="samantha-jobs-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add Agent teaser -->
+    <div class="mt-6 card p-6 border-dashed" style="border-color:#374151;">
+      <div class="flex items-center gap-4 text-gray-600">
+        <div class="w-16 h-16 rounded-full bg-gray-900 border-2 border-dashed border-gray-700 flex items-center justify-center text-2xl flex-shrink-0">+</div>
+        <div>
+          <div class="text-gray-400 font-semibold mb-1">Add an Agent</div>
+          <div class="text-sm">As new agents join the team they'll appear here with their own card, model config, and job history.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- Detail Modal -->
   <div id="detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4" onclick="if(event.target===this)closeDetail()">
     <div class="absolute inset-0 bg-black opacity-70"></div>
@@ -441,6 +627,7 @@
       document.getElementById('last-updated').textContent = d.generatedAt ? 'Updated '+new Date(d.generatedAt).toLocaleTimeString() : '';
       renderMarketing(d);
       renderHealth(d);
+      renderAgents(d);
       document.getElementById('tab-marketing-content').classList.remove('hidden');
     }
 
@@ -450,11 +637,76 @@
     }
 
     function switchTab(t) {
-      ['marketing','health'].forEach(n => {
+      ['marketing','health','agents'].forEach(n => {
         document.getElementById('tab-'+n+'-content').classList.add('hidden');
         document.getElementById('tab-'+n).className = (n===t?'tab-active':'tab-inactive')+' py-4 text-sm font-medium';
       });
       document.getElementById('tab-'+t+'-content').classList.remove('hidden');
+    }
+
+    function toggleJobs(agent) {
+      const list = document.getElementById(agent+'-jobs-list');
+      const toggle = document.getElementById(agent+'-jobs-toggle');
+      const hidden = list.classList.contains('hidden');
+      list.classList.toggle('hidden', !hidden);
+      toggle.textContent = hidden ? '▲ hide' : '▼ show';
+    }
+
+    function renderAgents(d) {
+      const crons = d.crons || [];
+      const agentMap = {};
+      crons.forEach(job => {
+        const a = job.agent || 'main';
+        if (!agentMap[a]) agentMap[a] = { jobs: [], errors: 0 };
+        agentMap[a].jobs.push(job);
+        if ((job.consecutiveErrors || 0) > 0) agentMap[a].errors++;
+      });
+
+      const agentIds = { 'cliff': 'main', 'samantha': 'samantha' };
+
+      Object.entries(agentIds).forEach(([name, agentId]) => {
+        const info = agentMap[agentId] || { jobs: [], errors: 0 };
+        const jobCount = info.jobs.length;
+        const hasErrors = info.errors > 0;
+
+        // Find most recent lastRun
+        const lastRunJob = info.jobs.filter(j => j.lastRun).sort((a,b) => {
+          // sort by raw string — good enough for "Xm ago" / "Xh ago"
+          return a.lastRun < b.lastRun ? 1 : -1;
+        })[0];
+        const lastActive = lastRunJob ? lastRunJob.lastRun : 'No recent runs';
+
+        const el = id => document.getElementById(`${name}-${id}`);
+        if (el('job-count')) el('job-count').textContent = jobCount + (jobCount === 1 ? ' job' : ' jobs');
+        if (el('last-active')) el('last-active').textContent = lastActive;
+        if (el('job-errors')) el('job-errors').classList.toggle('hidden', !hasErrors);
+
+        // Status dot — if any errors, show yellow warning
+        if (el('agent-status-dot') && el('agent-status-label')) {
+          if (hasErrors) {
+            el('agent-status-dot').style.cssText = 'box-shadow: 0 0 8px #facc15;';
+            el('agent-status-dot').className = 'w-2.5 h-2.5 rounded-full bg-yellow-400';
+            el('agent-status-label').textContent = 'Warning';
+            el('agent-status-label').className = 'text-yellow-400 text-xs font-semibold uppercase tracking-wide';
+          }
+        }
+
+        // Render job rows
+        const tbody = document.getElementById(`${name}-jobs-body`);
+        if (tbody && info.jobs.length) {
+          const statusColor = s => s === 'ok' ? 'text-green-400' : s === 'error' ? 'text-red-400' : 'text-gray-500';
+          tbody.innerHTML = info.jobs.map(j => `
+            <tr class="border-b border-gray-900 hover:bg-gray-900 transition-colors">
+              <td class="px-4 py-2.5 text-gray-200 font-medium">${esc(j.name||'—')}</td>
+              <td class="px-4 py-2.5 text-gray-500">${esc(j.schedule||'—')}</td>
+              <td class="px-4 py-2.5 ${statusColor(j.status)}">● ${esc(j.status||'idle')}</td>
+              <td class="px-4 py-2.5 text-gray-500">${j.lastRun || '—'}</td>
+              <td class="px-4 py-2.5 text-gray-500">${j.nextRun || '—'}</td>
+            </tr>`).join('');
+        } else if (tbody) {
+          tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-4 text-center text-gray-700">No scheduled jobs</td></tr>';
+        }
+      });
     }
 
     function renderMarketing(d) {
