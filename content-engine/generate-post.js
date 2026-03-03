@@ -484,7 +484,7 @@ function createBlogHtml(post) {
     <meta name="twitter:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
     <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="dark-article">
     <nav class="navbar">
         <div class="container">
             <a href="/" class="logo">◈ CliffMart</a>
@@ -600,9 +600,14 @@ async function generateTweetHook(post) {
 
 FORMULA:
 Line 1: A specific pain point the target audience feels (no fluff, make it sting a little)
+[blank line]
 Line 2: The real reason it happens or what they're doing wrong
+[blank line]
 Line 3: The fix — short, direct, no jargon
+[blank line]
 Line 4: The article link (leave as LINK_PLACEHOLDER)
+
+CRITICAL FORMATTING: There must be a blank line between EACH line. Not just a line break — a full empty line. This is how it looks on X with proper spacing.
 
 RULES:
 - Max 240 characters total (not counting the link)
@@ -614,8 +619,11 @@ RULES:
 
 EXAMPLE STYLE (for a roofing article):
 Most roofers lose leads because they take 48 hours to follow up.
+
 Your prospect already got 3 other quotes by then.
+
 The fix isn't hiring — it's automation.
+
 LINK_PLACEHOLDER
 
 Article title: "${post.title}"
@@ -674,24 +682,33 @@ async function main() {
     const post = await generateBlogPost(topic);
     if (!post) process.exit(1);
     
-    // 1. Create file and update data
+    // 1. Generate hero image FIRST (before deploy so it's included)
+    await generateHeroImage(post);
+
+    // 2. Create HTML and update data files
     const html = createBlogHtml(post);
     fs.writeFileSync(path.join(CONFIG.blogDir, `${post.slug}.html`), html);
     updatePostsJson(post);
     updateSitemap(post);
-    await generateHeroImage(post);
-    
-    // 2. Deploy First
+
+    // 3. Deploy (image is already ready)
     const deployed = deployToVercel();
-    
-    // 3. Post to Twitter only if deploy succeeded
-    // TEMPORARILY DISABLED - Enable after blog format is confirmed working
-    // if (deployed) {
-    //   await postToTwitter(post);
-    // } else {
-    //   console.error('❌ Skipping Twitter post due to deploy failure');
-    // }
-    console.log('🐦 Twitter posting temporarily disabled for testing');
+
+    // 4. Verify image is actually live before tweeting
+    if (deployed) {
+      const imageUrl = `https://shopcliffmart.com/blog/images/${post.slug}.png`;
+      console.log(`🔍 Verifying image is live: ${imageUrl}`);
+      const { execSync } = require('child_process');
+      const status = execSync(`curl -s -o /dev/null -w "%{http_code}" "${imageUrl}"`, { encoding: 'utf8' }).trim();
+      if (status === '200') {
+        console.log('✅ Image verified live — posting tweet');
+        await postToTwitter(post);
+      } else {
+        console.error(`❌ Image not live (HTTP ${status}) — skipping tweet to avoid imageless post`);
+      }
+    } else {
+      console.error('❌ Skipping Twitter post due to deploy failure');
+    }
     
     console.log('\
 🎉 Content generation complete!');

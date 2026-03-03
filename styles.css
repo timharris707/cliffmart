@@ -2470,3 +2470,109 @@ body {
     line-height: 1;
     font-style: italic;
 }
+
+/* ============================================
+   DARK ARTICLE THEME
+   Applied via <body class="dark-article">
+   ============================================ */
+body.dark-article {
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+body.dark-article .navbar {
+    background: #0d1117;
+    border-bottom: 1px solid #21262d;
+}
+
+body.dark-article .navbar .logo,
+body.dark-article .navbar .nav-links a {
+    color: #e6edf3;
+}
+
+body.dark-article .navbar .nav-links a:hover {
+    color: #58a6ff;
+}
+
+body.dark-article .btn-secondary {
+    background: #21262d;
+    color: #e6edf3;
+    border: 1px solid #30363d;
+}
+
+body.dark-article .post-back-nav .back-link {
+    color: #8b949e;
+}
+
+body.dark-article .post-back-nav .back-link:hover {
+    color: #58a6ff;
+}
+
+body.dark-article .post-meta-v2 {
+    color: #8b949e;
+}
+
+body.dark-article .post-header-v2 h1 {
+    color: #e6edf3;
+}
+
+body.dark-article .post-hero-image {
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+body.dark-article .post-content-v2 {
+    background: #161b22;
+    border-radius: 16px;
+    padding: 48px 56px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+body.dark-article .post-content-v2 p,
+body.dark-article .post-content-v2 li {
+    color: #c9d1d9;
+    line-height: 1.8;
+}
+
+body.dark-article .post-content-v2 h2 {
+    color: #e6edf3;
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 8px;
+    margin-top: 2rem;
+}
+
+body.dark-article .post-content-v2 h3 {
+    color: #e6edf3;
+}
+
+body.dark-article .post-content-v2 strong {
+    color: #f0f6fc;
+}
+
+body.dark-article .post-content-v2 a {
+    color: #58a6ff;
+}
+
+body.dark-article .post-content-v2 blockquote {
+    border-left: 3px solid #58a6ff;
+    background: #0d1117;
+    color: #8b949e;
+}
+
+body.dark-article .post-subtitle-v2 {
+    color: #8b949e;
+    font-style: italic;
+}
+
+body.dark-article .post-attribution-v2 {
+    color: #8b949e;
+}
+
+body.dark-article footer,
+body.dark-article .site-footer {
+    background: #0d1117;
+    border-top: 1px solid #21262d;
+    color: #8b949e;
+}
