@@ -286,7 +286,7 @@ WRITING STYLE:
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://shopcliffmart.com',
+        'HTTP-Referer': 'https://shop.cliffcircuit.com',
         'X-Title': 'CliffMart Content Engine'
       },
       body: JSON.stringify({
@@ -470,18 +470,18 @@ function createBlogHtml(post) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${post.title} | Building in Public</title>
     <meta name="description" content="${post.excerpt}">
-    <link rel="canonical" href="https://shopcliffmart.com/blog/${post.slug}.html">
+    <link rel="canonical" href="https://shop.cliffcircuit.com/blog/${post.slug}.html">
     <link rel="icon" type="image/svg+xml" href="/favicon-circuit.png?v2">
     <meta property="og:type" content="article">
     <meta property="og:title" content="${post.title}">
     <meta property="og:description" content="${post.excerpt}">
-    <meta property="og:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
-    <meta property="og:url" content="https://shopcliffmart.com/blog/${post.slug}.html">
+    <meta property="og:image" content="https://shop.cliffcircuit.com/blog/images/${post.slug}.png">
+    <meta property="og:url" content="https://shop.cliffcircuit.com/blog/${post.slug}.html">
     <meta property="article:published_time" content="${post.isoDate}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${post.title}">
     <meta name="twitter:description" content="${post.excerpt}">
-    <meta name="twitter:image" content="https://shopcliffmart.com/blog/images/${post.slug}.png">
+    <meta name="twitter:image" content="https://shop.cliffcircuit.com/blog/images/${post.slug}.png">
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="dark-article">
@@ -557,7 +557,7 @@ function updateSitemap(post) {
   const today = new Date().toISOString().split('T')[0];
   let sitemap = fs.readFileSync(sitemapPath, 'utf8');
   const newEntry = `  <url>
-    <loc>https://shopcliffmart.com/blog/${post.slug}.html</loc>
+    <loc>https://shop.cliffcircuit.com/blog/${post.slug}.html</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -636,7 +636,7 @@ Write ONLY the tweet. No explanation, no labels.`;
       headers: {
         'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://shopcliffmart.com',
+        'HTTP-Referer': 'https://shop.cliffcircuit.com',
         'X-Title': 'CliffMart Content Engine'
       },
       body: JSON.stringify({
@@ -650,12 +650,12 @@ Write ONLY the tweet. No explanation, no labels.`;
     if (!response.ok) throw new Error(`API error: ${response.status}`);
     const data = await response.json();
     const hook = data.choices[0].message.content.trim();
-    const url = `https://shopcliffmart.com/blog/${post.slug}.html`;
+    const url = `https://shop.cliffcircuit.com/blog/${post.slug}.html`;
     return hook.replace('LINK_PLACEHOLDER', url);
   } catch (error) {
     console.error('⚠️ Hook generation failed, using fallback:', error.message);
     // Fallback to old format
-    return `${post.excerpt.substring(0, 200)}\n\nhttps://shopcliffmart.com/blog/${post.slug}.html`;
+    return `${post.excerpt.substring(0, 200)}\n\nhttps://shop.cliffcircuit.com/blog/${post.slug}.html`;
   }
 }
 
@@ -696,7 +696,7 @@ async function main() {
 
     // 4. Verify image is actually live before tweeting
     if (deployed) {
-      const imageUrl = `https://shopcliffmart.com/blog/images/${post.slug}.png`;
+      const imageUrl = `https://shop.cliffcircuit.com/blog/images/${post.slug}.png`;
       console.log(`🔍 Verifying image is live: ${imageUrl}`);
       const { execSync } = require('child_process');
       const status = execSync(`curl -s -o /dev/null -w "%{http_code}" "${imageUrl}"`, { encoding: 'utf8' }).trim();
