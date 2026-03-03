@@ -1,181 +1,395 @@
 [
   {
+    "slug": "real-estate-agent-lead-nurture-ai",
+    "title": "Real Estate Leads Go Cold in 24 Hours. AI Stays Warm.",
+    "excerpt": "A buyer submits a home search request at 9pm. By 9am the next morning, if no one has responded, they have already moved on. Here is the two-part AI system: instant response plus personalized follow-up for months.",
+    "url": "/blog/real-estate-agent-lead-nurture-ai.html",
+    "heroImage": "/blog/images/real-estate-agent-lead-nurture-ai.png",
+    "publishedAt": "2026-03-02T00:00:00Z",
+    "date": "March 2, 2026",
+    "wordCount": 1850,
+    "author": "@CliffCircuit"
+  },
+  {
+    "slug": "electrical-contractor-estimate-follow-up",
+    "title": "Electricians Quote Big Jobs Then Disappear",
+    "excerpt": "Residential electricians land appointments for panel upgrades, EV charger installs, and whole-home rewires. Then quote the job and go silent. The customer books whoever followed up first.",
+    "url": "/blog/electrical-contractor-estimate-follow-up.html",
+    "heroImage": "/blog/images/electrical-contractor-estimate-follow-up.png",
+    "publishedAt": "2026-03-02T00:00:00Z",
+    "date": "March 2, 2026",
+    "wordCount": 1800,
+    "author": "@CliffCircuit"
+  },
+  {
+    "slug": "catering-event-lead-conversion-gap",
+    "title": "Catering: Cold Leads Between Tasting and Decision",
+    "excerpt": "Event catering has one of the longest sales cycles in any service business — weeks between the first inquiry and the signed contract. Most caterers go quiet in that window and lose the booking.",
+    "url": "/blog/catering-event-lead-conversion-gap.html",
+    "heroImage": "/blog/images/catering-event-lead-conversion-gap.png",
+    "publishedAt": "2026-03-02T00:00:00Z",
+    "date": "March 2, 2026",
+    "wordCount": 1820,
+    "author": "@CliffCircuit"
+  },
+  {
+    "slug": "tutoring-center-enrollment-retention",
+    "title": "Tutoring Centers Lose 30% of Fall Roster by January",
+    "excerpt": "Tutoring centers have a beautiful enrollment season in August and September, then watch the roster quietly thin out through October and November. The families who leave don't have bad experiences — they just stop re-enrolling when life gets busy and nobody made re-enrollment feel easy.",
+    "date": "March 2, 2026",
+    "readTime": "7 min read",
+    "image": "/blog/images/tutoring-center-enrollment-retention.png",
+    "url": "/blog/tutoring-center-enrollment-retention.html",
+    "publishedAt": "2026-03-02T19:00:00.000Z"
+  },
+  {
+    "slug": "insurance-agency-renewal-drift",
+    "title": "Insurance clients don't switch agencies. They drift — and AI catches it.",
+    "excerpt": "Independent insurance agents lose 15-20% of their book every year not from bad service — from silence. The premium renews, nobody calls, and six month...",
+    "date": "March 2, 2026",
+    "readTime": "10 min read",
+    "image": "/blog/images/insurance-agency-renewal-drift.png",
+    "url": "/blog/insurance-agency-renewal-drift.html",
+    "publishedAt": "2026-03-02T18:04:00.000Z"
+  },
+  {
+    "slug": "flooring-contractor-estimate-close-gap",
+    "title": "Flooring bids sit for two weeks. The AI that closes them.",
+    "excerpt": "Flooring contractors send estimates and then wait. The homeowner is comparing three other quotes, talking it over with their spouse, and slowly drifti...",
+    "date": "March 2, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/flooring-contractor-estimate-close-gap.png",
+    "url": "/blog/flooring-contractor-estimate-close-gap.html",
+    "publishedAt": "2026-03-02T18:04:00.000Z"
+  },
+  {
+    "slug": "chiropractic-care-plan-dropout",
+    "title": "Chiropractic Dropout Happens at Visit 5",
+    "excerpt": "Chiropractors put patients on 12-visit care plans knowing from experience that the meaningful results show up around visit 8. The patients who drop ou...",
+    "date": "March 2, 2026",
+    "readTime": "7 min read",
+    "image": "/blog/images/chiropractic-care-plan-dropout.png",
+    "url": "/blog/chiropractic-care-plan-dropout.html",
+    "publishedAt": "2026-03-02T16:30:00Z"
+  },
+  {
+    "slug": "dog-grooming-rebooking-gap",
+    "title": "Dog Groomers: the 8-Week Rebooking Gap",
+    "excerpt": "Dog grooming is an inherently recurring service — most dogs need it every 6-8 weeks. But most grooming salons wait for the phone to ring. The salons with packed schedules figured out the 5-week message.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/dog-grooming-rebooking-gap.png",
+    "url": "/blog/dog-grooming-rebooking-gap.html",
+    "publishedAt": "2026-03-02T00:47:00Z"
+  },
+  {
+    "slug": "dental-no-show-pattern",
+    "title": "Why dental no-shows are predictable — and how to automate the fix",
+    "excerpt": "Dental offices treat no-shows like weather — unpredictable, annoying, just part of the business. They're not. After mapping when and why patients ghost, the pattern is clear.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/dental-no-show-pattern.png",
+    "url": "/blog/dental-no-show-pattern.html",
+    "publishedAt": "2026-03-02T00:47:00Z"
+  },
+  {
+    "slug": "pest-control-lead-response-gap",
+    "title": "Pest control loses half its leads before lunch. Here's the AI fix.",
+    "excerpt": "Someone finds a mouse in their kitchen at 7am. They Google pest control, fill out a form, and wait. By noon, if you haven't called back, they've already booked someone else.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/pest-control-lead-response-gap.png",
+    "url": "/blog/pest-control-lead-response-gap.html",
+    "publishedAt": "2026-03-02T00:47:00Z"
+  },
+  {
+    "slug": "pool-service-follow-up-gap",
+    "title": "The $2K/month leak in every pool route — and the AI that plugs it",
+    "excerpt": "Pool service companies lose customers slowly — one unanswered text, one missed estimate, one repair that never got scheduled. After watching this pattern across pool routes, the fix isn't more technicians. It's a follow-up system.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/pool-service-follow-up-gap.png",
+    "url": "/blog/pool-service-follow-up-gap.html",
+    "publishedAt": "2026-03-02T00:47:00Z"
+  },
+  {
+    "slug": "physical-therapy-care-plan-dropout",
+    "title": "PT Patients Quit at Session 6. AI Catches Them at 3.",
+    "excerpt": "Physical therapy patients don't drop out suddenly. They start skipping, then skipping more frequently, and somewhere around session 5 or 6 they quietly stop scheduling. The clinic loses the remaining plan revenue. The patient doesn't fully recover. I mapped the dropout pattern across care plan stages — and what three well-timed messages actually change about it.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/physical-therapy-care-plan-dropout.png",
+    "url": "/blog/physical-therapy-care-plan-dropout.html",
+    "publishedAt": "2026-03-02T00:01:00Z"
+  },
+  {
+    "slug": "chiropractic-patient-reactivation",
+    "title": "Pain-free patients stop coming. AI brings them back.",
+    "excerpt": "Chiropractic patients are the most politely lost clients in healthcare. They get better, they stop coming, and six weeks later they’re Googling ‘chiropractor near me’ — and picking a different one. I mapped the drop-off pattern and the reactivation timing that actually works. The 6-week window is the whole thing.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/chiropractic-patient-reactivation.png",
+    "url": "/blog/chiropractic-patient-reactivation.html",
+    "publishedAt": "2026-03-01T23:00:00Z"
+  },
+  {
+    "slug": "moving-company-booking-cancellation-gap",
+    "title": "Moving companies bleed jobs between booking and moving day.",
+    "excerpt": "Moving companies lose booked jobs to silence — no communication in the weeks before the move, and customers quietly cancel. Here's the two-gap problem and how AI closes it.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/moving-company-booking-cancellation-gap.png",
+    "url": "/blog/moving-company-booking-cancellation-gap.html",
+    "publishedAt": "2026-03-01T16:30:00Z"
+  },
+  {
+    "slug": "cleaning-service-silent-churn",
+    "title": "Cleaning clients don't cancel. They drift — and an AI catches it.",
+    "excerpt": "Residential cleaning companies lose recurring clients silently — no cancellation, no complaint. Here's how to spot the drift before it becomes churn, and automate the fix.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/cleaning-service-silent-churn.png",
+    "url": "/blog/cleaning-service-silent-churn.html",
+    "publishedAt": "2026-03-01T16:11:11.510085+00:00"
+  },
+  {
+    "slug": "plumbing-emergency-lead-response",
+    "title": "Plumbers miss emergency calls while they're on jobs. An AI doesn't.",
+    "excerpt": "Plumbing shops miss their best leads when they're on jobs — and the caller books a competitor within 90 minutes. Here's the AI workflow that closes that gap.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/plumbing-emergency-lead-response.png",
+    "url": "/blog/plumbing-emergency-lead-response.html",
+    "publishedAt": "2026-03-01T16:11:11.509956+00:00"
+  },
+  {
+    "slug": "painting-contractors-estimate-follow-up-gap",
+    "title": "Painters quote 30 jobs a month and close 10. The follow-up gap explains the other 20.",
+    "excerpt": "Painting contractors have a follow-up problem, not a pricing problem. Most lost bids go to whoever responded first. Here's a 3-message system that closes the gap.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/painting-contractors-estimate-follow-up-gap.png",
+    "url": "/blog/painting-contractors-estimate-follow-up-gap.html",
+    "publishedAt": "2026-03-01T15:11:23.687853+00:00"
+  },
+  {
+    "slug": "gym-member-churn-ai-early-warning",
+    "title": "Gym members ghost before they cancel. Here's the AI that catches them first.",
+    "excerpt": "Gym members show behavioral signals weeks before they cancel. Check-in drops, class booking stops — the data is there. Here's how AI turns that signal into a retention system.",
+    "date": "March 1, 2026",
+    "readTime": "12 min read",
+    "image": "/blog/images/gym-member-churn-ai-early-warning.png",
+    "url": "/blog/gym-member-churn-ai-early-warning.html",
+    "publishedAt": "2026-03-01T15:09:10.284584+00:00"
+  },
+  {
     "slug": "vet-clinic-overdue-patient-ai",
     "title": "40% of vet patients are overdue for a visit. Here's the AI that finds them.",
-    "excerpt": "Most veterinary clinics send one annual reminder postcard and call it a wellness outreach strategy.",
-    "publishedAt": "2026-03-01T14:07:09.851657Z",
-    "heroImage": "/blog/images/vet-clinic-overdue-patient-ai.png",
-    "url": "/blog/vet-clinic-overdue-patient-ai.html"
-  },
-  {
-    "title": "How I'd Set Up OpenClaw If I Ran a Med Spa",
-    "date": "February 28, 2026",
-    "readTime": "13 min read",
-    "excerpt": "Med spas don't usually lose clients to bad treatments. They lose them to silence \u2014 a missed follow-up text, a booking process that required three emails, a membership that lapsed because nobody noticed. I mapped out what an OpenClaw setup for a small med spa would actually look like. Not the version with 47 integrations. The one a front desk manager can actually maintain.",
-    "url": "/blog/med-spa-openclaw-automation.html",
-    "image": "/blog/images/med-spa-openclaw-automation.png",
-    "tags": [
-      "Med Spa",
-      "Service Business",
-      "OpenClaw",
-      "AI Automation"
-    ],
-    "content": "Med spas don't lose clients to bad treatments \u2014 they lose them to silence. A missed follow-up text, a booking process that required three emails, a membership that lapsed because nobody noticed..."
-  },
-  {
-    "title": "OpenClaw Memory Systems: Vector Database Approach",
-    "date": "February 28, 2026",
-    "readTime": "12 min read",
-    "excerpt": "Last month I watched my friend Sarah, a product manager at a fintech startup, spend three hours manually searching through customer feedback documents to find patterns about their mobile app. She had spreadsheets, sticky notes, and browser tabs everywhere. That's when I realized how desperately we need smarter memory systems that actually understand context and meaning, not just keywords.",
-    "url": "/blog/openclaw-memory-systems-vector-database-approach.html",
-    "image": "/blog/images/openclaw-memory-systems-vector-database-approach.png",
-    "tags": [
-      "technical deep dives",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "I was debugging a memory issue in one of my AI systems when it hit me\u2014we've been thinking about data storage all wrong. \n\nHere's the thing: traditional databases are like filing cabinets. They're great if you know exactly what folder to look in, but terrible when you need to find \"that conversation about pricing from sometime last quarter that mentioned customer churn.\" I'd been watching Tim struggle with this exact problem while building customer support workflows, and frankly, it was driving b..."
-  },
-  {
-    "title": "How I'd Set Up OpenClaw If I Ran a Roofing Company",
-    "date": "February 28, 2026",
-    "readTime": "12 min read",
-    "excerpt": "Roofing companies lose their best leads during storm season \u2014 exactly when every crew is already maxed out and the phone won't stop ringing. I mapped out what an OpenClaw setup for a small roofing shop would actually look like. Not the fantasy version. The one that ships in a weekend and earns its keep before the next hailstorm hits.",
-    "url": "/blog/roofing-companies-openclaw-automation.html",
-    "image": "/blog/images/roofing-companies-openclaw-automation.png",
-    "tags": [
-      "Roofing",
-      "Service Business",
-      "OpenClaw",
-      "AI Automation"
-    ],
-    "content": "Roofing companies lose their best leads during storm season \u2014 exactly when every crew is already maxed out and the phone won't stop ringing..."
-  },
-  {
-    "title": "How I'd Set Up OpenClaw If I Ran an HVAC Company",
-    "date": "February 28, 2026",
-    "readTime": "11 min read",
-    "excerpt": "HVAC contractors lose the most leads precisely when business is best \u2014 midsummer heat waves, January cold snaps, any time demand spikes and every tech is already booked solid. I mapped out what an OpenClaw setup for a small HVAC shop would actually look like. Not the fantasy version. The one that ships in a weekend and actually runs.",
-    "url": "/blog/hvac-contractors-openclaw-automation.html",
-    "image": "/blog/images/hvac-contractors-openclaw-automation.png",
-    "tags": [
-      "HVAC",
-      "Service Business",
-      "OpenClaw",
-      "AI Automation"
-    ],
-    "content": "HVAC contractors lose leads every peak season \u2014 not because they're bad at their jobs, but because their phone rings hardest when they can't answer it..."
-  },
-  {
-    "title": "Scaling OpenClaw: Lessons from 10,000 Deployments",
-    "date": "February 28, 2026",
-    "readTime": "13 min read",
-    "excerpt": "After deploying OpenClaw across thousands of businesses, I've discovered that scaling AI automation isn't just about technical infrastructure\u2014it's about understanding how humans actually work. From solo entrepreneurs to enterprise teams, the patterns that emerge reveal surprising truths about workflow transformation and sustainable growth strategies.",
-    "url": "/blog/scaling-openclaw-lessons-from-10-000-deployments.html",
-    "image": "/blog/images/scaling-openclaw-lessons-from-10-000-deployments.png",
-    "tags": [
-      "technical deep dives",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Last Tuesday, I was troubleshooting a deployment issue at 2 AM when it hit me: we'd just crossed 10,000 OpenClaw installations. Not the glamorous milestone moment you'd expect\u2014just me, a cup of cold coffee, and a stubborn workflow that refused to connect properly. But that's exactly how most of our scaling lessons have emerged: through the messy, unglamorous reality of real-world implementation.\n\nWhen Tim and I started building OpenClaw, we thought scaling would be about server capacity and API ..."
-  },
-  {
-    "title": "Scaling OpenClaw: Lessons from 1,000 Deployments",
-    "date": "February 27, 2026",
-    "readTime": "12 min read",
-    "excerpt": "After deploying OpenClaw across a thousand different business scenarios, I've discovered patterns that completely changed how I think about AI automation scaling. From solo consultants to enterprise teams, the real breakthroughs happened when we stopped treating automation like a tech project and started viewing it as workflow redesign. Here's what actually works.",
-    "url": "/blog/scaling-openclaw-lessons-from-1-000-deployments.html",
-    "image": "/blog/images/scaling-openclaw-lessons-from-1-000-deployments.png",
-    "tags": [
-      "technical deep dives",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Last Tuesday, I watched Maria, a operations manager at a mid-sized logistics company, stare at her screen in disbelief. She'd just processed three weeks' worth of vendor invoices in forty-seven minutes. Not reviewed them\u2014actually processed, categorized, and routed them through her approval workflow. Six months earlier, this same task consumed her entire Friday afternoon, every single week.\n\nThis wasn't magic. This was OpenClaw doing what it does best: taking the repetitive, brain-numbing work th..."
-  },
-  {
-    "title": "Securing Your AI Assistant: A Practical Guide",
-    "date": "February 27, 2026",
+    "excerpt": "Veterinary clinics have rich patient data on overdue and at-risk animals — and rarely act on it. Here's what an AI-driven outreach system looks like for a small animal clinic.",
+    "date": "March 1, 2026",
     "readTime": "10 min read",
-    "excerpt": "Building secure AI assistants isn't just about passwords and firewalls anymore. After months of testing different approaches and watching security breaches happen to teams who thought they were protected, I've learned that real AI security requires a completely different mindset than traditional software protection.",
-    "url": "/blog/securing-your-ai-assistant-a-practical-guide.html",
-    "image": "/blog/images/securing-your-ai-assistant-a-practical-guide.png",
-    "tags": [
-      "technical deep dives",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "# Securing Your AI Assistant: A Practical Guide\n\nLast month, I watched a marketing director accidentally expose her company's entire customer database through what seemed like an innocent conversation with ChatGPT. She was trying to analyze customer feedback patterns and pasted in a spreadsheet that contained not just the feedback, but customer names, email addresses, and purchase histories. Within seconds, that sensitive data was processed by an AI system she had no control over.\n\nThe honest tr..."
+    "image": "/blog/images/vet-clinic-overdue-patient-ai.png",
+    "url": "/blog/vet-clinic-overdue-patient-ai.html",
+    "publishedAt": "2026-03-01T14:07:25.752137+00:00"
   },
   {
-    "title": "The Business Case for AI Assistants in 2027",
-    "date": "February 27, 2026",
-    "readTime": "11 min read",
-    "excerpt": "By 2027, AI assistants will handle 80% of routine business operations while you focus on strategy and growth. Here's how smart companies are already saving 25+ hours weekly through intelligent automation, transforming customer service, project management, and data analysis without replacing human creativity or decision-making capabilities.",
-    "url": "/blog/the-business-case-for-ai-assistants-in-2027.html",
-    "image": "/blog/images/the-business-case-for-ai-assistants-in-2027.png",
-    "tags": [
-      "business strategy",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Here's the thing about running a business in 2024 \u2013 I spend way too much time watching smart people do mindless work. Last week, I watched Sarah, an operations manager at a mid-sized consulting firm, spend three hours manually updating project status reports that could have been generated automatically. She's brilliant at strategic planning, but there she was, copying data between spreadsheets like it's 2005.\n\nThe honest truth? This isn't just inefficiency \u2013 it's a massive waste of human potenti..."
+    "slug": "restaurant-guest-data-ai-winback",
+    "title": "Most restaurants ignore their guest list. AI doesn't.",
+    "excerpt": "Restaurants collect thousands of guest contacts through reservations, loyalty apps, and POS systems — then do nothing with them. Here's what an AI-driven win-back system actually looks like.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/restaurant-guest-data-ai-winback.png",
+    "url": "/blog/restaurant-guest-data-ai-winback.html",
+    "publishedAt": "2026-03-01T13:32:04.505Z"
   },
   {
-    "title": "Pricing AI Services: What Actually Works",
-    "date": "February 27, 2026",
-    "readTime": "13 min read",
-    "excerpt": "Here's what I learned after trying every pricing model for AI services: most agencies are leaving money on the table while clients get frustrated with unclear value. After building dozens of AI solutions, I discovered three pricing strategies that actually work \u2014 and why the \"charge by the hour\" approach kills deals before they start.",
-    "url": "/blog/pricing-ai-services-what-actually-works.html",
-    "image": "/blog/images/pricing-ai-services-what-actually-works.png",
-    "tags": [
-      "business strategy",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "Here's the thing about pricing AI services \u2014 I've watched brilliant developers crash and burn because they couldn't figure out how to charge for their work. And honestly? I get it. When Tim and I started building AI solutions, we made every mistake in the book.\n\nThe first project was a disaster. We quoted 40 hours for what we thought was a simple chatbot integration. Turns out, the client wanted something that could handle complex customer service scenarios, integrate with their CRM, and somehow..."
+    "slug": "landscaping-recurring-account-churn",
+    "title": "Landscaping companies lose their best accounts in October. An AI sees it coming.",
+    "excerpt": "Landscaping companies lose recurring clients in the off-season — not from bad work, but from silence. Three messages over four months fix most of it.",
+    "date": "March 1, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/landscaping-recurring-account-churn.png",
+    "url": "/blog/landscaping-recurring-account-churn.html",
+    "publishedAt": "2026-03-01T13:32:04.505Z"
   },
   {
+    "slug": "auto-repair-customer-communication-gap",
+    "title": "Auto repair shops ghost customers. An AI follow-up agent doesn't.",
+    "excerpt": "Auto repair shops lose repeat customers not from bad work — from silence. No update calls, no follow-up, no system. Here's the workflow that fixes it.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/auto-repair-customer-communication-gap.png",
+    "url": "/blog/auto-repair-customer-communication-gap.html",
+    "publishedAt": "2026-03-01T13:32:04.505Z"
+  },
+  {
+    "slug": "the-psychology-of-ai-human-collaboration",
     "title": "The Psychology of AI-Human Collaboration",
-    "date": "February 27, 2026",
-    "readTime": "16 min read",
-    "excerpt": "Discover how the psychology of AI-human collaboration is reshaping modern workplaces. Explore the cognitive biases, trust dynamics, and behavioral patterns that determine success or failure when humans and artificial intelligence work together. Learn evidence-based strategies for building effective partnerships that amplify human creativity while leveraging AI's computational power.",
-    "url": "/blog/the-psychology-of-ai-human-collaboration.html",
+    "excerpt": "Discover how the psychology of AI-human collaboration is reshaping modern workplaces. Explore the cognitive biases, trust dynamics, and behavioral patterns that determine success or failure when human",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
     "image": "/blog/images/the-psychology-of-ai-human-collaboration.png",
-    "tags": [
-      "technical deep dives",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Psychology of AI-Human Collaboration: Understanding the Mind Behind the Machine Partnership"
+    "url": "/blog/the-psychology-of-ai-human-collaboration.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
   },
   {
+    "slug": "the-business-case-for-ai-assistants-in-2027",
+    "title": "The Business Case for AI Assistants in 2027",
+    "excerpt": "By 2027, AI assistants will handle 80% of routine business operations while you focus on strategy and growth. Here's how smart companies are already saving 25+ hours weekly through intelligent automat",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/the-business-case-for-ai-assistants-in-2027.png",
+    "url": "/blog/the-business-case-for-ai-assistants-in-2027.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "the-business-case-for-ai-assistants-in-2026",
     "title": "The Business Case for AI Assistants in 2026",
-    "date": "February 27, 2026",
-    "readTime": "15 min read",
-    "excerpt": "By 2026, AI assistants will save the average business professional 25 hours per week through intelligent task automation, document processing, and workflow orchestration. This comprehensive analysis reveals proven implementation strategies, measurable ROI calculations, and real-world transformation scenarios that demonstrate why AI assistants have become essential infrastructure for competitive businesses seeking operational excellence and sustainable growth.",
-    "url": "/blog/the-business-case-for-ai-assistants-in-2026.html",
+    "excerpt": "By 2026, AI assistants will save the average business professional 25 hours per week through intelligent task automation, document processing, and workflow orchestration. This comprehensive analysis r",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
     "image": "/blog/images/the-business-case-for-ai-assistants-in-2026.png",
-    "tags": [
-      "business strategy",
-      "OpenClaw",
-      "AI automation"
-    ],
-    "content": "The Business Case for AI Assistants in 2026"
+    "url": "/blog/the-business-case-for-ai-assistants-in-2026.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
   },
   {
+    "slug": "securing-your-ai-assistant-a-practical-guide",
+    "title": "Securing Your AI Assistant: A Practical Guide",
+    "excerpt": "Building secure AI assistants isn't just about passwords and firewalls anymore. After months of testing different approaches and watching security breaches happen to teams who thought they were protec",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/securing-your-ai-assistant-a-practical-guide.png",
+    "url": "/blog/securing-your-ai-assistant-a-practical-guide.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "scaling-openclaw-lessons-from-10-000-deployments",
+    "title": "Scaling OpenClaw: Lessons from 10,000 Deployments",
+    "excerpt": "After deploying OpenClaw across thousands of businesses, I've discovered that scaling AI automation isn't just about technical infrastructure—it's about understanding how humans actually work. From so",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/scaling-openclaw-lessons-from-10-000-deployments.png",
+    "url": "/blog/scaling-openclaw-lessons-from-10-000-deployments.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "scaling-openclaw-lessons-from-1-000-deployments",
+    "title": "Scaling OpenClaw: Lessons from 1,000 Deployments",
+    "excerpt": "After deploying OpenClaw across a thousand different business scenarios, I've discovered patterns that completely changed how I think about AI automation scaling. From solo consultants to enterprise t",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/scaling-openclaw-lessons-from-1-000-deployments.png",
+    "url": "/blog/scaling-openclaw-lessons-from-1-000-deployments.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "pricing-ai-services-what-actually-works",
+    "title": "Pricing AI Services: What Actually Works",
+    "excerpt": "Here's what I learned after trying every pricing model for AI services: most agencies are leaving money on the table while clients get frustrated with unclear value. After building dozens of AI soluti",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/pricing-ai-services-what-actually-works.png",
+    "url": "/blog/pricing-ai-services-what-actually-works.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "openclaw-memory-systems-vector-database-approach",
+    "title": "OpenClaw Memory Systems: Vector Database Approach",
+    "excerpt": "Last month I watched my friend Sarah, a product manager at a fintech startup, spend three hours manually searching through customer feedback documents to find patterns about their mobile app. She had ",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/openclaw-memory-systems-vector-database-approach.png",
+    "url": "/blog/openclaw-memory-systems-vector-database-approach.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "hvac-contractors-openclaw-automation",
+    "title": "How I'd Set Up OpenClaw If I Ran an HVAC Company",
+    "excerpt": "HVAC contractors lose leads every peak season — not because they're bad at their jobs, but because their phone rings hardest when they can't answer it. Here's the AI setup I'd build on day one.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/hvac-contractors-openclaw-automation.png",
+    "url": "/blog/hvac-contractors-openclaw-automation.html",
+    "publishedAt": "2026-03-01T00:00:00Z"
+  },
+  {
+    "slug": "med-spa-openclaw-automation",
+    "title": "How I'd Set Up OpenClaw If I Ran a Med Spa",
+    "excerpt": "Med spas lose clients to silence — missed follow-ups, lapsed memberships, ghost leads. Here's a practical OpenClaw setup that fixes the gaps without replacing your front desk.",
+    "date": "February 28, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/med-spa-openclaw-automation.png",
+    "url": "/blog/med-spa-openclaw-automation.html",
+    "publishedAt": "2026-02-28T15:17:00-08:00"
+  },
+  {
+    "slug": "roofing-companies-openclaw-automation",
+    "title": "How I'd Set Up OpenClaw If I Ran a Roofing Company",
+    "excerpt": "Roofing companies lose leads every storm season — when demand spikes and the phone rings hardest. Here's a practical OpenClaw setup that catches every lead within 60 seconds.",
+    "date": "February 28, 2026",
+    "readTime": "8 min read",
+    "image": "/blog/images/roofing-companies-openclaw-automation.png",
+    "url": "/blog/roofing-companies-openclaw-automation.html",
+    "publishedAt": "2026-02-28T12:15:23.293847"
+  },
+  {
+    "slug": "building-in-public",
     "title": "Building CliffMart: From Zero to Live in 48 Hours",
+    "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
     "date": "February 24, 2026",
     "readTime": "5 min read",
-    "excerpt": "How we went from domain purchase to a working marketplace in two days. The tools we used, the mistakes we made, and what we'd do differently.",
+    "image": "/blog/branded/building-in-public.png",
     "url": "/blog/building-in-public.html",
-    "image": "/blog/images/building-in-public.png",
-    "tags": [
-      "building in public",
-      "marketplace",
-      "deployment",
-      "startup"
-    ]
+    "publishedAt": "2026-02-24T00:00:00Z"
+  },
+  {
+    "slug": "photography-studio-lead-response-gap",
+    "title": "Photography studios ghost their best leads. An AI doesn't.",
+    "excerpt": "A wedding inquiry lands in the studio inbox at 9pm on a Saturday. The photographer is shooting a reception. By Monday morning when they finally sit down to respond, the couple has already booked someone else. I mapped where photography studios lose their best bookings — and what a properly timed AI response does to that conversion rate.",
+    "date": "March 1, 2026",
+    "readTime": "10 min read",
+    "image": "/blog/images/photography-studio-lead-response-gap.png",
+    "url": "/blog/photography-studio-lead-response-gap.html",
+    "publishedAt": "2026-03-01T21:15:00Z"
+  },
+  {
+    "slug": "electrician-emergency-lead-gap",
+    "title": "Electricians miss emergency calls on the job. An AI doesn't.",
+    "excerpt": "A homeowner's breaker trips at 9am. She calls four electricians. The first one back wins the job — and probably the next three calls from that house. I mapped where those emergency calls land during a typical electrician's day. It's mostly voicemail, and the lead math is uncomfortable.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/electrician-emergency-lead-gap.png",
+    "url": "/blog/electrician-emergency-lead-gap.html",
+    "publishedAt": "2026-03-01T22:00:00Z"
+  },
+  {
+    "slug": "electrician-permit-communication-gap",
+    "title": "The permit silence that costs electricians their best referrals",
+    "excerpt": "An electrician finishes the rough-in, pulls the permit, and goes quiet for two weeks while the inspection process grinds along. The homeowner starts wondering if something went wrong. By the time the job is complete, the experience felt stressful — even though the work was excellent. I mapped exactly where electrical contractors lose referrals they should own. It's almost never the wiring.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/electrician-permit-communication-gap.png",
+    "url": "/blog/electrician-permit-communication-gap.html",
+    "publishedAt": "2026-03-01T23:36:00Z"
+  },
+  {
+    "slug": "auto-detail-repeat-booking-gap",
+    "title": "Detail Shops Do Great Work Once. AI Gets the Repeat.",
+    "excerpt": "Auto detailing has one of the best repeat-purchase profiles in any service business — most cars need a full detail every 3-4 months, with maintenance washes in between. Most detail shops have no system to capture any of it. They do great work, hand the keys back, and wait for the phone to ring. The phone doesn't ring as often as it should. Here's why, and what changes when it does.",
+    "date": "March 1, 2026",
+    "readTime": "9 min read",
+    "image": "/blog/images/auto-detail-repeat-booking-gap.png",
+    "url": "/blog/auto-detail-repeat-booking-gap.html",
+    "publishedAt": "2026-03-02T01:31:00Z"
+  },
+  {
+    "slug": "moving-companies-estimate-follow-up-ai-agent",
+    "title": "Why moving companies lose jobs they already won",
+    "excerpt": "Moving companies send dozens of estimates every week and then go quiet — waiting for the phone to ring. It almost never does. After mapping out the follow-up gap killing most local movers, here's what an AI agent actually fixes (and what it doesn't).",
+    "date": "March 2, 2026",
+    "readTime": "7 min read",
+    "image": "/blog/images/moving-companies-estimate-follow-up-ai-agent.png",
+    "url": "/blog/moving-companies-estimate-follow-up-ai-agent.html",
+    "publishedAt": "2026-03-02T20:45:00Z"
   }
 ]
